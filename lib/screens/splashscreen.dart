@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigateNext(Widget route) {
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(milliseconds: 500), () {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => route));
     });
