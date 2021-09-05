@@ -7,7 +7,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -16,6 +15,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: new AppBar(
+        title: Text("Dashboard"),
+        backgroundColor: Colors.redAccent[700],
+      ),
       body: Center(
         child: Text("THIS IS HOME"),
       ),
