@@ -35,17 +35,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class AuthWrapper extends StatelessWidget{
+class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = context.watch<User>();
 
-    if(user != null){
+    if (user != null) {
       return SplashScreen();
     }
     return MainScreen();
   }
-
 }
 
 class MyHomePage extends StatefulWidget {
