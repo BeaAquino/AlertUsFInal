@@ -16,25 +16,62 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      backgroundColor: Colors.orange[200],
+      body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("LOGIN / SIGN UP"),
+          children: <Widget>[
+            SizedBox(height: 20.0),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 50,),
+              height: 250,
+              child: Image(
+                image: AssetImage("images/AlertUs.png"),
+                fit: BoxFit.contain,
+              ),
+            ),
+            SizedBox(height: 20),
+            RichText(
+                text: TextSpan(
+                    text: 'Welcome to ',
+                    style: TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                    children: <TextSpan>[
+                  TextSpan(
+                      text: 'AlertUs',
+                      style: TextStyle(
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red[900]))
+                ])),
+            SizedBox(height: 10.0),
+            Text(
+              'An Emergency Assistance Application\n',
+              style: TextStyle(color: Colors.black),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: 50,
+              ),
               child: TextFormField(
                 controller: emailController,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
                   hintText: "EMAIL...",
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 50,),
+              margin: EdgeInsets.symmetric(
+                horizontal: 50,
+              ),
               child: TextFormField(
                 controller: passwordController,
                 decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
                   hintText: "PASSWORD...",
                 ),
                 obscureText: true,
@@ -43,51 +80,61 @@ class _MainScreenState extends State<MainScreen> {
             Container(
               height: 40,
               width: MediaQuery.of(context).size.width / 3,
-              color: Colors.blue,
+              color: Colors.redAccent[700],
               child: FlatButton(
                 onPressed: () {
                   final String email = emailController.text.trim();
                   final String password = passwordController.text.trim();
 
-                  if(email.isEmpty){
+                  if (email.isEmpty) {
                     print("Email is Empty");
                   } else {
-                    if(password.isEmpty){
+                    if (password.isEmpty) {
                       print("Password is Empty");
                     } else {
                       context.read<AuthService>().login(
-                        email,
-                        password,
-                      );
+                            email,
+                            password,
+                          );
                     }
                   }
                 },
-                child: Text("LOG IN"),
+                child: Text("LOG IN",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    )),
               ),
             ),
             Container(
               height: 40,
               width: MediaQuery.of(context).size.width / 3,
-              color: Colors.red,
+              color: Colors.redAccent[700],
               child: FlatButton(
                 onPressed: () {
                   final String email = emailController.text.trim();
                   final String password = passwordController.text.trim();
 
-                  if(email.isEmpty){
+                  if (email.isEmpty) {
                     print("Email is Empty");
                   } else {
-                    if(password.isEmpty){
+                    if (password.isEmpty) {
                       print("Password is Empty");
                     } else {
-                      context.read<AuthService>().signUp(
-                        email,
-                        password,
-                        "user",
-                      ).then((value) async {
+                      context
+                          .read<AuthService>()
+                          .signUp(
+                            email,
+                            password,
+                            "user",
+                          )
+                          .then((value) async {
                         User user = FirebaseAuth.instance.currentUser;
 
-                        await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
+                        await FirebaseFirestore.instance
+                            .collection("users")
+                            .doc(user.uid)
+                            .set({
                           'uid': user.uid,
                           'email': email,
                           'password': password,
@@ -97,7 +144,11 @@ class _MainScreenState extends State<MainScreen> {
                     }
                   }
                 },
-                child: Text("SIGN UP"),
+                child: Text("SIGN UP",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    )),
               ),
             ),
           ],

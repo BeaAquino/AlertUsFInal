@@ -26,6 +26,7 @@
 //   }
 // }
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest/screens/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'hospitalscreen.dart';
 import 'policescreen.dart';
@@ -90,7 +91,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 title: Text("About Us"),
-              )
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.info,
+                  color: Colors.black,
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainScreen()),
+                  );
+                },
+                title: Text("Log Out"),
+              ),
             ],
           ),
         ),
