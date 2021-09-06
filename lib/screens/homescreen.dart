@@ -1,30 +1,3 @@
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/material.dart';
-
-// class HomeScreen extends StatefulWidget {
-//   @override
-//   _HomeScreenState createState() => _HomeScreenState();
-// }
-
-// class _HomeScreenState extends State<HomeScreen> {
-//   @override
-//   void initState() {
-//     super.initState();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: new AppBar(
-//         title: Text("Dashboard"),
-//         backgroundColor: Colors.redAccent[700],
-//       ),
-//       body: Center(
-//         child: Text("THIS IS HOME"),
-//       ),
-//     );
-//   }
-// }
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasetest/screens/mainscreen.dart';
@@ -42,14 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController emailController = new TextEditingController();
-  String email = " ";
-  String uid = " ";
-  String role = " ";
-  String password = " ";
-
-  bool ableToEdit = false;
-
   @override
   void initState() {
     super.initState();
@@ -73,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style:
                     new TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
               ),
-              accountEmail: new Text("tester@gmail.com"),
+              accountEmail: new Text("user@gmail.com"),
               decoration: new BoxDecoration(color: Colors.redAccent[700]),
             ),
             ListTile(
@@ -92,24 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               title: Text("Profile"),
             ),
-            ableToEdit
-                ? GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Profile()));
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 100,
-                      color: Colors.blue,
-                      child: Center(
-                        child: Text(
-                          "Edit User",
-                        ),
-                      ),
-                    ),
-                  )
-                : Container(),
             ListTile(
               leading: Icon(
                 Icons.info,

@@ -46,7 +46,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 email = userEmail;
                 uid = snap.docs[0]['uid'];
                 role = snap.docs[0]['role'];
-                // password = snap.docs[0]['password'];
+               
 
                 ableToEdit = true;
               });
@@ -110,7 +110,7 @@ class _AdminScreenState extends State<AdminScreen> {
           Text('Email : ' + email),
           Text('UID : ' + uid),
           Text('Role : ' + role),
-          // Text('Password : ' + password),
+          
         ],
       ),
     );
