@@ -25,7 +25,9 @@ class _AdminScreenState extends State<AdminScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("Welcome Admin"),
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           TextFormField(
             controller: emailController,
             decoration: InputDecoration(
@@ -36,12 +38,15 @@ class _AdminScreenState extends State<AdminScreen> {
             onTap: () async {
               String userEmail = emailController.text.trim();
 
-              final QuerySnapshot snap = await FirebaseFirestore.instance.collection('users').where('email', isEqualTo: userEmail).get();
+              final QuerySnapshot snap = await FirebaseFirestore.instance
+                  .collection('users')
+                  .where('email', isEqualTo: userEmail)
+                  .get();
               setState(() {
                 email = userEmail;
                 uid = snap.docs[0]['uid'];
                 role = snap.docs[0]['role'];
-                password = snap.docs[0]['password'];
+                // password = snap.docs[0]['password'];
 
                 ableToEdit = true;
               });
@@ -57,24 +62,32 @@ class _AdminScreenState extends State<AdminScreen> {
               ),
             ),
           ),
-          ableToEdit ? GestureDetector(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => EditUser(uid: uid,)));
-            },
-            child: Container(
-              height: 50,
-              width: 100,
-              color: Colors.blue,
-              child: Center(
-                child: Text(
-                  "Edit User",
-                ),
-              ),
-            ),
-          ) : Container(),
+          ableToEdit
+              ? GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditUser(
+                                  uid: uid,
+                                )));
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    color: Colors.blue,
+                    child: Center(
+                      child: Text(
+                        "Edit User",
+                      ),
+                    ),
+                  ),
+                )
+              : Container(),
           GestureDetector(
             onTap: () async {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CreateUser()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CreateUser()));
             },
             child: Container(
               height: 50,
@@ -87,13 +100,17 @@ class _AdminScreenState extends State<AdminScreen> {
               ),
             ),
           ),
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           Text('User Data :'),
-          SizedBox(height: 50,),
+          SizedBox(
+            height: 50,
+          ),
           Text('Email : ' + email),
           Text('UID : ' + uid),
           Text('Role : ' + role),
-          Text('Password : ' + password),
+          // Text('Password : ' + password),
         ],
       ),
     );

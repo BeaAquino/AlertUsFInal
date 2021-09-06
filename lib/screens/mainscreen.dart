@@ -12,6 +12,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  TextEditingController nameController = new TextEditingController();
+  TextEditingController phoneController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +141,8 @@ class _MainScreenState extends State<MainScreen> {
                           'email': email,
                           'password': password,
                           'role': 'user',
+                          'name': 'name',
+                          'phone': '00000000000'
                         });
                       });
                     }

@@ -26,6 +26,7 @@
 //   }
 // }
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasetest/screens/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'hospitalscreen.dart';
@@ -33,6 +34,7 @@ import 'policescreen.dart';
 import 'firescreen.dart';
 import 'emergencycontactlist.dart';
 import 'contactus.dart';
+import 'profile.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -40,6 +42,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController emailController = new TextEditingController();
+  String email = " ";
+  String uid = " ";
+  String role = " ";
+  String password = " ";
+
+  bool ableToEdit = false;
+
   @override
   void initState() {
     super.initState();
@@ -49,67 +59,88 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: new AppBar(
-          title: Text("Dashboard"),
-          backgroundColor: Colors.redAccent[700],
-        ),
-        backgroundColor: Colors.orange[200],
-        drawer: new Drawer(
-          child: ListView(
-            children: <Widget>[
-              UserAccountsDrawerHeader(
-                accountName: new Text(
-                  "User",
-                  style: new TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 17.0),
-                ),
-                accountEmail: new Text("tester@gmail.com"),
-                decoration: new BoxDecoration(color: Colors.redAccent[700]),
+      appBar: new AppBar(
+        title: Text("Dashboard"),
+        backgroundColor: Colors.redAccent[700],
+      ),
+      backgroundColor: Colors.orange[200],
+      drawer: new Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: new Text(
+                "User",
+                style:
+                    new TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.person,
-                  color: Colors.black,
-                ),
-                onTap: () {
-                  // Navigator.push(
-                  //    context,
-                  //    MaterialPageRoute(builder: (context) => UserInfo()),
-                  //  );
-                },
-                title: Text("Profile"),
+              accountEmail: new Text("tester@gmail.com"),
+              decoration: new BoxDecoration(color: Colors.redAccent[700]),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.person,
+                color: Colors.black,
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.info,
-                  color: Colors.black,
-                ),
-                onTap: () {
-                  Navigator.push(
+              onTap: () {
+                Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ContactUs()),
-                  );
-                },
-                title: Text("About Us"),
+                    MaterialPageRoute(
+                      builder: (context) => Profile(
+                          // uid: uid,
+                          ),
+                    ));
+              },
+              title: Text("Profile"),
+            ),
+            ableToEdit
+                ? GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Profile()));
+                    },
+                    child: Container(
+                      height: 50,
+                      width: 100,
+                      color: Colors.blue,
+                      child: Center(
+                        child: Text(
+                          "Edit User",
+                        ),
+                      ),
+                    ),
+                  )
+                : Container(),
+            ListTile(
+              leading: Icon(
+                Icons.info,
+                color: Colors.black,
               ),
-              ListTile(
-                leading: Icon(
-                  Icons.info,
-                  color: Colors.black,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MainScreen()),
-                  );
-                },
-                title: Text("Log Out"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContactUs()),
+                );
+              },
+              title: Text("About Us"),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.info,
+                color: Colors.black,
               ),
-            ],
-          ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainScreen()),
+                );
+              },
+              title: Text("Log Out"),
+            ),
+          ],
         ),
-        body: SafeArea(
-            child: Column(
+      ),
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
@@ -340,6 +371,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             )
           ],
-        )));
+        ),
+      ),
+    );
   }
 }

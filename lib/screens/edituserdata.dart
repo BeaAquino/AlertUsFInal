@@ -22,22 +22,21 @@ class _EditUserState extends State<EditUser> {
         children: [
           TextFormField(
             controller: roleController,
-            decoration: InputDecoration(
-              hintText: "Role..."
-            ),
+            decoration: InputDecoration(hintText: "Role..."),
           ),
           TextFormField(
             controller: passwordController,
-            decoration: InputDecoration(
-                hintText: "Password..."
-            ),
+            decoration: InputDecoration(hintText: "Password..."),
           ),
           GestureDetector(
             onTap: () async {
               String newRole = roleController.text.trim();
               String newPassword = passwordController.text.trim();
 
-              FirebaseFirestore.instance.collection('users').doc(widget.uid).update({
+              FirebaseFirestore.instance
+                  .collection('users')
+                  .doc(widget.uid)
+                  .update({
                 'role': newRole,
                 'password': newPassword,
               });

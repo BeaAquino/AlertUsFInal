@@ -9,28 +9,32 @@ class AuthService {
   Stream<User> get authStateChanges => _auth.idTokenChanges();
 
   Future<String> login(String email, String password) async {
-    try{
+    try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return "Logged In";
-    } catch(e) {
+    } catch (e) {
       return e;
     }
   }
 
   Future<String> signUp(String email, String password, String role) async {
-    try{
-      await _auth.createUserWithEmailAndPassword(email: email, password: password).then((value) async {
+    try {
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) async {
         User user = FirebaseAuth.instance.currentUser;
 
         await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
           'uid': user.uid,
           'email': email,
           'password': password,
-          'role': role
+          'role': role,
+          'name': 'name',
+          'phone': '00000000000'
         });
       });
       return "Signed Up";
-    } catch(e) {
+    } catch (e) {
       return e;
     }
   }
