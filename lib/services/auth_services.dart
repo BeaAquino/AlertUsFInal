@@ -29,8 +29,6 @@ class AuthService {
           'email': email,
           'password': password,
           'role': role,
-          'name': 'name',
-          'phone': '00000000000'
         });
       });
       return "Signed Up";

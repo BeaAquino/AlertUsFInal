@@ -141,8 +141,8 @@ class _MainScreenState extends State<MainScreen> {
                           'email': email,
                           'password': password,
                           'role': 'user',
-                          'name': 'name',
-                          'phone': '00000000000'
+                          'name': 'Name',
+                          'phone': '00000000000',
                         });
                       });
                     }
