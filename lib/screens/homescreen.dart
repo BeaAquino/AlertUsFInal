@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebasetest/screens/confirmuser.dart';
 import 'package:firebasetest/screens/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'hospitalscreen.dart';
@@ -50,9 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Profile(
-                          // uid: uid,
-                          ),
+                      builder: (context) => ConfirmUser(),
                     ));
               },
               title: Text("Profile"),
