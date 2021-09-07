@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/screens/adminscreen.dart';
 import 'package:firebasetest/screens/confirmuser.dart';
 import 'package:firebasetest/screens/homescreen.dart';
+import 'package:firebasetest/screens/profilesignup.dart';
 import 'package:flutter/material.dart';
 import 'confirmsignup.dart';
 
@@ -34,8 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     if (role == 'user') {
-      navigateNext(
-          ConfirmUserSignup()); // edited from HomeScreen to ConfirmUser
+      navigateNext(ConfirmUserSignup()); // edited from HomeScreen to ConfirmUser
     } else if (role == 'admin') {
       navigateNext(AdminScreen());
     }

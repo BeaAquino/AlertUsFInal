@@ -28,7 +28,7 @@ class AlertDialogs {
                 ),
               ),
               FlatButton(
-                onPressed: () {},
+                onPressed: () {}, // dito ilalagay yung route ng gps ng emergency unit na magrereceive ng notif
                 child: Text(
                   'Confirm',
                   style: TextStyle(

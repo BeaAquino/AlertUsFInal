@@ -19,7 +19,7 @@ class _ProfileSignUp extends State<ProfileSignUp> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile Setup",
+          "Profile",
         ),
         backgroundColor: Colors.redAccent[700],
       ),
@@ -32,7 +32,7 @@ class _ProfileSignUp extends State<ProfileSignUp> {
             height: 10,
           ),
           Text(
-            "Please fill in the form below\n these data will be sent to emergency units\n you may update your profile in the application",
+            "Please fill in the form below\n these data will be sent to emergency units",
             style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
