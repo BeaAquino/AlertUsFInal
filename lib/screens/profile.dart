@@ -16,17 +16,26 @@ class _Profile extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orange[200],
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFormField(
             controller: nameController,
-            decoration: InputDecoration(hintText: "Name..."),
+            decoration: InputDecoration(
+                fillColor: Colors.white, filled: true, hintText: "Name..."),
+          ),
+          SizedBox(
+            height: 10,
           ),
           TextFormField(
             controller: phoneController,
-            decoration: InputDecoration(hintText: "Phone..."),
+            decoration: InputDecoration(
+                fillColor: Colors.white, filled: true, hintText: "Phone..."),
+          ),
+          SizedBox(
+            height: 20,
           ),
           GestureDetector(
             onTap: () async {
@@ -43,11 +52,15 @@ class _Profile extends State<Profile> {
             },
             child: Container(
               height: 50,
-              width: 100,
-              color: Colors.blue,
+              width: 200,
+              color: Colors.redAccent[700],
               child: Center(
                 child: Text(
                   "UPDATE DATA",
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

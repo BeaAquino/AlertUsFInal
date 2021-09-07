@@ -35,11 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             UserAccountsDrawerHeader(
               accountName: new Text(
-                "User",
+                "Welcome",
                 style:
                     new TextStyle(fontWeight: FontWeight.bold, fontSize: 17.0),
               ),
-              accountEmail: new Text("user@gmail.com"),
+              accountEmail: new Text("to AlertUs "),
               decoration: new BoxDecoration(color: Colors.redAccent[700]),
             ),
             ListTile(
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Text(
-                "AlertUs \nSelect an Emergency",
+                "Select an Emergency",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 28.0,
