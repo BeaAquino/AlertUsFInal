@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebasetest/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -49,6 +50,10 @@ class _Profile extends State<Profile> {
                 'name': newName,
                 'phone': newPhone,
               });
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
             },
             child: Container(
               height: 50,
