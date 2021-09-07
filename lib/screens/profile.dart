@@ -61,7 +61,7 @@ class _Profile extends State<Profile> {
               color: Colors.redAccent[700],
               child: Center(
                 child: Text(
-                  "UPDATE DATA",
+                  "UPDATE PROFILE",
                   style: TextStyle(
                     fontSize: 15,
                     color: Colors.white,

@@ -3,6 +3,7 @@ import 'package:firebasetest/screens/createuserscreen.dart';
 import 'package:firebasetest/screens/edituserdata.dart';
 import 'package:flutter/material.dart';
 import 'profile.dart';
+import 'profilesignup.dart';
 
 class ConfirmUserSignup extends StatefulWidget {
   @override
@@ -38,13 +39,6 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
             "Please confirm your email first",
             style: TextStyle(
                 fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
-          Text(
-            " after confirming your email, you may edit your profile",
-            style: TextStyle(
-                fontSize: 15.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.black),
           ),
@@ -99,7 +93,7 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Profile(
+                            builder: (context) => ProfileSignUp(
                                   uid: uid,
                                 )));
                   },
