@@ -1,3 +1,4 @@
+import 'package:firebasetest/screens/reportdialog.dart';
 import 'package:flutter/material.dart';
 
 class PoliceScreen extends StatelessWidget {
@@ -42,9 +43,15 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("Homicide Incident, Send Assistance.");
+                          onTap: () async {
+                            final action = await AlertDialogs.yesCancelDialog(
+                                context,
+                                'Report Message',
+                                'Homicide Incident, Send Assistance.');
                           },
+                          // {
+                          //   print("Homicide Incident, Send Assistance.");
+                          // },
                           child: Center(
                               child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -336,36 +343,6 @@ class PoliceScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // SizedBox(
-                    //   width: 360.0,
-                    //   height: 70.0,
-                    //   child: Card(
-                    //       color: Colors.redAccent[700],
-                    //       elevation: 1.0,
-                    //       shape: RoundedRectangleBorder(
-                    //           borderRadius: BorderRadius.circular(8.0)),
-                    //       child: InkWell(
-                    //         onTap: () {},
-                    //         child: Center(
-                    //             child: Padding(
-                    //           padding: const EdgeInsets.all(1.0),
-                    //           child: Row(
-                    //             children: <Widget>[
-                    //               Align(
-                    //                 alignment: Alignment.center,
-                    //                 child: Text(
-                    //                     "                              SEND ",
-                    //                     style: TextStyle(
-                    //                       fontSize: 20,
-                    //                       color: Colors.white,
-                    //                       fontWeight: FontWeight.bold,
-                    //                     )),
-                    //               )
-                    //             ],
-                    //           ),
-                    //         )),
-                    //       )),
-                    // ),
                   ],
                 ),
               ),
