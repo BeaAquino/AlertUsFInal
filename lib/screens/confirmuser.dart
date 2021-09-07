@@ -85,7 +85,7 @@ class _ConfirmUser extends State<ConfirmUser> {
               width: 100,
               color: Colors.redAccent[700],
               child: Center(
-                child: Text("",
+                child: Text("VIEW DATA",
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,

@@ -17,11 +17,27 @@ class _ProfileSignUp extends State<ProfileSignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Profile Setup",
+        ),
+        backgroundColor: Colors.redAccent[700],
+      ),
       backgroundColor: Colors.orange[200],
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Please fill in the form below\n these data will be sent to emergency units\n you may update your profile in the application",
+            style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black),
+          ),
           TextFormField(
             controller: nameController,
             decoration: InputDecoration(

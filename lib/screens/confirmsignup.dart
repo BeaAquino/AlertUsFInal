@@ -26,7 +26,7 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Profile",
+            "Confirmation",
           ),
           backgroundColor: Colors.redAccent[700],
         ),
@@ -36,7 +36,7 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
             height: 10,
           ),
           Text(
-            "Please confirm your email first",
+            "Please confirm your email first,\nAfter confirming your email, set your Profile",
             style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,

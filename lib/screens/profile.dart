@@ -17,6 +17,12 @@ class _Profile extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Profile Update",
+        ),
+        backgroundColor: Colors.redAccent[700],
+      ),
       backgroundColor: Colors.orange[200],
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
