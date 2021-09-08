@@ -1,7 +1,11 @@
 import 'package:firebasetest/screens/reportdialog.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PoliceScreen extends StatelessWidget {
+  String name = " ";
+  String phone = " ";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +48,7 @@ class PoliceScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
                           onTap: () async {
+                            
                             final action = await AlertDialogs.yesCancelDialog(
                                 context,
                                 'Report Message',
