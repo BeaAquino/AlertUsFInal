@@ -17,7 +17,11 @@ class AuthService {
     }
   }
 
-  Future<String> signUp(String email, String password, String role) async {
+  Future<String> signUp(
+    String email,
+    String password,
+    String role,
+  ) async {
     try {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
@@ -34,6 +38,15 @@ class AuthService {
       return "Signed Up";
     } catch (e) {
       return e;
+    }
+  }
+
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
     }
   }
 }

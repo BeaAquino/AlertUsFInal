@@ -1,3 +1,6 @@
+// EXTRA PAGE LANG TO
+// SA HOMESCREEN NG USER, PAG PININDOT YUNG FIRE INCIDENT, AGAD AGAD NA MAGSESEND NG REPORT MESSAGE, JUST PRESS CONFIRM
+
 import 'package:flutter/material.dart';
 
 class FireScreen extends StatelessWidget {

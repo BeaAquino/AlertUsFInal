@@ -35,7 +35,8 @@ class _SplashScreenState extends State<SplashScreen> {
     });
 
     if (role == 'user') {
-      navigateNext(ConfirmUserSignup()); // edited from HomeScreen to ConfirmUser
+      navigateNext(
+          ConfirmUserSignup()); // edited from HomeScreen to ConfirmUser
     } else if (role == 'admin') {
       navigateNext(AdminScreen());
     }

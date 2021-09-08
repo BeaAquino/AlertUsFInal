@@ -1,23 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/screens/reportdialog.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class PoliceScreen extends StatelessWidget {
-  String name = " ";
-  String phone = " ";
+class PoliceScreen extends StatefulWidget {
+  @override
+  _PoliceScreen createState() => _PoliceScreen();
+}
+
+class _PoliceScreen extends State<PoliceScreen> {
+  String myname;
+  String phone;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Police Report",
-          ),
-          backgroundColor: Colors.redAccent[700],
+      appBar: AppBar(
+        title: Text(
+          "Police Report",
         ),
-        backgroundColor: Colors.orange[200],
-        body: SafeArea(
-            child: Column(
+        backgroundColor: Colors.redAccent[700],
+      ),
+      backgroundColor: Colors.orange[200],
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
@@ -48,15 +54,16 @@ class PoliceScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
                           onTap: () async {
-                            
-                            final action = await AlertDialogs.yesCancelDialog(
-                                context,
-                                'Report Message',
-                                'Homicide Incident, Send Assistance.');
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Homicide Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
-                          // {
-                          //   print("Homicide Incident, Send Assistance.");
-                          // },
                           child: Center(
                               child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -92,8 +99,16 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("Violence/Brawl Incident");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Violence/Brawl Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -130,8 +145,17 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                            onTap: () {
-                              print("Report of Burglary/Theft.");
+                            onTap: () async {
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
+                              if (currentUser != null) {
+                                final action = await AlertDialogs.yesCancelDialog(
+                                    context,
+                                    'Report Message',
+                                    'Burglary/Theft Incident,\nSend Assistance.\n\nReport by:' +
+                                        currentUser.email);
+                              }
                             },
                             child: Center(
                               child: Padding(
@@ -167,8 +191,16 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("Domestic Threat Report.");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Domestic Threat Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -205,8 +237,16 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("Sexual Assault Report");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Sexual Assault Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -243,8 +283,16 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("Kidnapping/Missing Incident");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Missing or Kidnapping Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -281,8 +329,16 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("Terrorist attack");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Terrorist Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -319,8 +375,16 @@ class PoliceScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("In need of Police Assistance.");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'In need of Police Assistance\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -353,6 +417,21 @@ class PoliceScreen extends StatelessWidget {
               ),
             )
           ],
-        )));
+        ),
+      ),
+    );
   }
+
+  // _fetch() async {
+  //   final user = await FirebaseAuth.instance.currentUser;
+  //   if (user != null)
+  //   await FirebaseFirestore.instance
+  //       .collection('users')
+  //       .doc(user.uid)
+  //       .get()
+  //       .then((ds) {
+  //     myname = ds.data['name'];
+  //     print(myname);
+  //   });
+  // }
 }

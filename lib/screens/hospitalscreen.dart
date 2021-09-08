@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest/screens/reportdialog.dart';
 
 class HospitalScreen extends StatelessWidget {
   @override
@@ -42,8 +44,16 @@ class HospitalScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("Injury Accident occurred");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Injury Accident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -59,7 +69,7 @@ class HospitalScreen extends StatelessWidget {
                                   height: 10.0,
                                 ),
                                 Text(
-                                  "INJURY ACCIDENTS",
+                                  "INJURY ACCIDENT",
                                   style: TextStyle(
                                       color: Colors.yellowAccent,
                                       fontWeight: FontWeight.bold,
@@ -80,8 +90,16 @@ class HospitalScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("In need of Emergency Doctor.");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'In need of Emergency Doctor,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(
@@ -118,8 +136,17 @@ class HospitalScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                            onTap: () {
-                              print("In need of Midwifery Assistance ASAP");
+                            onTap: () async {
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
+                              if (currentUser != null) {
+                                final action = await AlertDialogs.yesCancelDialog(
+                                    context,
+                                    'Report Message',
+                                    'Midwifery Emergency\nSend Assistance.\n\nReport by:' +
+                                        currentUser.email);
+                              }
                             },
                             child: Center(
                               child: Padding(
@@ -155,8 +182,16 @@ class HospitalScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {
-                            print("In need of Medical Assistance");
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'In need of Medical Assitance\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email);
+                            }
                           },
                           child: Center(
                               child: Padding(

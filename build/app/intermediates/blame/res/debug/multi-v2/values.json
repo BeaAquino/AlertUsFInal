@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\aquin\\Desktop\\adminapp\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\aquin\\Desktop\\AlertUsFInal\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\aquin\\Desktop\\adminapp\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,281,385,494,614,715",
-                        "endColumns": "143,81,103,108,119,100,77",
-                        "endOffsets": "194,276,380,489,609,710,788"
-                    },
-                    "to": {
-                        "startLines": "111,112,113,114,115,116,117",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "8183,8327,8409,8513,8622,8742,8843",
-                        "endColumns": "143,81,103,108,119,100,77",
-                        "endOffsets": "8322,8404,8508,8617,8737,8838,8916"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\aquin\\Desktop\\adminapp\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\aquin\\Desktop\\AlertUsFInal\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -75,6 +58,23 @@
                         "endLines": "7,8,9,10,11,12,13,14,93,94,95,96,97,98,99,100,102,103,104,105,106,107,108,109,110,380,399",
                         "endColumns": "89,79,89,89,79,80,79,79,104,180,124,106,179,122,115,102,187,104,180,124,174,147,62,61,78,20,20",
                         "endOffsets": "500,580,670,760,840,921,1001,1081,5950,6131,6256,6363,6543,6666,6782,6885,7240,7345,7526,7651,7826,7974,8037,8099,8178,24031,24448"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\aquin\\Desktop\\AlertUsFInal\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,281,385,494,614,715",
+                        "endColumns": "143,81,103,108,119,100,77",
+                        "endOffsets": "194,276,380,489,609,710,788"
+                    },
+                    "to": {
+                        "startLines": "111,112,113,114,115,116,117",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "8183,8327,8409,8513,8622,8742,8843",
+                        "endColumns": "143,81,103,108,119,100,77",
+                        "endOffsets": "8322,8404,8508,8617,8737,8838,8916"
                     }
                 },
                 {

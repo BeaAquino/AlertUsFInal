@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasetest/screens/confirmuser.dart';
 import 'package:firebasetest/screens/mainscreen.dart';
+import 'package:firebasetest/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'hospitalscreen.dart';
 import 'policescreen.dart';
@@ -9,6 +10,9 @@ import 'firescreen.dart';
 import 'emergencycontactlist.dart';
 import 'contactus.dart';
 import 'profile.dart';
+import 'package:firebasetest/screens/reportdialog.dart';
+
+final AuthService _auth = AuthService(FirebaseAuth.instance);
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -21,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-//class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,11 +77,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Icons.info,
                 color: Colors.black,
               ),
-              onTap: () {
+              onTap: () async {
+                await _auth.signOut();
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
-                );
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MainScreen(),
+                    ));
               },
               title: Text("Log Out"),
             ),
@@ -200,12 +205,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FireScreen()),
-                              );
+                            onTap: () async {
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
+                              if (currentUser != null) {
+                                final action =
+                                    await AlertDialogs.yesCancelDialog(
+                                        context,
+                                        'Report Message',
+                                        'FIRE!!!.\n\nReport by:' +
+                                            currentUser.email);
+                              }
                             },
                             child: Center(
                               child: Padding(

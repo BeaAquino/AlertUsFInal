@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\aquin\\Desktop\\adminapp\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fi\\values-fi.xml",
+            "outputFile": "C:\\Users\\aquin\\Desktop\\AlertUsFInal\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fi\\values-fi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\aquin\\.gradle\\caches\\transforms-2\\files-2.1\\03f87289b0a070d9464870415ea90bd4\\jetified-play-services-base-17.1.0\\res\\values-fi\\values.xml",
