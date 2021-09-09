@@ -9,7 +9,7 @@ class PoliceScreen extends StatefulWidget {
 }
 
 class _PoliceScreen extends State<PoliceScreen> {
-  String myname;
+  String name;
   String phone;
 
   @override
@@ -57,11 +57,24 @@ class _PoliceScreen extends State<PoliceScreen> {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
                                   'Homicide Incident,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
@@ -103,11 +116,24 @@ class _PoliceScreen extends State<PoliceScreen> {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
                                   'Violence/Brawl Incident,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
@@ -150,11 +176,25 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   FirebaseAuth.instance.currentUser;
 
                               if (currentUser != null) {
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
+                                setState(() {
+                                  name = snap.docs[0]['name'];
+                                  phone = snap.docs[0]['phone'];
+                                });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Report Message',
                                     'Burglary/Theft Incident,\nSend Assistance.\n\nReport by:' +
-                                        currentUser.email);
+                                        currentUser.email +
+                                        '\nname : ' +
+                                        name +
+                                        '\nphone number : ' +
+                                        phone);
                               }
                             },
                             child: Center(
@@ -195,11 +235,24 @@ class _PoliceScreen extends State<PoliceScreen> {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
                                   'Domestic Threat Incident,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
@@ -241,11 +294,24 @@ class _PoliceScreen extends State<PoliceScreen> {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
                                   'Sexual Assault Incident,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
@@ -287,11 +353,24 @@ class _PoliceScreen extends State<PoliceScreen> {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
                                   'Missing or Kidnapping Incident,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
@@ -333,11 +412,24 @@ class _PoliceScreen extends State<PoliceScreen> {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
                                   'Terrorist Incident,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
@@ -379,11 +471,24 @@ class _PoliceScreen extends State<PoliceScreen> {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
                                   'In need of Police Assistance\n\nReport by:' +
-                                      currentUser.email);
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
@@ -421,17 +526,4 @@ class _PoliceScreen extends State<PoliceScreen> {
       ),
     );
   }
-
-  // _fetch() async {
-  //   final user = await FirebaseAuth.instance.currentUser;
-  //   if (user != null)
-  //   await FirebaseFirestore.instance
-  //       .collection('users')
-  //       .doc(user.uid)
-  //       .get()
-  //       .then((ds) {
-  //     myname = ds.data['name'];
-  //     print(myname);
-  //   });
-  // }
 }

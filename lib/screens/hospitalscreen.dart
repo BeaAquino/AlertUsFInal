@@ -1,24 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/screens/reportdialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class HospitalScreen extends StatelessWidget {
+class HospitalScreen extends StatefulWidget {
+  @override
+  _HospitalScreen createState() => _HospitalScreen();
+}
+
+class _HospitalScreen extends State<HospitalScreen> {
+  String name;
+  String phone;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Hospital Report",
-          ),
-          backgroundColor: Colors.redAccent[700],
+      appBar: AppBar(
+        title: Text(
+          "Hospital Report",
         ),
-        backgroundColor: Colors.orange[200],
-        body: SafeArea(
-            child: Column(
+        backgroundColor: Colors.redAccent[700],
+      ),
+      backgroundColor: Colors.orange[200],
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 "WHAT HAS HAPPENED?",
                 style: TextStyle(
@@ -29,15 +38,15 @@ class HospitalScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(5.0),
               child: Center(
                 child: Wrap(
                   spacing: 10,
                   runSpacing: 5.0,
                   children: <Widget>[
                     SizedBox(
-                      width: 175.0,
-                      height: 160.0,
+                      width: 173.0,
+                      height: 100.0,
                       child: Card(
                         color: Colors.redAccent[700],
                         elevation: 2.0,
@@ -48,28 +57,41 @@ class HospitalScreen extends StatelessWidget {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
-                                  'Injury Accident,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                  'Abdominal/Chest Pain,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
                               child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(4.0),
                             child: Column(
                               children: <Widget>[
                                 Icon(
-                                  Icons.personal_injury_rounded,
-                                  size: 90.0,
+                                  Icons.sports_handball_rounded,
+                                  size: 40.0,
                                   color: Colors.yellowAccent,
                                 ),
                                 SizedBox(
-                                  height: 10.0,
+                                  height: 2.0,
                                 ),
                                 Text(
-                                  "INJURY ACCIDENT",
+                                  " ABDOMINAL/CHEST\n               PAIN",
                                   style: TextStyle(
                                       color: Colors.yellowAccent,
                                       fontWeight: FontWeight.bold,
@@ -82,8 +104,8 @@ class HospitalScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 175.0,
-                      height: 160.0,
+                      width: 173.0,
+                      height: 100.0,
                       child: Card(
                         color: Colors.redAccent[700],
                         elevation: 2.0,
@@ -94,32 +116,45 @@ class HospitalScreen extends StatelessWidget {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
-                                  'In need of Emergency Doctor,\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                  'Traumatic Injury,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
                               child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(5.0),
                             child: Column(
                               children: <Widget>[
                                 Icon(
-                                  Icons.medical_services_rounded,
-                                  size: 90.0,
+                                  Icons.dangerous_rounded,
+                                  size: 40.0,
                                   color: Colors.yellowAccent,
                                 ),
                                 SizedBox(
-                                  height: 10.0,
+                                  height: 4.0,
                                 ),
                                 Text(
-                                  "EMERGENCY DOCTOR",
+                                  "TRAUMATIC INJURY",
                                   style: TextStyle(
                                       color: Colors.yellowAccent,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 15.0),
+                                      fontSize: 16.0),
                                 ),
                               ],
                             ),
@@ -128,8 +163,8 @@ class HospitalScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 175.0,
-                      height: 160.0,
+                      width: 173.0,
+                      height: 100.0,
                       child: Card(
                         color: Colors.redAccent[700],
                         elevation: 2.0,
@@ -141,32 +176,46 @@ class HospitalScreen extends StatelessWidget {
                                   FirebaseAuth.instance.currentUser;
 
                               if (currentUser != null) {
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
+                                setState(() {
+                                  name = snap.docs[0]['name'];
+                                  phone = snap.docs[0]['phone'];
+                                });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Report Message',
-                                    'Midwifery Emergency\nSend Assistance.\n\nReport by:' +
-                                        currentUser.email);
+                                    'Respiratory Distress,\nSend Assistance.\n\nReport by:' +
+                                        currentUser.email +
+                                        '\nname : ' +
+                                        name +
+                                        '\nphone number : ' +
+                                        phone);
                               }
                             },
                             child: Center(
                               child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(4.0),
                                   child: Column(
                                     children: <Widget>[
                                       Icon(
-                                        Icons.pregnant_woman_rounded,
-                                        size: 90.0,
+                                        Icons.healing_rounded,
+                                        size: 40.0,
                                         color: Colors.yellowAccent,
                                       ),
                                       SizedBox(
-                                        height: 10.0,
+                                        height: 2.0,
                                       ),
                                       Text(
-                                        "MIDWIFERY",
+                                        "RESPIRATORY\n    DISTRESS",
                                         style: TextStyle(
                                             color: Colors.yellowAccent,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 20.0),
+                                            fontSize: 16.0),
                                       ),
                                     ],
                                   )),
@@ -174,8 +223,8 @@ class HospitalScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 175.0,
-                      height: 160.0,
+                      width: 173.0,
+                      height: 100.0,
                       child: Card(
                         color: Colors.redAccent[700],
                         elevation: 2.0,
@@ -186,32 +235,45 @@ class HospitalScreen extends StatelessWidget {
                             var currentUser = FirebaseAuth.instance.currentUser;
 
                             if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
-                                  'In need of Medical Assitance\nSend Assistance.\n\nReport by:' +
-                                      currentUser.email);
+                                  'Severe Burns/Scald,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
                             }
                           },
                           child: Center(
                               child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(4.0),
                             child: Column(
                               children: <Widget>[
                                 Icon(
-                                  Icons.outbond_rounded,
-                                  size: 90.0,
+                                  Icons.whatshot_rounded,
+                                  size: 40.0,
                                   color: Colors.yellowAccent,
                                 ),
                                 SizedBox(
-                                  height: 10.0,
+                                  height: 2.0,
                                 ),
                                 Text(
-                                  "OTHERS",
+                                  "SEVERE BURNS OR\n          SCALD",
                                   style: TextStyle(
                                       color: Colors.yellowAccent,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
+                                      fontSize: 16.0),
                                 ),
                               ],
                             ),
@@ -219,41 +281,367 @@ class HospitalScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // SizedBox(
-                    //   width: 360.0,
-                    //   height: 70.0,
-                    //   child: Card(
-                    //       color: Colors.redAccent[700],
-                    //       elevation: 1.0,
-                    //       shape: RoundedRectangleBorder(
-                    //           borderRadius: BorderRadius.circular(8.0)),
-                    //       child: InkWell(
-                    //         onTap: () {},
-                    //         child: Center(
-                    //             child: Padding(
-                    //           padding: const EdgeInsets.all(1.0),
-                    //           child: Row(
-                    //             children: <Widget>[
-                    //               Align(
-                    //                 alignment: Alignment.center,
-                    //                 child: Text(
-                    //                     "                              SEND ",
-                    //                     style: TextStyle(
-                    //                       fontSize: 20,
-                    //                       color: Colors.white,
-                    //                       fontWeight: FontWeight.bold,
-                    //                     )),
-                    //               )
-                    //             ],
-                    //           ),
-                    //         )),
-                    //       )),
-                    // ),
+                    SizedBox(
+                      width: 173.0,
+                      height: 100.0,
+                      child: Card(
+                        color: Colors.redAccent[700],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: InkWell(
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Loss of Consciousness Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
+                            }
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.airline_seat_flat,
+                                  size: 40.0,
+                                  color: Colors.yellowAccent,
+                                ),
+                                SizedBox(
+                                  height: 2.0,
+                                ),
+                                Text(
+                                  "          LOSS OF\n CONSCIOUSNESS",
+                                  style: TextStyle(
+                                      color: Colors.yellowAccent,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 173.0,
+                      height: 100.0,
+                      child: Card(
+                        color: Colors.redAccent[700],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: InkWell(
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Seizure Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
+                            }
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.block_rounded,
+                                  size: 50.0,
+                                  color: Colors.yellowAccent,
+                                ),
+                                SizedBox(
+                                  height: 2.0,
+                                ),
+                                Text(
+                                  "SEIZURE",
+                                  style: TextStyle(
+                                      color: Colors.yellowAccent,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 173.0,
+                      height: 100.0,
+                      child: Card(
+                        color: Colors.redAccent[700],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: InkWell(
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Poisoning/drug ingestion Incident,\nSend Assistance.\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
+                            }
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.do_not_touch_rounded,
+                                  size: 40.0,
+                                  color: Colors.yellowAccent,
+                                ),
+                                SizedBox(
+                                  height: 2.0,
+                                ),
+                                Text(
+                                  "POISONING/DRUG\n      INGESTION",
+                                  style: TextStyle(
+                                      color: Colors.yellowAccent,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 173.0,
+                      height: 100.0,
+                      child: Card(
+                        color: Colors.redAccent[700],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: InkWell(
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Stroke Incident,\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
+                            }
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.priority_high_rounded,
+                                  size: 45.0,
+                                  color: Colors.yellowAccent,
+                                ),
+                                SizedBox(
+                                  height: 2.0,
+                                ),
+                                Text(
+                                  "STROKE",
+                                  style: TextStyle(
+                                      color: Colors.yellowAccent,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 173.0,
+                      height: 100.0,
+                      child: Card(
+                        color: Colors.redAccent[700],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: InkWell(
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'Emergency Childbirth,\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
+                            }
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.baby_changing_station_rounded,
+                                  size: 40.0,
+                                  color: Colors.yellowAccent,
+                                ),
+                                SizedBox(
+                                  height: 2.0,
+                                ),
+                                Text(
+                                  "EMERGENCY\n CHILDBIRTH",
+                                  style: TextStyle(
+                                      color: Colors.yellowAccent,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 173.0,
+                      height: 100.0,
+                      child: Card(
+                        color: Colors.redAccent[700],
+                        elevation: 2.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        child: InkWell(
+                          onTap: () async {
+                            var currentUser = FirebaseAuth.instance.currentUser;
+
+                            if (currentUser != null) {
+                              final QuerySnapshot snap = await FirebaseFirestore
+                                  .instance
+                                  .collection('users')
+                                  .where('email', isEqualTo: currentUser.email)
+                                  .get();
+                              setState(() {
+                                name = snap.docs[0]['name'];
+                                phone = snap.docs[0]['phone'];
+                              });
+                              final action = await AlertDialogs.yesCancelDialog(
+                                  context,
+                                  'Report Message',
+                                  'In need of Medical Assitance,\n\nReport by:' +
+                                      currentUser.email +
+                                      '\nname : ' +
+                                      name +
+                                      '\nphone number : ' +
+                                      phone);
+                            }
+                          },
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.outbond_rounded,
+                                  size: 50.0,
+                                  color: Colors.yellowAccent,
+                                ),
+                                SizedBox(
+                                  height: 2.0,
+                                ),
+                                Text(
+                                  "OTHERS",
+                                  style: TextStyle(
+                                      color: Colors.yellowAccent,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0),
+                                ),
+                              ],
+                            ),
+                          )),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             )
           ],
-        )));
+        ),
+      ),
+    );
   }
 }

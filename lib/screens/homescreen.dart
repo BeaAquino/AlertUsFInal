@@ -25,6 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
+  String name;
+  String phone;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: Icon(
-                Icons.info,
+                Icons.logout_rounded,
                 color: Colors.black,
               ),
               onTap: () async {
@@ -210,12 +213,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                   FirebaseAuth.instance.currentUser;
 
                               if (currentUser != null) {
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
+                                setState(() {
+                                  name = snap.docs[0]['name'];
+                                  phone = snap.docs[0]['phone'];
+                                });
                                 final action =
                                     await AlertDialogs.yesCancelDialog(
                                         context,
                                         'Report Message',
                                         'FIRE!!!.\n\nReport by:' +
-                                            currentUser.email);
+                                            currentUser.email +
+                                            '\nname : ' +
+                                            name +
+                                            '\nphone number : ' +
+                                            phone);
                               }
                             },
                             child: Center(
