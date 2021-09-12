@@ -1,6 +1,6 @@
-import 'package:firebasetest/screens/firestationlist.dart';
-import 'package:firebasetest/screens/hospitallist.dart';
-import 'package:firebasetest/screens/policelist.dart';
+import 'package:firebasetest/contact%20lists/firestationlist.dart';
+import 'package:firebasetest/contact%20lists/hospitallist.dart';
+import 'package:firebasetest/contact%20lists/policelist.dart';
 import 'package:flutter/material.dart';
 
 class EmergencyContactList extends StatelessWidget {

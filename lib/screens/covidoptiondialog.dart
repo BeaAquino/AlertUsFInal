@@ -1,4 +1,4 @@
-import 'package:firebasetest/screens/rtpcrlist.dart';
+import 'package:firebasetest/contact%20lists/rtpcrlist.dart';
 import 'package:flutter/material.dart';
 
 enum DialogsAction { yes }

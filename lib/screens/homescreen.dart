@@ -6,10 +6,8 @@ import 'package:firebasetest/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'hospitalscreen.dart';
 import 'policescreen.dart';
-import 'firescreen.dart';
 import 'emergencycontactlist.dart';
-import 'contactus.dart';
-import 'profile.dart';
+import '../contact lists/contactus.dart';
 import 'package:firebasetest/screens/reportdialog.dart';
 import 'covidoptiondialog.dart';
 
