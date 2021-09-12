@@ -2,12 +2,13 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebasetest/screens/emergency%20unit/adminscreen.dart';
+import 'package:firebasetest/screens/emergency%20unit/adminhome.dart';
 import 'package:firebasetest/screens/user/confirmuser.dart';
 import 'package:firebasetest/screens/user/homescreen.dart';
 import 'package:firebasetest/screens/user/profilesignup.dart';
 import 'package:flutter/material.dart';
 import 'confirmsignup.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
       navigateNext(
           ConfirmUserSignup()); // edited from HomeScreen to ConfirmUser
     } else if (role == 'admin') {
-      navigateNext(AdminScreen());
+      navigateNext(AdminHome());
     }
   }
 
