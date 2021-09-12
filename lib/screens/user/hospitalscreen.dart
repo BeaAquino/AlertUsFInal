@@ -11,6 +11,7 @@ class HospitalScreen extends StatefulWidget {
 class _HospitalScreen extends State<HospitalScreen> {
   String name;
   String phone;
+  TextEditingController messageController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +66,13 @@ class _HospitalScreen extends State<HospitalScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Abdominal/Chest Pain,\n Send Assistance',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -124,6 +132,13 @@ class _HospitalScreen extends State<HospitalScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Traumatic Injury,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -186,6 +201,13 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
+                                FirebaseFirestore.instance
+                                    .collection('users')
+                                    .doc(currentUser.uid)
+                                    .update({
+                                  'message':
+                                      'Respiratory Distress,\nSend Assistance.',
+                                });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Report Message',
@@ -243,6 +265,13 @@ class _HospitalScreen extends State<HospitalScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Severe Burns/Scald,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -303,6 +332,13 @@ class _HospitalScreen extends State<HospitalScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Loss of Consciousness Incident,\nSend Assistance.',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
@@ -361,6 +397,13 @@ class _HospitalScreen extends State<HospitalScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Seizure Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -421,6 +464,13 @@ class _HospitalScreen extends State<HospitalScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Poisoning/drug ingestion Incident,\nSend Assistance.',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
@@ -480,10 +530,16 @@ class _HospitalScreen extends State<HospitalScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message': 'Stroke Incident,\nSend Assistance.',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
-                                  'Stroke Incident,\n\nReport by:' +
+                                  'Stroke Incident,\nSend Assistance.\n\nReport by:' +
                                       currentUser.email +
                                       '\nname : ' +
                                       name +
@@ -539,10 +595,17 @@ class _HospitalScreen extends State<HospitalScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Emergency Childbirth,\nSend Assistance.',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
-                                  'Emergency Childbirth,\n\nReport by:' +
+                                  'Emergency Childbirth,\nSend Assistance.\n\nReport by:' +
                                       currentUser.email +
                                       '\nname : ' +
                                       name +
@@ -598,10 +661,16 @@ class _HospitalScreen extends State<HospitalScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message': 'In need of Medical Assistance',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
-                                  'In need of Medical Assitance,\n\nReport by:' +
+                                  'In need of Medical Assistance,\n\nReport by:' +
                                       currentUser.email +
                                       '\nname : ' +
                                       name +

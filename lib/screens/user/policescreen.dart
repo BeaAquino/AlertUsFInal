@@ -66,6 +66,13 @@ class _PoliceScreen extends State<PoliceScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Homicide Incident,\nSend Assistance.',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
@@ -124,6 +131,13 @@ class _PoliceScreen extends State<PoliceScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Violence/Brawl Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -186,6 +200,13 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
+                                FirebaseFirestore.instance
+                                    .collection('users')
+                                    .doc(currentUser.uid)
+                                    .update({
+                                  'message':
+                                      'Burglary/Theft Incident,\nSend Assistance.',
+                                });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Report Message',
@@ -243,6 +264,13 @@ class _PoliceScreen extends State<PoliceScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Domestic Threat Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -303,6 +331,13 @@ class _PoliceScreen extends State<PoliceScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Sexual Assault Incident,\nSend Assistance.',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
@@ -361,6 +396,13 @@ class _PoliceScreen extends State<PoliceScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Missing or Kidnapping Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -421,6 +463,13 @@ class _PoliceScreen extends State<PoliceScreen> {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
                               });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message':
+                                    'Terrorist Incident,\nSend Assistance.',
+                              });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Report Message',
@@ -479,6 +528,12 @@ class _PoliceScreen extends State<PoliceScreen> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                              });
+                              FirebaseFirestore.instance
+                                  .collection('users')
+                                  .doc(currentUser.uid)
+                                  .update({
+                                'message': 'In need of Police Assistance',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,

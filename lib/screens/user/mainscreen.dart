@@ -143,6 +143,7 @@ class _MainScreenState extends State<MainScreen> {
                           'role': 'user',
                           'name': 'Name',
                           'phone': '00000000000',
+                          'message': 'In need of Assistance',
                         });
                       });
                     }

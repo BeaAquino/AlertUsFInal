@@ -222,6 +222,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
+                                FirebaseFirestore.instance
+                                    .collection('users')
+                                    .doc(currentUser.uid)
+                                    .update({
+                                  'message': 'FIRE!!!',
+                                });
                                 final action =
                                     await AlertDialogs.yesCancelDialog(
                                         context,
