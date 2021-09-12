@@ -11,6 +11,7 @@ import 'emergencycontactlist.dart';
 import 'contactus.dart';
 import 'profile.dart';
 import 'package:firebasetest/screens/reportdialog.dart';
+import 'covidoptiondialog.dart';
 
 final AuthService _auth = AuthService(FirebaseAuth.instance);
 
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: Text("Dashboard"),
+        // title: Text("Dashboard"),
         backgroundColor: Colors.redAccent[700],
       ),
       backgroundColor: Colors.orange[200],
@@ -269,7 +270,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () async {
+                            final action = await Covid_option.yesCancelDialog(
+                                context,
+                                'RT-PCR Testing Sites',
+                                'What would you like to do?');
+                          },
                           child: Center(
                               child: Padding(
                             padding: const EdgeInsets.all(8.0),

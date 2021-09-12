@@ -1,3 +1,6 @@
+import 'package:firebasetest/screens/firestationlist.dart';
+import 'package:firebasetest/screens/hospitallist.dart';
+import 'package:firebasetest/screens/policelist.dart';
 import 'package:flutter/material.dart';
 
 class EmergencyContactList extends StatelessWidget {
@@ -34,78 +37,101 @@ class EmergencyContactList extends StatelessWidget {
                 elevation: 1.0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0)),
-                child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Row(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(" Hospital List",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                      )
-                    ],
-                  ),
-                )),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HospitalList()),
+                    );
+                  },
+                  child: Center(
+                      child: Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: Row(
+                      children: <Widget>[
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(" Hospital List",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              )),
+                        )
+                      ],
+                    ),
+                  )),
+                ),
               ),
             ),
             SizedBox(
               width: 360.0,
               height: 70.0,
               child: Card(
-                color: Colors.orange,
-                elevation: 1.0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0)),
-                child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Row(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(" Police Station List",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                      )
-                    ],
-                  ),
-                )),
-              ),
+                  color: Colors.orange,
+                  elevation: 1.0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0)),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PoliceList()),
+                      );
+                    },
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Row(
+                        children: <Widget>[
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(" Police Station List",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          )
+                        ],
+                      ),
+                    )),
+                  )),
             ),
             SizedBox(
               width: 360.0,
               height: 70.0,
               child: Card(
-                color: Colors.orange,
-                elevation: 1.0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0)),
-                child: Center(
-                    child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Row(
-                    children: <Widget>[
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(" Fire Station List",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
-                      )
-                    ],
-                  ),
-                )),
-              ),
+                  color: Colors.orange,
+                  elevation: 1.0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0)),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FireStationList()),
+                      );
+                    },
+                    child: Center(
+                        child: Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Row(
+                        children: <Widget>[
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(" Fire Station List",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          )
+                        ],
+                      ),
+                    )),
+                  )),
             ),
           ])),
     );
