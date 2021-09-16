@@ -104,6 +104,24 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "firebase_messaging",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-8.0.0-dev.15",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "firebase_messaging_platform_interface",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_platform_interface-1.0.0-dev.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "firebase_messaging_web",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging_web-0.1.0-dev.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -158,6 +176,12 @@
       "languageVersion": "2.2"
     },
     {
+      "name": "notifier",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/notifier-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "path",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
       "packageUri": "lib/",
@@ -178,6 +202,12 @@
     {
       "name": "quiver",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/quiver-2.1.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "service_worker",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/service_worker-0.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -212,6 +242,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "synchronized",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/synchronized-1.5.3+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "term_glyph",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0",
       "packageUri": "lib/",
@@ -242,7 +278,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-09-08T11:01:28.102040Z",
+  "generated": "2021-09-16T08:35:05.244696Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
