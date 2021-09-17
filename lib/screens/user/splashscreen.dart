@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
       navigateNext(
           ConfirmUserSignup()); // edited from HomeScreen to ConfirmUser
     } else if (role == 'admin') {
-      navigateNext(AdminHome());
+      navigateNext(MyApp());
     }
   }
 
