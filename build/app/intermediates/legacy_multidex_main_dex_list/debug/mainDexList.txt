@@ -206,7 +206,6 @@ com/google/common/annotations/Beta.class
 com/google/common/annotations/GwtCompatible.class
 com/google/common/annotations/GwtIncompatible.class
 com/google/common/annotations/VisibleForTesting.class
-com/google/common/base/Java8Usage$SomeTypeAnnotation.class
 com/google/common/collect/GwtTransient.class
 com/google/common/eventbus/AllowConcurrentEvents.class
 com/google/common/eventbus/Subscribe.class
@@ -249,6 +248,7 @@ com/google/firebase/firestore/ServerTimestamp.class
 com/google/firebase/firestore/ThrowOnExtraProperties.class
 com/google/firebase/firestore/util/AsyncQueue.class
 com/google/firebase/firestore/util/Preconditions.class
+com/google/firebase/iid/FirebaseInstanceId.class
 com/google/firebase/messaging/Constants$ScionAnalytics$MessageType.class
 com/google/firebase/messaging/RemoteMessage$MessagePriority.class
 com/google/firebase/platforminfo/AutoValue_LibraryVersion.class

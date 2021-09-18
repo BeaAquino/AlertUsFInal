@@ -8,12 +8,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "awesome_notifications",
-      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/awesome_notifications-0.0.6+10",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0",
       "packageUri": "lib/",
@@ -194,12 +188,6 @@
       "languageVersion": "2.2"
     },
     {
-      "name": "notifier",
-      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/notifier-1.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "path",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
       "packageUri": "lib/",
@@ -266,12 +254,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "synchronized",
-      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/synchronized-1.5.3+2",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "term_glyph",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0",
       "packageUri": "lib/",
@@ -308,7 +290,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-09-17T07:10:35.025691Z",
+  "generated": "2021-09-18T07:25:00.694056Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

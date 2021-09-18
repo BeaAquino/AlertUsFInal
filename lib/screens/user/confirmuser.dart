@@ -17,7 +17,9 @@ class _ConfirmUser extends State<ConfirmUser> {
   String password = " ";
   String name = " ";
   String phone = " ";
-  String message = " ";
+  String police_message = " ";
+  String hospital_message = " ";
+  String fire_message = " ";
 
   bool ableToEdit = false;
 
@@ -77,7 +79,9 @@ class _ConfirmUser extends State<ConfirmUser> {
                 role = snap.docs[0]['role'];
                 name = snap.docs[0]['name'];
                 phone = snap.docs[0]['phone'];
-                message = snap.docs[0]['message'];
+                police_message = snap.docs[0]['police message'];
+                fire_message = snap.docs[0]['fire message'];
+                hospital_message = snap.docs[0]['hospital message'];
 
                 ableToEdit = true;
               });
@@ -153,13 +157,8 @@ class _ConfirmUser extends State<ConfirmUser> {
                 fontWeight: FontWeight.bold,
                 color: Colors.black),
           ),
-          Text(
-            'Message : ' + message,
-            style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
+        
+         
         ]));
   }
 }

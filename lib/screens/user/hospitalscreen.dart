@@ -71,7 +71,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'hospital message':
                                     'Abdominal/Chest Pain,\n Send Assistance',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -137,7 +137,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'hospital message':
                                     'Traumatic Injury,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -205,7 +205,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                     .collection('users')
                                     .doc(currentUser.uid)
                                     .update({
-                                  'message':
+                                  'hospital message':
                                       'Respiratory Distress,\nSend Assistance.',
                                 });
                                 final action = await AlertDialogs.yesCancelDialog(
@@ -270,7 +270,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'hospital message':
                                     'Severe Burns/Scald,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -336,7 +336,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'hospital message':
                                     'Loss of Consciousness Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -402,7 +402,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'hospital message':
                                     'Seizure Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -468,7 +468,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'hospital message':
                                     'Poisoning/drug ingestion Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -534,7 +534,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message': 'Stroke Incident,\nSend Assistance.',
+                                'hospital message': 'Stroke Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
@@ -599,7 +599,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'hospital message':
                                     'Emergency Childbirth,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -665,7 +665,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message': 'In need of Medical Assistance',
+                                'hospital message': 'In need of Medical Assistance',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,

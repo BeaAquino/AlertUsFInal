@@ -70,7 +70,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'police message':
                                     'Homicide Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -136,7 +136,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'police message':
                                     'Violence/Brawl Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -204,7 +204,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                     .collection('users')
                                     .doc(currentUser.uid)
                                     .update({
-                                  'message':
+                                  'police message':
                                       'Burglary/Theft Incident,\nSend Assistance.',
                                 });
                                 final action = await AlertDialogs.yesCancelDialog(
@@ -269,7 +269,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'police message':
                                     'Domestic Threat Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -335,7 +335,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'police message':
                                     'Sexual Assault Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -401,7 +401,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'police message':
                                     'Missing or Kidnapping Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -467,7 +467,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message':
+                                'police message':
                                     'Terrorist Incident,\nSend Assistance.',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
@@ -533,7 +533,7 @@ class _PoliceScreen extends State<PoliceScreen> {
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'message': 'In need of Police Assistance',
+                                'police message': 'In need of Police Assistance',
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,

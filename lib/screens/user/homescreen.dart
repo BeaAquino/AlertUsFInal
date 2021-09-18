@@ -226,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .collection('users')
                                     .doc(currentUser.uid)
                                     .update({
-                                  'message': 'FIRE!!!',
+                                  'fire message': 'FIRE!!!',
                                 });
                                 final action =
                                     await AlertDialogs.yesCancelDialog(
