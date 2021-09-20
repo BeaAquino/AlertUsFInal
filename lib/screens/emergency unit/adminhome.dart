@@ -11,7 +11,7 @@ import 'package:firebasetest/services/auth_services.dart';
 
 final AuthService _auth = AuthService(FirebaseAuth.instance);
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+Future _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
   print('Handling a background message ${message.messageId}');
   print(message.data);
@@ -63,6 +63,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    // firebaseTrigger(context);
     var initialzationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
     var initializationSettings =
