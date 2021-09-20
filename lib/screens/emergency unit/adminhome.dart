@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebasetest/screens/emergency%20unit/report.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import '../../contact lists/contactus.dart';
@@ -38,6 +39,17 @@ const AndroidNotificationChannel channel = AndroidNotificationChannel(
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
+Future doSomething(String message) async {
+  //navigating to next screen
+  //Handle notification tapped logic here
+  //print(message);
+  // return new AlertDialog(
+  //   title: Text("PayLoad"),
+  //   content: Text("Payload : $message"),
+  // );
+  runApp(Another());
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -57,6 +69,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final GlobalKey<NavigatorState> navigatorKey =
+      GlobalKey(debugLabel: "Main Navigator");
   String token;
   List subscribed = [];
   List topics = ['Police', 'Hospital', 'Fire'];
@@ -66,10 +80,12 @@ class _MyAppState extends State<MyApp> {
     // firebaseTrigger(context);
     var initialzationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
-    var initializationSettings =
-        InitializationSettings(android: initialzationSettingsAndroid);
+    var initializationSettings = InitializationSettings(
+      android: initialzationSettingsAndroid,
+    );
 
-    flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: doSomething);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification notification = message.notification;
       AndroidNotification android = message.notification?.android;
@@ -217,5 +233,49 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       subscribed = subscribed;
     });
+  }
+}
+
+class Another extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Report(),
+    );
+  }
+}
+
+class Report extends StatefulWidget {
+  @override
+  _Report createState() => _Report();
+}
+
+class _Report extends State<Report> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Report",
+          ),
+          backgroundColor: Colors.redAccent[700],
+        ),
+        backgroundColor: Colors.orange[200],
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Report Message:",
+            style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black),
+          ),
+        ]));
   }
 }
