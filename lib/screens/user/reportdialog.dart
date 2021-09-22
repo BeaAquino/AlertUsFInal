@@ -63,6 +63,7 @@
 //     return (action != null) ? action : DialogsAction.cancel;
 //   }
 // }
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/map%20screens/firescreen.dart';
 import 'package:firebasetest/map%20screens/hospitalscreen.dart';
 import 'package:firebasetest/map%20screens/policescreen.dart';
@@ -73,6 +74,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart' as loc;
 
+var currentUser = FirebaseAuth.instance.currentUser;
+
 enum DialogsAction { yes, cancel }
 
 class AlertDialogs {
@@ -81,7 +84,8 @@ class AlertDialogs {
     String title,
     String body,
   ) async {
-    String userid = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";
+    String userid = currentUser.uid;
+    // String userid = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";
     final loc.Location location = loc.Location();
     StreamSubscription<loc.LocationData>? _locationSubscription;
 
