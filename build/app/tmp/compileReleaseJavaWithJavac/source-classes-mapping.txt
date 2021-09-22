@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/bytx/firebasetest/BuildConfig.java
- com.bytx.firebasetest.BuildConfig

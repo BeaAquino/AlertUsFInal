@@ -641,10 +641,10 @@
       "name": "firebasetest",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-09-22T07:03:30.362988Z",
+  "generated": "2021-09-22T08:43:59.271971Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

@@ -67,7 +67,7 @@ class _FireScreenState extends State<FireScreen> {
     super.initState();
     location = new Location();
     polylinePoints = PolylinePoints();
-    location.onLocationChanged().listen((LocationData cLoc) {
+    location.onLocationChanged.listen((LocationData cLoc) {
       currentLocation = cLoc;
       updatePinOnMap();
     });

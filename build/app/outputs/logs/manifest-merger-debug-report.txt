@@ -10,12 +10,13 @@ MERGED from [:cloud_functions] C:\Users\aquin\Desktop\AlertUsFInal\build\cloud_f
 MERGED from [:firebase_auth] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-46:12
 MERGED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-18:12
+MERGED from [:location_web] C:\Users\aquin\Desktop\AlertUsFInal\build\location_web\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:google_maps_flutter] C:\Users\aquin\Desktop\AlertUsFInal\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
 MERGED from [:geocoding] C:\Users\aquin\Desktop\AlertUsFInal\build\geocoding\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
-MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-18:12
 MERGED from [:permission_handler] C:\Users\aquin\Desktop\AlertUsFInal\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:geolocator] C:\Users\aquin\Desktop\AlertUsFInal\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\537b7ff770de146ced53172075554e63\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
@@ -138,12 +139,12 @@ MERGED from [:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\fire
 MERGED from [:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-44:19
 MERGED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
+MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
 MERGED from [:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
 MERGED from [:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
 MERGED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
 MERGED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-12:19
-MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
-MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
 MERGED from [com.google.firebase:firebase-analytics-ktx:19.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\22aa09e330dc5a1b070c34a338b11231\jetified-firebase-analytics-ktx-19.0.1\AndroidManifest.xml:7:5-15:19
 MERGED from [com.google.firebase:firebase-analytics-ktx:19.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\22aa09e330dc5a1b070c34a338b11231\jetified-firebase-analytics-ktx-19.0.1\AndroidManifest.xml:7:5-15:19
 MERGED from [com.google.firebase:firebase-common-ktx:20.0.0] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\574dcfe1efd7819034b62afdc400f4d4\jetified-firebase-common-ktx-20.0.0\AndroidManifest.xml:11:5-19:19
@@ -300,6 +301,10 @@ MERGED from [:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\fire
 MERGED from [:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:location_web] C:\Users\aquin\Desktop\AlertUsFInal\build\location_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:location_web] C:\Users\aquin\Desktop\AlertUsFInal\build\location_web\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\aquin\Desktop\AlertUsFInal\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\aquin\Desktop\AlertUsFInal\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -310,8 +315,6 @@ MERGED from [:geocoding] C:\Users\aquin\Desktop\AlertUsFInal\build\geocoding\int
 MERGED from [:geocoding] C:\Users\aquin\Desktop\AlertUsFInal\build\geocoding\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:permission_handler] C:\Users\aquin\Desktop\AlertUsFInal\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:permission_handler] C:\Users\aquin\Desktop\AlertUsFInal\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geolocator] C:\Users\aquin\Desktop\AlertUsFInal\build\geolocator\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -660,6 +663,16 @@ ADDED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_c
 		ADDED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+service#com.lyokone.location.FlutterLocationService
+ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
+	android:enabled
+		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
+	android:exported
+		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+	android:foregroundServiceType
+		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
+	android:name
+		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
 ADDED from [:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
 	android:name
@@ -706,16 +719,6 @@ ADDED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launche
 		ADDED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
 	android:name
 		ADDED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
-service#com.lyokone.location.FlutterLocationService
-ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
-	android:enabled
-		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
-	android:exported
-		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
-	android:foregroundServiceType
-		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
-	android:name
-		ADDED from [:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
 meta-data#com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar
 ADDED from [com.google.firebase:firebase-analytics-ktx:19.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\22aa09e330dc5a1b070c34a338b11231\jetified-firebase-analytics-ktx-19.0.1\AndroidManifest.xml:11:13-13:85
 	android:value

@@ -299,48 +299,48 @@
 165            android:initOrder="99" />
 165-->[:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:43:13-35
 166
-167        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
-167-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-106
-167-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:19-103
-168        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver" >
-168-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-20:20
-168-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:19-107
-169            <intent-filter>
-169-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-19:29
-170                <action android:name="android.intent.action.BOOT_COMPLETED" />
-170-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-79
-170-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:15:25-76
-171                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-171-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:17-84
-171-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:25-81
-172                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-172-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-82
-172-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:25-79
-173                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
-173-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-82
-173-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:25-79
-174            </intent-filter>
-175        </receiver>
-176
-177        <activity
-177-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
-178            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-178-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
-179            android:exported="false"
-179-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
-180            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-180-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
-181
-182        <service
-182-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
-183            android:name="com.lyokone.location.FlutterLocationService"
-183-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
-184            android:enabled="true"
-184-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
+167        <service
+167-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
+168            android:name="com.lyokone.location.FlutterLocationService"
+168-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
+169            android:enabled="true"
+169-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
+170            android:exported="false"
+170-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+171            android:foregroundServiceType="location" />
+171-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
+172
+173        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
+173-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-106
+173-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:19-103
+174        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver" >
+174-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-20:20
+174-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:19-107
+175            <intent-filter>
+175-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-19:29
+176                <action android:name="android.intent.action.BOOT_COMPLETED" />
+176-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:15:17-79
+176-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:15:25-76
+177                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+177-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:17-84
+177-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:25-81
+178                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+178-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-82
+178-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:25-79
+179                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+179-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-82
+179-->[:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:25-79
+180            </intent-filter>
+181        </receiver>
+182
+183        <activity
+183-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-11:74
+184            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+184-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-74
 185            android:exported="false"
-185-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
-186            android:foregroundServiceType="location" />
-186-->[:location] C:\Users\aquin\Desktop\AlertUsFInal\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
+185-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:10:13-37
+186            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+186-->[:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-71
 187
 188        <receiver
 188-->[com.google.firebase:firebase-messaging:22.0.0] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\b3ee75fc5feb0f7be228653474c72aaf\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:28:9-35:20
