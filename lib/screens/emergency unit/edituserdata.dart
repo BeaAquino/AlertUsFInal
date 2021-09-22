@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class EditUser extends StatefulWidget {
   final String uid;
 
-  EditUser({Key key, this.uid}) : super(key: key);
+  EditUser({Key? key, required this.uid}) : super(key: key);
   @override
   _EditUserState createState() => _EditUserState();
 }

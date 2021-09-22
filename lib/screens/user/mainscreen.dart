@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
               child: TextFormField(
                 controller: emailController,
                 validator: (val) =>
-                    val.isNotEmpty ? null : "Please Enter E-mail Address",
+                    val!.isNotEmpty ? null : "Please Enter E-mail Address",
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
@@ -84,8 +84,6 @@ class _MainScreenState extends State<MainScreen> {
               ),
               child: TextFormField(
                 controller: passwordController,
-                validator: (val) =>
-                    val.length < 8 ? "Please Enter more than 8 Digits" : null,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
@@ -197,7 +195,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-String validatorText(String formText) {
+String? validatorText(String formText) {
   if (formText.isEmpty) return 'Please Enter E-Mail...';
 
   return null;

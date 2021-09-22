@@ -59,7 +59,7 @@ class _ConfirmUser extends State<ConfirmUser> {
           TextFormField(
             controller: emailController,
             validator: (val) =>
-                val.isNotEmpty ? null : "Please Enter E-mail Address",
+                val!.isNotEmpty ? null : "Please Enter E-mail Address",
             decoration: InputDecoration(
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),

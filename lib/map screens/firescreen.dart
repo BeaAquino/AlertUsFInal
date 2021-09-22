@@ -5,6 +5,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebasetest/services/auth_services.dart';
+
+final AuthService _auth = AuthService(FirebaseAuth.instance);
 
 const double CAMERA_ZOOM = 16;
 const double CAMERA_TILT = 80;
@@ -22,6 +27,8 @@ class FireScreen extends StatefulWidget {
 }
 
 class _FireScreenState extends State<FireScreen> {
+  late String _name;
+  late String _phone;
   Completer<GoogleMapController> _controller = Completer();
   late BitmapDescriptor sourceIcon;
   late BitmapDescriptor destinationIcon;
@@ -90,32 +97,38 @@ class _FireScreenState extends State<FireScreen> {
         target: LatLng(0, 0));
 
     return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Map",
+          ),
+          backgroundColor: Colors.redAccent[700],
+        ),
         body: Stack(
-      children: [
-        Positioned.fill(
-            child: GoogleMap(
-          myLocationEnabled: true,
-          compassEnabled: false,
-          tiltGesturesEnabled: false,
-          zoomControlsEnabled: false,
-          polylines: _polylines,
-          markers: _markers,
-          mapType: MapType.terrain,
-          initialCameraPosition: initialCameraPosition,
-          onMapCreated: (GoogleMapController controller) {
-            _controller.complete(controller);
-            shortestDistance();
-            showPinsOnMap();
-          },
-        )),
-        Positioned(top: 100, left: 0, right: 0, child: MapUserBadge()),
-        Positioned(
-            left: 0,
-            right: 0,
-            bottom: 20,
-            child: MapDestBadge(name: name, distance: distance))
-      ],
-    ));
+          children: [
+            Positioned.fill(
+                child: GoogleMap(
+              myLocationEnabled: true,
+              compassEnabled: false,
+              tiltGesturesEnabled: false,
+              zoomControlsEnabled: false,
+              polylines: _polylines,
+              markers: _markers,
+              mapType: MapType.terrain,
+              initialCameraPosition: initialCameraPosition,
+              onMapCreated: (GoogleMapController controller) {
+                _controller.complete(controller);
+                shortestDistance();
+                showPinsOnMap();
+              },
+            )),
+            Positioned(top: 100, left: 0, right: 0, child: MapUserBadge()),
+            Positioned(
+                left: 0,
+                right: 0,
+                bottom: 20,
+                child: MapDestBadge(name: name, distance: distance))
+          ],
+        ));
   }
 
   void showPinsOnMap() {
@@ -222,6 +235,9 @@ class MapDestBadge extends StatelessWidget {
   }
 }
 
+var currentUser = FirebaseAuth.instance.currentUser;
+var email = currentUser.email;
+
 class MapUserBadge extends StatelessWidget {
   const MapUserBadge({
     Key? key,
@@ -258,7 +274,7 @@ class MapUserBadge extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                  Text('YOUR NAME',
+                  Text(email,
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.black)),
                   Text('CURRENT LOCATION', style: TextStyle(color: Colors.grey))

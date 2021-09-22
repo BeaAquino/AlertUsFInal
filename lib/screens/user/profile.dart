@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Profile extends StatefulWidget {
   final String uid;
 
-  Profile({Key key, this.uid}) : super(key: key);
+  Profile({Key? key, required this.uid}) : super(key: key);
   @override
   _Profile createState() => _Profile();
 }

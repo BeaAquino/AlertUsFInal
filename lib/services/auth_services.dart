@@ -8,16 +8,14 @@ class AuthService {
 
   Stream<User> get authStateChanges => _auth.idTokenChanges();
 
-  Future<String> login(String email, String password) async {
+  Future<String?> login(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       return "Logged In";
-    } catch (e) {
-      return e;
-    }
+    } catch (e) {}
   }
 
-  Future<String> signUp(
+  Future<String?> signUp(
     String email,
     String password,
     String role,
@@ -36,9 +34,7 @@ class AuthService {
         });
       });
       return "Signed Up";
-    } catch (e) {
-      return e;
-    }
+    } catch (e) {}
   }
 
   Future signOut() async {

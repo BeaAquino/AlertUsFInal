@@ -20,8 +20,8 @@ class _AdminNotifHome extends State<AdminNotifHome> {
     super.initState();
   }
 
-  String name;
-  String phone;
+  late String name;
+  late String phone;
 
   @override
   Widget build(BuildContext context) {

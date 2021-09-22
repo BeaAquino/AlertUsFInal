@@ -65,7 +65,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String token;
+  late String token;
   List subscribed = [];
   List topics = ['Police', 'Hospital', 'Fire'];
   @override
@@ -81,7 +81,7 @@ class _MyAppState extends State<MyApp> {
         onSelectNotification: doSomething);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification notification = message.notification;
-      AndroidNotification android = message.notification?.android;
+      AndroidNotification? android = message.notification?.android;
       if (notification != null && android != null) {
         flutterLocalNotificationsPlugin.show(
             notification.hashCode,
@@ -92,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                 channel.id,
                 channel.name,
                 channel.description,
-                icon: android?.smallIcon,
+                icon: android.smallIcon,
               ),
             ));
       }
@@ -281,7 +281,7 @@ class _Report extends State<Report> {
             }
 
             return ListView(
-              children: snapshot.data.docs.map((document) {
+              children: snapshot.data!.docs.map((document) {
                 return Center(
                   child: Container(
                     width: MediaQuery.of(context).size.width / 1.2,

@@ -4,8 +4,8 @@ import 'package:firebasetest/screens/user/confirmuser.dart';
 import 'package:firebasetest/screens/user/mainscreen.dart';
 import 'package:firebasetest/services/auth_services.dart';
 import 'package:flutter/material.dart';
-import 'hospitalscreen.dart';
-import 'policescreen.dart';
+import 'hospitalreport.dart';
+import 'policereport.dart';
 import 'emergencycontactlist.dart';
 import '../../contact lists/contactus.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
@@ -24,8 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  String name;
-  String phone;
+  late String name;
+  late String phone;
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HospitalScreen()),
+                                  builder: (context) => HospitalReport()),
                             );
                           },
                           child: Center(
@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PoliceScreen()),
+                                  builder: (context) => PoliceReport()),
                             );
                           },
                           child: Center(
@@ -231,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 final action =
                                     await AlertDialogs.yesCancelDialog(
                                         context,
-                                        'Report Message',
+                                        'Fire Report',
                                         'FIRE!!!.\n\nReport by:' +
                                             currentUser.email +
                                             '\nname : ' +
@@ -275,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(8.0)),
                         child: InkWell(
                           onTap: () async {
-                            final action = await Covid_option.yesCancelDialog(
+                            final action = await CovidDialogs.yesCancelDialog(
                                 context,
                                 'RT-PCR Testing Sites',
                                 'What would you like to do?');

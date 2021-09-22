@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ProfileSignUp extends StatefulWidget {
   final String uid;
 
-  ProfileSignUp({Key key, this.uid}) : super(key: key);
+  ProfileSignUp({Key? key, required this.uid}) : super(key: key);
   @override
   _ProfileSignUp createState() => _ProfileSignUp();
 }

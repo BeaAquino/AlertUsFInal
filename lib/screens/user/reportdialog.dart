@@ -1,3 +1,6 @@
+import 'package:firebasetest/map%20screens/firescreen.dart';
+import 'package:firebasetest/map%20screens/hospitalscreen.dart';
+import 'package:firebasetest/map%20screens/policescreen.dart';
 import 'package:flutter/material.dart';
 
 enum DialogsAction { yes, cancel }
@@ -28,8 +31,26 @@ class AlertDialogs {
                 ),
               ),
               FlatButton(
-                onPressed:
-                    () {}, // dito ilalagay yung route ng gps ng emergency unit na magrereceive ng notif
+                onPressed: () {
+                  if (title == "Fire Report") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FireScreen()),
+                    );
+                  }
+                  if (title == "Hospital Report") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HospitalScreen()),
+                    );
+                  }
+                  if (title == "Police Report") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PoliceScreen()),
+                    );
+                  }
+                }, 
                 child: Text(
                   'Confirm',
                   style: TextStyle(
