@@ -1,8 +1,9 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const { DataSnapshot } = require('firebase-functions/v1/database');
 admin.initializeApp(functions.config().firebase);
 
-exports.sendNotificationToPoliceTopic = functions.firestore.document('users/{uid}').onUpdate(async (event) => {
+exports.sendNotificationToPoliceTopic = functions.firestore.document('users/{uid}').onUpdate(async (event,) => {
     let content = event.after.get('police message');
     var message = {
         notification: {
@@ -19,7 +20,7 @@ exports.sendNotificationToFireTopic = functions.firestore.document('users/{uid}'
   let content = event.after.get('fire message');
   var message = {
       notification: {
-        title: 'New Report',
+        title: 'New Report', 
         body: content,
       },
       topic: 'Fire',
@@ -30,6 +31,7 @@ exports.sendNotificationToFireTopic = functions.firestore.document('users/{uid}'
 });
 exports.sendNotificationToHospitalTopic = functions.firestore.document('users/{uid}').onUpdate(async (event) => {
   let content = event.after.get('hospital message');
+
   var message = {
       notification: {
         title: 'New Report',

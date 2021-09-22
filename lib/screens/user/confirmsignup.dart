@@ -19,6 +19,8 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
   String name = " ";
   String phone = " ";
 
+  final _formkey = GlobalKey<FormState>();
+
   bool ableToEdit = false;
 
   @override
@@ -31,89 +33,107 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
           backgroundColor: Colors.redAccent[700],
         ),
         backgroundColor: Colors.orange[200],
-        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "Please confirm your email first,\nAfter confirming your email, set Profile Data",
-            style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
-          SizedBox(
-            height: 50,
-          ),
-          TextFormField(
-            controller: emailController,
-            decoration: InputDecoration(
-              fillColor: Colors.white,
-              filled: true,
-              hintText: "Email",
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            onTap: () async {
-              String userEmail = emailController.text.trim();
-
-              final QuerySnapshot snap = await FirebaseFirestore.instance
-                  .collection('users')
-                  .where('email', isEqualTo: userEmail)
-                  .get();
-              setState(() {
-                email = userEmail;
-                uid = snap.docs[0]['uid'];
-                role = snap.docs[0]['role'];
-                name = snap.docs[0]['name'];
-                phone = snap.docs[0]['phone'];
-
-                ableToEdit = true;
-              });
-            },
-            child: Container(
-              height: 50,
-              width: 100,
-              color: Colors.redAccent[700],
-              child: Center(
-                child: Text("Confirm",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                    )),
+        body: Column(
+            key: _formkey,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 10,
               ),
-            ),
-          ),
-          ableToEdit
-              ? GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ProfileSignUp(
-                                  uid: uid,
-                                )));
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 100,
-                    color: Colors.redAccent[700],
-                    child: Center(
-                      child: Text("Set Profile",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                          )),
-                    ),
+              Text(
+                "Please confirm your email first,\nAfter confirming your email, set Profile Data",
+                style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              TextFormField(
+                controller: emailController,
+                validator: (val) =>
+                    val.isNotEmpty ? null : "Please Enter E-mail Address",
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none),
+                  fillColor: Colors.white,
+                  filled: true,
+                  hintText: "Email",
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.grey[400],
                   ),
-                )
-              : Container(),
-          SizedBox(
-            height: 20,
-          ),
-        ]));
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: () async {
+                  String userEmail = emailController.text.trim();
+
+                  final QuerySnapshot snap = await FirebaseFirestore.instance
+                      .collection('users')
+                      .where('email', isEqualTo: userEmail)
+                      .get();
+                  setState(() {
+                    email = userEmail;
+                    uid = snap.docs[0]['uid'];
+                    role = snap.docs[0]['role'];
+                    name = snap.docs[0]['name'];
+                    phone = snap.docs[0]['phone'];
+
+                    ableToEdit = true;
+                  });
+                },
+                child: Container(
+                  height: 50,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.redAccent[700],
+                  ),
+                  child: Center(
+                    child: Text("Confirm",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        )),
+                  ),
+                ),
+              ),
+              ableToEdit
+                  ? GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfileSignUp(
+                                      uid: uid,
+                                    )));
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.redAccent[700],
+                        ),
+                        child: Center(
+                          child: Text("Set Profile",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              )),
+                        ),
+                      ),
+                    )
+                  : Container(),
+              SizedBox(
+                height: 20,
+              ),
+            ]));
   }
 }

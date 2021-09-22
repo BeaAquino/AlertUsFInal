@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Text(
-                "Select an Emergency",
+                "\t\t\t\t\t\tSelect an Emergency",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 28.0,
@@ -340,7 +340,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     alignment: Alignment.center,
                                     child: Text("  EMERGENCY UNIT CONTACTS",
                                         style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 18,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                         )),

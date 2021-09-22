@@ -15,12 +15,15 @@ class _MainScreenState extends State<MainScreen> {
   TextEditingController nameController = new TextEditingController();
   TextEditingController phoneController = new TextEditingController();
 
+  final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.orange[200],
       body: Container(
         child: Column(
+          key: _formkey,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: 20.0),
@@ -58,31 +61,54 @@ class _MainScreenState extends State<MainScreen> {
               ),
               child: TextFormField(
                 controller: emailController,
+                validator: (val) =>
+                    val.isNotEmpty ? null : "Please Enter E-mail Address",
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none),
                   fillColor: Colors.white,
                   filled: true,
-                  hintText: "EMAIL...",
+                  hintText: "E-Mail...",
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.grey[400],
+                  ),
                 ),
               ),
             ),
+            SizedBox(height: 16),
             Container(
               margin: EdgeInsets.symmetric(
                 horizontal: 50,
               ),
               child: TextFormField(
                 controller: passwordController,
+                validator: (val) =>
+                    val.length < 8 ? "Please Enter more than 8 Digits" : null,
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide.none),
                   fillColor: Colors.white,
                   filled: true,
-                  hintText: "PASSWORD...",
+                  hintText: "Password...",
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Colors.grey[400],
+                  ),
                 ),
                 obscureText: true,
               ),
             ),
+            SizedBox(height: 16),
             Container(
               height: 40,
               width: MediaQuery.of(context).size.width / 3,
-              color: Colors.redAccent[700],
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.redAccent[700],
+              ),
               child: FlatButton(
                 onPressed: () {
                   final String email = emailController.text.trim();
@@ -101,17 +127,21 @@ class _MainScreenState extends State<MainScreen> {
                     }
                   }
                 },
-                child: Text("LOG IN",
+                child: Text("Log In",
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,
                     )),
               ),
             ),
+            SizedBox(height: 5),
             Container(
               height: 40,
               width: MediaQuery.of(context).size.width / 3,
-              color: Colors.redAccent[700],
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.redAccent[700],
+              ),
               child: FlatButton(
                 onPressed: () {
                   final String email = emailController.text.trim();
@@ -143,15 +173,17 @@ class _MainScreenState extends State<MainScreen> {
                           'role': 'user',
                           'name': 'Name',
                           'phone': '00000000000',
-                          'police message': 'In need of Assistance',
-                          'hospital message': 'In need of Assistance',
-                          'fire message': 'In need of Assistance',
+                          'police message': '',
+                          'hospital message': '',
+                          'fire message': '',
+                          'longitude': '0',
+                          'latitude': '0',
                         });
                       });
                     }
                   }
                 },
-                child: Text("SIGN UP",
+                child: Text("Sign Up",
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,
@@ -163,4 +195,10 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
+}
+
+String validatorText(String formText) {
+  if (formText.isEmpty) return 'Please Enter E-Mail...';
+
+  return null;
 }

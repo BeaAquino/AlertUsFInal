@@ -20,6 +20,8 @@ class _ConfirmUser extends State<ConfirmUser> {
   String police_message = " ";
   String hospital_message = " ";
   String fire_message = " ";
+  String longitude = " ";
+  String latitude = " ";
 
   bool ableToEdit = false;
 
@@ -56,10 +58,19 @@ class _ConfirmUser extends State<ConfirmUser> {
           ),
           TextFormField(
             controller: emailController,
+            validator: (val) =>
+                val.isNotEmpty ? null : "Please Enter E-mail Address",
             decoration: InputDecoration(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide.none),
               fillColor: Colors.white,
               filled: true,
               hintText: "Email",
+              prefixIcon: Icon(
+                Icons.email,
+                color: Colors.grey[400],
+              ),
             ),
           ),
           SizedBox(
@@ -82,14 +93,19 @@ class _ConfirmUser extends State<ConfirmUser> {
                 police_message = snap.docs[0]['police message'];
                 fire_message = snap.docs[0]['fire message'];
                 hospital_message = snap.docs[0]['hospital message'];
+                longitude = snap.docs[0]['longitude'];
+                latitude = snap.docs[0]['latitude'];
 
                 ableToEdit = true;
               });
             },
             child: Container(
               height: 50,
-              width: 100,
-              color: Colors.redAccent[700],
+              width: 130,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.redAccent[700],
+              ),
               child: Center(
                 child: Text("VIEW DATA",
                     style: TextStyle(
@@ -98,6 +114,9 @@ class _ConfirmUser extends State<ConfirmUser> {
                     )),
               ),
             ),
+          ),
+          SizedBox(
+            height: 5,
           ),
           ableToEdit
               ? GestureDetector(
@@ -111,8 +130,11 @@ class _ConfirmUser extends State<ConfirmUser> {
                   },
                   child: Container(
                     height: 50,
-                    width: 100,
-                    color: Colors.redAccent[700],
+                    width: 130,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.redAccent[700],
+                    ),
                     child: Center(
                       child: Text("Edit Profile",
                           style: TextStyle(
@@ -157,8 +179,20 @@ class _ConfirmUser extends State<ConfirmUser> {
                 fontWeight: FontWeight.bold,
                 color: Colors.black),
           ),
-        
-         
+          Text(
+            'longitude : ' + longitude,
+            style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black),
+          ),
+          Text(
+            'latitude : ' + latitude,
+            style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black),
+          ),
         ]));
   }
 }

@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebasetest/screens/emergency%20unit/report.dart';
+import 'package:firebasetest/screens/user/homescreen.dart';
+import 'package:firebasetest/screens/user/reportdialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import '../../contact lists/contactus.dart';
@@ -9,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/screens/user/confirmuser.dart';
 import 'package:firebasetest/screens/user/mainscreen.dart';
 import 'package:firebasetest/services/auth_services.dart';
+import 'adminscreen.dart';
 
 final AuthService _auth = AuthService(FirebaseAuth.instance);
 
@@ -39,15 +41,9 @@ const AndroidNotificationChannel channel = AndroidNotificationChannel(
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
-Future doSomething(String message) async {
-  //navigating to next screen
-  //Handle notification tapped logic here
-  //print(message);
-  // return new AlertDialog(
-  //   title: Text("PayLoad"),
-  //   content: Text("Payload : $message"),
-  // );
-  runApp(Another());
+Future doSomething(context) async {
+  runApp(
+      Another()); // yung class ng Another, icopy paste nalang yung code ng map
 }
 
 void main() async {
@@ -69,15 +65,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final GlobalKey<NavigatorState> navigatorKey =
-      GlobalKey(debugLabel: "Main Navigator");
   String token;
   List subscribed = [];
   List topics = ['Police', 'Hospital', 'Fire'];
   @override
   void initState() {
     super.initState();
-    // firebaseTrigger(context);
     var initialzationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');
     var initializationSettings = InitializationSettings(
@@ -250,32 +243,71 @@ class Another extends StatelessWidget {
 }
 
 class Report extends StatefulWidget {
+  Report();
   @override
   _Report createState() => _Report();
 }
 
 class _Report extends State<Report> {
+  _Report();
   @override
   Widget build(BuildContext context) {
+    var currentUser = "user";
+    var _police = FirebaseFirestore.instance
+        .collection('users')
+        .doc('police message')
+        .get();
+
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Report",
-          ),
-          backgroundColor: Colors.redAccent[700],
+      appBar: AppBar(
+        title: Text(
+          "List of Users",
         ),
-        backgroundColor: Colors.orange[200],
-        body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            "Report Message:",
-            style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
-        ]));
+        backgroundColor: Colors.redAccent[700],
+      ),
+      backgroundColor: Colors.orange[200],
+      floatingActionButton: null,
+      body: StreamBuilder(
+          stream: FirebaseFirestore.instance
+              .collection('users')
+              .where('role', isEqualTo: currentUser)
+              .snapshots(),
+          builder:
+              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+
+            return ListView(
+              children: snapshot.data.docs.map((document) {
+                return Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 1.2,
+                    height: MediaQuery.of(context).size.height / 6,
+                    child: Text("\n\nName :" +
+                            document['name'] +
+                            "\nPhone : " +
+                            document['phone'] +
+                            "\nEmail : " +
+                            document['email'] +
+                            "\nPolice Report: " +
+                            document['police report']
+                        // +
+                        // "\nReport\n  Report Messages : " +
+                        // document['fire message'] +
+                        // "\n " +
+                        // document['police message'] +
+                        // "\n " +
+                        ),
+                  ),
+                );
+              }).toList(),
+            );
+
+            ;
+          }),
+    );
   }
 }

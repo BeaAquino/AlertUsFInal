@@ -56,6 +56,7 @@ class _HospitalScreen extends State<HospitalScreen> {
                         child: InkWell(
                           onTap: () async {
                             var currentUser = FirebaseAuth.instance.currentUser;
+                            
 
                             if (currentUser != null) {
                               final QuerySnapshot snap = await FirebaseFirestore
