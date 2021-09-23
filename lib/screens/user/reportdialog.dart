@@ -75,7 +75,8 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart' as loc;
 
 var currentUser = FirebaseAuth.instance.currentUser;
-
+late String name;
+late String phone;
 enum DialogsAction { yes, cancel }
 
 class AlertDialogs {
@@ -85,7 +86,6 @@ class AlertDialogs {
     String body,
   ) async {
     String userid = currentUser.uid;
-    // String userid = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";
     final loc.Location location = loc.Location();
     StreamSubscription<loc.LocationData>? _locationSubscription;
 
@@ -100,8 +100,18 @@ class AlertDialogs {
             content: Text(body),
             actions: <Widget>[
               FlatButton(
-                onPressed: () =>
-                    Navigator.of(context).pop(DialogsAction.cancel),
+                onPressed: () async {
+                  if (currentUser != null) {
+                    FirebaseFirestore.instance
+                        .collection('users')
+                        .doc(currentUser.uid)
+                        .update({
+                      'longitude': 0,
+                      'latitude': 0,
+                    });
+                  }
+                  Navigator.of(context).pop(DialogsAction.cancel);
+                },
                 child: Text(
                   'Cancel',
                   style: TextStyle(

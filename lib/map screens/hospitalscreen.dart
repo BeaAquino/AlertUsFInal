@@ -39,7 +39,10 @@ class _HospitalScreenState extends State<HospitalScreen> {
     "Rafael Lazatin Memorial Medical Center (ONA)",
     "St. Catherine Of Alexandria Foundation and Medical Center",
     "St. Catherine of Alexandria Foundation & Medical Center (New Site)",
-    "PRI Medical Center"
+    "PRI Medical Center",
+    "Angeles Medical Center Inc",
+    "Holy Family Medical Center",
+    "Dr. Armando Garcia Hospital"
   ];
   List<LatLng> hospital_coords = [
     LatLng(15.1449209217148, 120.595218414368),
@@ -47,7 +50,10 @@ class _HospitalScreenState extends State<HospitalScreen> {
     LatLng(15.146012086166653, 120.58067588839987),
     LatLng(15.13966511552431, 120.57912344929788),
     LatLng(15.130718548831034, 120.57634686085967),
-    LatLng(15.14851942816395, 120.57683634504241)
+    LatLng(15.14851942816395, 120.57683634504241),
+    LatLng(15.141575551927525, 120.58931023345939),
+    LatLng(15.140007981279414, 120.59432371185119),
+    LatLng(15.142934874169612, 120.58908083488784)
   ];
 
   var location = new Location();
@@ -56,7 +62,7 @@ class _HospitalScreenState extends State<HospitalScreen> {
   void shortestDistance() async {
     currentLocation = await location.getLocation();
     double dist;
-    for (int i = 0; i <= 5; i++) {
+    for (int i = 0; i <= 8; i++) {
       //LatLng xyz = hospital_coords[i];
       dist = await Geolocator.distanceBetween(
           hospital_coords[i].latitude,

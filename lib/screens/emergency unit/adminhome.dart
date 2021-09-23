@@ -1,6 +1,10 @@
+// ignore_for_file: dead_code
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebasetest/map%20screens/stationscreen.dart';
+import 'package:firebasetest/screens/emergency%20unit/viewreport.dart';
 import 'package:firebasetest/screens/user/homescreen.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
 import 'package:flutter/material.dart';
@@ -244,158 +248,302 @@ class Another extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StationMap(),
+      home: Display(),
     );
   }
 }
 
-const double CAMERA_ZOOM = 16;
-const double CAMERA_TILT = 80;
-const double CAMERA_BEARING = 30;
-
-class StationMap extends StatefulWidget {
-  final String user_id = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";//dito pala dapat di naka set yung uid noh
+class Display extends StatefulWidget {
   @override
-  _StationMapState createState() => _StationMapState();
+  _Display createState() => _Display();
 }
 
-class _StationMapState extends State<StationMap> {
-  _StationMapState();
-  var llocation = new Location();
-  var userLocation;
-  late GoogleMapController _controller;
-  late BitmapDescriptor sourceIcon;
-  late BitmapDescriptor destinationIcon;
-  Set<Marker> _markers = Set<Marker>();
-  late LocationData currentLocation;
-  late LatLng destinationLocation;
-  Set<Polyline> _polylines = Set<Polyline>();
-  List<LatLng> polylineCoordinates = [];
-  late PolylinePoints polylinePoints;
+class _Display extends State<Display> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
-  bool _added = false;
+  late String uid;
+  late String email;
+  late String name;
+  late String phone;
+  // late String longitude;
+  late String latitude;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: StreamBuilder(
-      stream: FirebaseFirestore.instance.collection('users').snapshots(),
-      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (_added) {
-          StationMap(snapshot);
-        }
-        if (!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator());
-        }
-        return GoogleMap(
-          mapType: MapType.normal,
-          polylines: _polylines,
-          markers: _markers,
-          initialCameraPosition: CameraPosition(
-              target: LatLng(0, 0),
-              zoom: CAMERA_ZOOM,
-              tilt: CAMERA_TILT,
-              bearing: CAMERA_BEARING),
-          onMapCreated: (GoogleMapController controller) async {
-            destinationLocation = LatLng(
-              snapshot.data!.docs.singleWhere(
-                  (element) => element.id == widget.user_id)['latitude'],
-              snapshot.data!.docs.singleWhere(
-                  (element) => element.id == widget.user_id)['longitude'],
-            );
-            showPinsOnMap();
-            setPolylines();
-
-            setState(
-              () {
-                _controller = controller;
-                _added = true;
-              },
-            );
-          },
-        );
-      },
-    ));
-  }
-
-  void setPolylines() async {
-    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-        "AIzaSyDmHM-IakxXdJqN59m-rYM-nBjQueCDam8",
-        PointLatLng(currentLocation.latitude, currentLocation.longitude),
-        PointLatLng(
-            destinationLocation.latitude, destinationLocation.longitude));
-    if (result.status == 'OK') {
-      result.points.forEach((PointLatLng point) {
-        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-      });
-      setState(() {
-        _polylines.add(Polyline(
-            width: 10,
-            polylineId: PolylineId('Polyline'),
-            color: Color.fromARGB(255, 40, 122, 198),
-            points: polylineCoordinates));
-      });
-    }
-  }
-
-  void showPinsOnMap() {
-    setState(() {
-      var pinPosition =
-          LatLng(currentLocation.latitude, currentLocation.longitude);
-      _markers.add(Marker(
-          markerId: MarkerId('sourcePin'),
-          position: pinPosition,
-          icon: sourceIcon));
-      _markers.add(Marker(
-          markerId: MarkerId('destinationPin'),
-          position: destinationLocation,
-          icon: destinationIcon));
-    });
-  }
-
-  void initState() {
-    super.initState();
-    llocation = new Location();
-    polylinePoints = PolylinePoints();
-    llocation.onLocationChanged.listen((LocationData cLoc) {
-      currentLocation = cLoc;
-      updatePinOnMap();
-    });
-
-    setSourceAndDestinationLocationMarkerIcons();
-    setPolylines();
-  }
-
-  Future<void> StationMap(AsyncSnapshot<QuerySnapshot> snapshot) async {
-    await _controller
-        .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-            target: LatLng(
-              snapshot.data!.docs.singleWhere(
-                  (element) => element.id == widget.user_id)['latitude'],
-              snapshot.data!.docs.singleWhere(
-                  (element) => element.id == widget.user_id)['longitude'],
+      appBar: new AppBar(
+        // title: Text("Dashboard"),
+        backgroundColor: Colors.redAccent[700],
+      ),
+      backgroundColor: Colors.orange[200],
+      body: SafeArea(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+            Widget>[
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Text(
+              "\t\t\t\t\t\t View Reporter?",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold),
+              textAlign: TextAlign.start,
             ),
-            zoom: 14.47)));
-  }
-
-  void setSourceAndDestinationLocationMarkerIcons() async {
-    sourceIcon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 2.0), 'assets/origin.png');
-    destinationIcon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 2.0), 'assets/destination.png');
-  }
-
-  void updatePinOnMap() async {
-    setState(() {
-      var pinPosition =
-          LatLng(currentLocation.latitude, currentLocation.longitude);
-      _markers.removeWhere((m) => m.markerId.value == 'sourcePin');
-      _markers.add(Marker(
-          markerId: MarkerId('sourcePin'),
-          position: pinPosition,
-          icon: sourceIcon));
-    });
+          ),
+          Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Center(
+                  child: Wrap(spacing: 10, runSpacing: 5.0, children: <Widget>[
+                SizedBox(
+                  width: 175.0,
+                  height: 160.0,
+                  child: Card(
+                    color: Colors.redAccent[700],
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: InkWell(
+                      onTap: () async {
+                        var currentUser = FirebaseAuth.instance.currentUser;
+                        if (currentUser != null) {
+                          final QuerySnapshot snap = await FirebaseFirestore
+                              .instance
+                              .collection('users')
+                              .where('latitude', isNotEqualTo: 0)
+                              .get();
+                          setState(() {
+                            uid = snap.docs[0]['uid'];
+                            email = snap.docs[0]['email'];
+                            name = snap.docs[0]['name'];
+                            phone = snap.docs[0]['phone'];
+                            // longitude = snap.docs[0]['longitude'];
+                            latitude = snap.docs[0]['latitude'];
+                          });
+                          final action = await ViewAlertDialogs.yesCancelDialog(
+                              context,
+                              'View Report',
+                              '\nReport by:' +
+                                  '\nuid: ' +
+                                  uid +
+                                  '\n\nemail:' +
+                                  email +
+                                  '\nname : ' +
+                                  name +
+                                  '\nphone number : ' +
+                                  phone);
+                        }
+                        Center(
+                            child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.add_alert,
+                                size: 90.0,
+                                color: Colors.white,
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Text(
+                                "Accept",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0),
+                              ),
+                            ],
+                          ),
+                        ));
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  'User Data :',
+                  style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Email : ' + email,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                Text(
+                  'Name : ' + name,
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+              ])))
+        ]),
+      ),
+    );
   }
 }
+
+
+// // // // // const double CAMERA_ZOOM = 16;
+// // // // // const double CAMERA_TILT = 80;
+// // // // // const double CAMERA_BEARING = 30;
+
+// // // // // class StationMap extends StatefulWidget {
+// // // // //   final String user_id = "8MlTydvFLsRpskI4LDz8bt9HJl13"; //dito pala dapat di naka set yung uid noh
+// // // // //   @override
+// // // // //   _StationMapState createState() => _StationMapState();
+// // // // // }
+
+// // // // // class _StationMapState extends State<StationMap> {
+// // // // //   _StationMapState();
+// // // // //   var llocation = new Location();
+// // // // //   var userLocation;
+// // // // //   late GoogleMapController _controller;
+// // // // //   late BitmapDescriptor sourceIcon;
+// // // // //   late BitmapDescriptor destinationIcon;
+// // // // //   Set<Marker> _markers = Set<Marker>();
+// // // // //   late LocationData currentLocation;
+// // // // //   late LatLng destinationLocation;
+// // // // //   Set<Polyline> _polylines = Set<Polyline>();
+// // // // //   List<LatLng> polylineCoordinates = [];
+// // // // //   late PolylinePoints polylinePoints;
+
+// // // // //   bool _added = false;
+// // // // //   @override
+// // // // //   Widget build(BuildContext context) {
+// // // // //     return Scaffold(
+// // // // //         body: StreamBuilder(
+// // // // //       stream: FirebaseFirestore.instance.collection('users').snapshots(),
+// // // // //       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+// // // // //         if (_added) {
+// // // // //           StationMap(snapshot);
+// // // // //         }
+// // // // //         if (!snapshot.hasData) {
+// // // // //           return Center(child: CircularProgressIndicator());
+// // // // //         }
+// // // // //         return GoogleMap(
+// // // // //           mapType: MapType.normal,
+// // // // //           polylines: _polylines,
+// // // // //           markers: _markers,
+// // // // //           initialCameraPosition: CameraPosition(
+// // // // //               target: LatLng(0, 0),
+// // // // //               zoom: CAMERA_ZOOM,
+// // // // //               tilt: CAMERA_TILT,
+// // // // //               bearing: CAMERA_BEARING),
+// // // // //           onMapCreated: (GoogleMapController controller) async {
+// // // // //             destinationLocation = LatLng(
+// // // // //               snapshot.data!.docs.singleWhere(
+// // // // //                   (element) => element.id == widget.user_id)['latitude'],
+// // // // //               snapshot.data!.docs.singleWhere(
+// // // // //                   (element) => element.id == widget.user_id)['longitude'],
+// // // // //             );
+// // // // //             showPinsOnMap();
+// // // // //             setPolylines();
+
+// // // // //             setState(
+// // // // //               () {
+// // // // //                 _controller = controller;
+// // // // //                 _added = true;
+// // // // //               },
+// // // // //             );
+// // // // //           },
+// // // // //         );
+// // // // //       },
+// // // // //     ));
+// // // // //   }
+
+// // // // //   void setPolylines() async {
+// // // // //     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+// // // // //         "AIzaSyDmHM-IakxXdJqN59m-rYM-nBjQueCDam8",
+// // // // //         PointLatLng(currentLocation.latitude, currentLocation.longitude),
+// // // // //         PointLatLng(
+// // // // //             destinationLocation.latitude, destinationLocation.longitude));
+// // // // //     if (result.status == 'OK') {
+// // // // //       result.points.forEach((PointLatLng point) {
+// // // // //         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+// // // // //       });
+// // // // //       setState(() {
+// // // // //         _polylines.add(Polyline(
+// // // // //             width: 10,
+// // // // //             polylineId: PolylineId('Polyline'),
+// // // // //             color: Color.fromARGB(255, 40, 122, 198),
+// // // // //             points: polylineCoordinates));
+// // // // //       });
+// // // // //     }
+// // // // //   }
+
+// // // // //   void showPinsOnMap() {
+// // // // //     setState(() {
+// // // // //       var pinPosition =
+// // // // //           LatLng(currentLocation.latitude, currentLocation.longitude);
+// // // // //       _markers.add(Marker(
+// // // // //           markerId: MarkerId('sourcePin'),
+// // // // //           position: pinPosition,
+// // // // //           icon: sourceIcon));
+// // // // //       _markers.add(Marker(
+// // // // //           markerId: MarkerId('destinationPin'),
+// // // // //           position: destinationLocation,
+// // // // //           icon: destinationIcon));
+// // // // //     });
+// // // // //   }
+
+// // // // //   void initState() {
+// // // // //     super.initState();
+// // // // //     llocation = new Location();
+// // // // //     polylinePoints = PolylinePoints();
+// // // // //     llocation.onLocationChanged.listen((LocationData cLoc) {
+// // // // //       currentLocation = cLoc;
+// // // // //       updatePinOnMap();
+// // // // //     });
+
+// // // // //     setSourceAndDestinationLocationMarkerIcons();
+// // // // //     setPolylines();
+// // // // //   }
+
+// // // // //   Future<void> StationMap(AsyncSnapshot<QuerySnapshot> snapshot) async {
+// // // // //     await _controller
+// // // // //         .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+// // // // //             target: LatLng(
+// // // // //               snapshot.data!.docs.singleWhere(
+// // // // //                   (element) => element.id == widget.user_id)['latitude'],
+// // // // //               snapshot.data!.docs.singleWhere(
+// // // // //                   (element) => element.id == widget.user_id)['longitude'],
+// // // // //             ),
+// // // // //             zoom: 14.47)));
+// // // // //   }
+
+// // // // //   void setSourceAndDestinationLocationMarkerIcons() async {
+// // // // //     sourceIcon = await BitmapDescriptor.fromAssetImage(
+// // // // //         ImageConfiguration(devicePixelRatio: 2.0), 'assets/origin.png');
+// // // // //     destinationIcon = await BitmapDescriptor.fromAssetImage(
+// // // // //         ImageConfiguration(devicePixelRatio: 2.0), 'assets/destination.png');
+// // // // //   }
+
+// // // // //   void updatePinOnMap() async {
+// // // // //     setState(() {
+// // // // //       var pinPosition =
+// // // // //           LatLng(currentLocation.latitude, currentLocation.longitude);
+// // // // //       _markers.removeWhere((m) => m.markerId.value == 'sourcePin');
+// // // // //       _markers.add(Marker(
+// // // // //           markerId: MarkerId('sourcePin'),
+// // // // //           position: pinPosition,
+// // // // //           icon: sourceIcon));
+// // // // //     });
+// // // // //   }
+// // // // // }
 
 
 // import 'package:cloud_firestore/cloud_firestore.dart';
