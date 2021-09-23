@@ -10,11 +10,11 @@ const double CAMERA_TILT = 80;
 const double CAMERA_BEARING = 30;
 
 class StationMap extends StatefulWidget {
-  //final String user_id = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";
-  //StationMap(this.user_id);
-  late final String user_id;
+  final String user_id;
+  StationMap(this.user_id);
 
-  StationMap(uid);
+  //final String user_id = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";
+
   @override
   _StationMapState createState() => _StationMapState();
 }

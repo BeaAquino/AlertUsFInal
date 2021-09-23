@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/main.dart';
 import 'package:firebasetest/map%20screens/firescreen.dart';
@@ -20,6 +19,7 @@ enum DialogsAction { yes, cancel }
 
 class ViewAlertDialogs {
   static Future<DialogsAction> yesCancelDialog(
+    String uid,
     BuildContext context,
     String title,
     String body,

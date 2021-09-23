@@ -269,7 +269,6 @@ class _Display extends State<Display> {
   late String name;
   late String phone;
   // late String longitude;
-  late String latitude;
 
   @override
   Widget build(BuildContext context) {
@@ -320,9 +319,10 @@ class _Display extends State<Display> {
                             name = snap.docs[0]['name'];
                             phone = snap.docs[0]['phone'];
                             // longitude = snap.docs[0]['longitude'];
-                            latitude = snap.docs[0]['latitude'];
+                            // latitude = snap.docs[0]['latitude'];
                           });
                           final action = await ViewAlertDialogs.yesCancelDialog(
+                              uid,
                               context,
                               'View Report',
                               '\nReport by:' +
@@ -361,33 +361,6 @@ class _Display extends State<Display> {
                       },
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  'User Data :',
-                  style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Email : ' + email,
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                Text(
-                  'Name : ' + name,
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
                 ),
               ])))
         ]),
