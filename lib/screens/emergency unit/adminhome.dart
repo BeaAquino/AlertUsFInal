@@ -311,15 +311,19 @@ class _Display extends State<Display> {
                           final QuerySnapshot snap = await FirebaseFirestore
                               .instance
                               .collection('users')
-                              .where('latitude', isNotEqualTo: 0)
+                              .where('latitude', isNotEqualTo: null)
                               .get();
                           setState(() {
                             uid = snap.docs[0]['uid'];
                             email = snap.docs[0]['email'];
                             name = snap.docs[0]['name'];
                             phone = snap.docs[0]['phone'];
-                            // longitude = snap.docs[0]['longitude'];
-                            // latitude = snap.docs[0]['latitude'];
+                          });
+                          FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(currentUser.uid)
+                              .update({
+                            'report id': uid,
                           });
                           final action = await ViewAlertDialogs.yesCancelDialog(
                               uid,

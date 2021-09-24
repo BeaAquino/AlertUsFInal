@@ -106,8 +106,8 @@ class AlertDialogs {
                         .collection('users')
                         .doc(currentUser.uid)
                         .update({
-                      'longitude': 0,
-                      'latitude': 0,
+                      'longitude': null,
+                      'latitude': null,
                     });
                   }
                   Navigator.of(context).pop(DialogsAction.cancel);
@@ -120,6 +120,7 @@ class AlertDialogs {
               ),
               FlatButton(
                 onPressed: () async {
+                 
                   try {
                     final loc.LocationData _locationResult =
                         await location.getLocation();

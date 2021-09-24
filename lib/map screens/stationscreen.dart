@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as loc;
@@ -10,9 +11,12 @@ const double CAMERA_TILT = 80;
 const double CAMERA_BEARING = 30;
 
 class StationMap extends StatefulWidget {
+  // User user = FirebaseAuth.instance.currentUser;
+  // DocumentSnapshot snap =
+  //     FirebaseFirestore.instance.collection('Users').doc(user.uid).get() as DocumentSnapshot;
+  // final String user_id = snap['report id'];
   final String user_id;
   StationMap(this.user_id);
-
   //final String user_id = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";
 
   @override

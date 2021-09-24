@@ -11,6 +11,7 @@ class PoliceReport extends StatefulWidget {
 class _PoliceReport extends State<PoliceReport> {
   late String name;
   late String phone;
+  late String report_id;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +66,7 @@ class _PoliceReport extends State<PoliceReport> {
                               setState(() {
                                 name = snap.docs[0]['name'];
                                 phone = snap.docs[0]['phone'];
+                                report_id = snap.docs[0]['uid'];
                               });
                               FirebaseFirestore.instance
                                   .collection('users')
@@ -73,6 +75,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 'police message':
                                     'Homicide Incident,\nSend Assistance.',
                               });
+                              
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
                                   'Police Report',
@@ -523,18 +526,21 @@ class _PoliceReport extends State<PoliceReport> {
                               final QuerySnapshot snap = await FirebaseFirestore
                                   .instance
                                   .collection('users')
-                                  .where('email', isEqualTo: currentUser.email)
+                                  .where('email',
+                                      isEqualTo: currentUser
+                                          .email) //magiging .where('role', isEqualTo: "admin")
                                   .get();
                               setState(() {
-                                name = snap.docs[0]['name'];
+                                name = snap.docs[0][
+                                    'name']; //eto magiging reporter_uid = snap.docs[0]['uid'];
                                 phone = snap.docs[0]['phone'];
                               });
                               FirebaseFirestore.instance
                                   .collection('users')
                                   .doc(currentUser.uid)
                                   .update({
-                                'police message':
-                                    'In need of Police Assistance',
+                                'police message': // eto magiging 'report_id'
+                                    'In need of Police Assistance' // eto magiging reporter_uid,
                               });
                               final action = await AlertDialogs.yesCancelDialog(
                                   context,
