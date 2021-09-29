@@ -63,6 +63,8 @@
 //     return (action != null) ? action : DialogsAction.cancel;
 //   }
 // }
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/map%20screens/firescreen.dart';
 import 'package:firebasetest/map%20screens/hospitalscreen.dart';
@@ -72,6 +74,7 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:location/location.dart' as loc;
 
 var currentUser = FirebaseAuth.instance.currentUser;
@@ -106,11 +109,15 @@ class AlertDialogs {
                         .collection('users')
                         .doc(currentUser.uid)
                         .update({
-                      'longitude': null,
-                      'latitude': null,
+                      'longitude': 0,
+                      'latitude': 0,
+                      'fire message': "",
+                      'hospital message': "",
+                      'police message': "",
                     });
                   }
-                  Navigator.of(context).pop(DialogsAction.cancel);
+                  //Navigator.of(context).pop(DialogsAction.cancel);
+                  exit(0);
                 },
                 child: Text(
                   'Cancel',
@@ -120,7 +127,6 @@ class AlertDialogs {
               ),
               FlatButton(
                 onPressed: () async {
-                 
                   try {
                     final loc.LocationData _locationResult =
                         await location.getLocation();

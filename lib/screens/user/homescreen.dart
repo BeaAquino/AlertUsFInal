@@ -93,225 +93,34 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Text(
-                "\t\t\t\t\t\tSelect an Emergency",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold),
-                textAlign: TextAlign.start,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                  "\t\t\t\t\t\tSelect an Emergency",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 28.0,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.start,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Center(
-                child: Wrap(
-                  spacing: 10,
-                  runSpacing: 5.0,
-                  children: <Widget>[
-                    SizedBox(
-                      width: 175.0,
-                      height: 160.0,
-                      child: Card(
-                        color: Colors.redAccent[700],
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HospitalReport()),
-                            );
-                          },
-                          child: Center(
-                              child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.local_hospital_rounded,
-                                  size: 90.0,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  "HOSPITAL",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
-                                ),
-                              ],
-                            ),
-                          )),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 175.0,
-                      height: 160.0,
-                      child: Card(
-                        color: Colors.redAccent[700],
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PoliceReport()),
-                            );
-                          },
-                          child: Center(
-                              child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.local_police_rounded,
-                                  size: 90.0,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  "POLICE",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
-                                ),
-                              ],
-                            ),
-                          )),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 175.0,
-                      height: 160.0,
-                      child: Card(
-                        color: Colors.redAccent[700],
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        child: InkWell(
-                            onTap: () async {
-                              var currentUser =
-                                  FirebaseAuth.instance.currentUser;
-
-                              if (currentUser != null) {
-                                final QuerySnapshot snap =
-                                    await FirebaseFirestore.instance
-                                        .collection('users')
-                                        .where('email',
-                                            isEqualTo: currentUser.email)
-                                        .get();
-                                setState(() {
-                                  name = snap.docs[0]['name'];
-                                  phone = snap.docs[0]['phone'];
-                                });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'fire message': 'FIRE!!!',
-                                });
-                                final action =
-                                    await AlertDialogs.yesCancelDialog(
-                                        context,
-                                        'Fire Report',
-                                        'FIRE!!!.\n\nReport by:' +
-                                            currentUser.email +
-                                            '\nname : ' +
-                                            name +
-                                            '\nphone number : ' +
-                                            phone);
-                              }
-                            },
-                            child: Center(
-                              child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.fireplace_rounded,
-                                        size: 90.0,
-                                        color: Colors.white,
-                                      ),
-                                      SizedBox(
-                                        height: 10.0,
-                                      ),
-                                      Text(
-                                        "FIRE",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 20.0),
-                                      ),
-                                    ],
-                                  )),
-                            )),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 175.0,
-                      height: 160.0,
-                      child: Card(
-                        color: Colors.redAccent[700],
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0)),
-                        child: InkWell(
-                          onTap: () async {
-                            final action = await CovidDialogs.yesCancelDialog(
-                                context,
-                                'RT-PCR Testing Sites',
-                                'What would you like to do?');
-                          },
-                          child: Center(
-                              child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.coronavirus_rounded,
-                                  size: 90.0,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  "COVID-19",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
-                                ),
-                              ],
-                            ),
-                          )),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 360.0,
-                      height: 70.0,
-                      child: Card(
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Center(
+                  child: Wrap(
+                    spacing: 10,
+                    runSpacing: 5.0,
+                    children: <Widget>[
+                      SizedBox(
+                        width: 175.0,
+                        height: 160.0,
+                        child: Card(
                           color: Colors.redAccent[700],
-                          elevation: 1.0,
+                          elevation: 2.0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
@@ -319,42 +128,238 @@ class _HomeScreenState extends State<HomeScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        EmergencyContactList()),
+                                    builder: (context) => HospitalReport()),
                               );
                             },
                             child: Center(
                                 child: Padding(
-                              padding: const EdgeInsets.all(1.0),
-                              child: Row(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
                                 children: <Widget>[
-                                  Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Icon(
-                                      Icons.phone_callback_rounded,
-                                      size: 50.0,
-                                      color: Colors.white,
-                                    ),
+                                  Icon(
+                                    Icons.local_hospital_rounded,
+                                    size: 90.0,
+                                    color: Colors.white,
                                   ),
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: Text("  EMERGENCY UNIT CONTACTS",
-                                        style: TextStyle(
-                                          fontSize: 18,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  )
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text(
+                                    "HOSPITAL",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0),
+                                  ),
                                 ],
                               ),
                             )),
-                          )),
-                    ),
-                  ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 175.0,
+                        height: 160.0,
+                        child: Card(
+                          color: Colors.redAccent[700],
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PoliceReport()),
+                              );
+                            },
+                            child: Center(
+                                child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.local_police_rounded,
+                                    size: 90.0,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text(
+                                    "POLICE",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0),
+                                  ),
+                                ],
+                              ),
+                            )),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 175.0,
+                        height: 160.0,
+                        child: Card(
+                          color: Colors.redAccent[700],
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
+                          child: InkWell(
+                              onTap: () async {
+                                var currentUser =
+                                    FirebaseAuth.instance.currentUser;
+
+                                if (currentUser != null) {
+                                  final QuerySnapshot snap =
+                                      await FirebaseFirestore
+                                          .instance
+                                          .collection('users')
+                                          .where('email',
+                                              isEqualTo: currentUser.email)
+                                          .get();
+                                  setState(() {
+                                    name = snap.docs[0]['name'];
+                                    phone = snap.docs[0]['phone'];
+                                  });
+                                  FirebaseFirestore.instance
+                                      .collection('users')
+                                      .doc(currentUser.uid)
+                                      .update({
+                                    'fire message': 'FIRE!!!',
+                                  });
+                                  final action =
+                                      await AlertDialogs.yesCancelDialog(
+                                          context,
+                                          'Fire Report',
+                                          'FIRE!!!.\n\nReport by:' +
+                                              currentUser.email +
+                                              '\nname : ' +
+                                              name +
+                                              '\nphone number : ' +
+                                              phone);
+                                }
+                              },
+                              child: Center(
+                                child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.fireplace_rounded,
+                                          size: 90.0,
+                                          color: Colors.white,
+                                        ),
+                                        SizedBox(
+                                          height: 10.0,
+                                        ),
+                                        Text(
+                                          "FIRE",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20.0),
+                                        ),
+                                      ],
+                                    )),
+                              )),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 175.0,
+                        height: 160.0,
+                        child: Card(
+                          color: Colors.redAccent[700],
+                          elevation: 2.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
+                          child: InkWell(
+                            onTap: () async {
+                              final action = await CovidDialogs.yesCancelDialog(
+                                  context,
+                                  'RT-PCR Testing Sites',
+                                  'What would you like to do?');
+                            },
+                            child: Center(
+                                child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.coronavirus_rounded,
+                                    size: 90.0,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text(
+                                    "COVID-19",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0),
+                                  ),
+                                ],
+                              ),
+                            )),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 360.0,
+                        height: 70.0,
+                        child: Card(
+                            color: Colors.redAccent[700],
+                            elevation: 1.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0)),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          EmergencyContactList()),
+                                );
+                              },
+                              child: Center(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(1.0),
+                                child: Row(
+                                  children: <Widget>[
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Icon(
+                                        Icons.phone_callback_rounded,
+                                        size: 50.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: FittedBox(
+                                        child: Text("  EMERGENCY UNIT CONTACTS",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )),
+                            )),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

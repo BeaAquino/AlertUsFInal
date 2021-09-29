@@ -3,7 +3,7 @@ import 'package:firebasetest/main.dart';
 import 'package:firebasetest/map%20screens/firescreen.dart';
 import 'package:firebasetest/map%20screens/hospitalscreen.dart';
 import 'package:firebasetest/map%20screens/policescreen.dart';
-import 'package:firebasetest/map%20screens/stationscreen.dart';
+import 'package:firebasetest/map%20screens/stationmap.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -54,7 +54,7 @@ class ViewAlertDialogs {
                 onPressed: () async {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => StationMap(uid)),
+                    MaterialPageRoute(builder: (context) => StationMap()),
                   );
                 },
                 child: Text(

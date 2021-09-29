@@ -29,7 +29,7 @@ class ContactUs extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Text(
-                  "Aquino, Bea\n09420305901\n\nDizon, Maycee\n00000000000\n\nQuizon, Megan\n00000000000\n\nSerrano, Christian\n00000000000",
+                  "Aquino, Bea\n09420305901\n\nDizon, Maycee\n09070212544\n\nQuizon, Megan\n09186385668\n\nSerrano, Christian\n00000000000",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 20.0,

@@ -20,6 +20,11 @@ class _AdminNotifHome extends State<AdminNotifHome> {
     super.initState();
   }
 
+  FirebaseAuth auth = FirebaseAuth.instance;
+  Future<void> logOut() async {
+    User user = auth.signOut() as User;
+  }
+
   late String name;
   late String phone;
 
@@ -76,12 +81,11 @@ class _AdminNotifHome extends State<AdminNotifHome> {
                 color: Colors.black,
               ),
               onTap: () async {
-                await _auth.signOut();
-                Navigator.push(
+                logOut();
+                Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainScreen(),
-                    ));
+                        builder: (BuildContext context) => MainScreen()));
               },
               title: Text("Log Out"),
             ),

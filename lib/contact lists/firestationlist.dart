@@ -6,7 +6,7 @@ class FireStationList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "List of Hospitals",
+          "List of Fire Stations",
         ),
         backgroundColor: Colors.redAccent[700],
       ),

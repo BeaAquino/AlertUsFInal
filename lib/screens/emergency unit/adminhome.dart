@@ -3,7 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebasetest/map%20screens/stationscreen.dart';
+import 'package:firebasetest/map%20screens/stationmap.dart';
 import 'package:firebasetest/screens/emergency%20unit/viewreport.dart';
 import 'package:firebasetest/screens/user/homescreen.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
@@ -14,7 +14,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/screens/user/confirmuser.dart';
 import 'package:firebasetest/screens/user/mainscreen.dart';
 import 'package:firebasetest/services/auth_services.dart';
-import 'adminscreen.dart';
+import '../../NOT USED - EXTRA CODE/adminconfirm.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -76,6 +76,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  Future logOut() async {
+    User user = auth.signOut() as User;
+  }
+
   late String token;
   List subscribed = [];
   List topics = ['Police', 'Hospital', 'Fire'];
@@ -132,20 +137,20 @@ class _MyAppState extends State<MyApp> {
               accountEmail: new Text("to AlertUs "),
               decoration: new BoxDecoration(color: Colors.redAccent[700]),
             ),
-            ListTile(
-              leading: Icon(
-                Icons.person,
-                color: Colors.black,
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ConfirmUser(),
-                    ));
-              },
-              title: Text("Profile"),
-            ),
+            // ListTile(
+            //   leading: Icon(
+            //     Icons.person,
+            //     color: Colors.black,
+            //   ),
+            //   onTap: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //           builder: (context) => AdminConfirm(),
+            //         ));
+            //   },
+            //   title: Text("Profile"),
+            // ),
             ListTile(
               leading: Icon(
                 Icons.info,
@@ -157,7 +162,7 @@ class _MyAppState extends State<MyApp> {
                   MaterialPageRoute(builder: (context) => ContactUs()),
                 );
               },
-              title: Text("About Us"),
+              title: Text("Contact Us"),
             ),
             ListTile(
               leading: Icon(
@@ -165,12 +170,11 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.black,
               ),
               onTap: () async {
-                await _auth.signOut();
-                Navigator.push(
+                logOut();
+                Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainScreen(),
-                    ));
+                        builder: (BuildContext context) => MainScreen()));
               },
               title: Text("Log Out"),
             ),
@@ -268,13 +272,11 @@ class _Display extends State<Display> {
   late String email;
   late String name;
   late String phone;
-  // late String longitude;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        // title: Text("Dashboard"),
         backgroundColor: Colors.redAccent[700],
       ),
       backgroundColor: Colors.orange[200],
@@ -284,7 +286,7 @@ class _Display extends State<Display> {
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: Text(
-              "\t\t\t\t\t\t View Reporter?",
+              "Click the button to View Report",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 28.0,
@@ -311,7 +313,7 @@ class _Display extends State<Display> {
                           final QuerySnapshot snap = await FirebaseFirestore
                               .instance
                               .collection('users')
-                              .where('latitude', isNotEqualTo: null)
+                              .where('latitude', isNotEqualTo: 0)
                               .get();
                           setState(() {
                             uid = snap.docs[0]['uid'];
@@ -319,12 +321,12 @@ class _Display extends State<Display> {
                             name = snap.docs[0]['name'];
                             phone = snap.docs[0]['phone'];
                           });
-                          FirebaseFirestore.instance
-                              .collection('users')
-                              .doc(currentUser.uid)
-                              .update({
-                            'report id': uid,
-                          });
+                          // FirebaseFirestore.instance
+                          //     .collection('users')
+                          //     .doc(currentUser.uid)
+                          //     .update({
+                          //   'report id': uid,
+                          // });
                           final action = await ViewAlertDialogs.yesCancelDialog(
                               uid,
                               context,
@@ -345,7 +347,7 @@ class _Display extends State<Display> {
                           child: Column(
                             children: <Widget>[
                               Icon(
-                                Icons.add_alert,
+                                Icons.access_alarm_sharp,
                                 size: 90.0,
                                 color: Colors.white,
                               ),
@@ -357,7 +359,7 @@ class _Display extends State<Display> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 20.0),
+                                    fontSize: 50.0),
                               ),
                             ],
                           ),
