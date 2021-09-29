@@ -64,8 +64,8 @@
 34        android:debuggable="true"
 35        android:icon="@mipmap/ic_launcher"
 35-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:12:9-43
-36        android:label="firebasetest"
-36-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:11:9-37
+36        android:label="AlertUs"
+36-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:11:9-32
 37        android:usesCleartextTraffic="true" >
 37-->[:cloud_functions] C:\Users\aquin\Desktop\AlertUsFInal\build\cloud_functions\intermediates\library_manifest\debug\AndroidManifest.xml:9:9-44
 38        <activity
