@@ -21,7 +21,7 @@ class _HospitalReport extends State<HospitalReport> {
         centerTitle: true,
         title: FittedBox(
           fit: BoxFit.fitWidth,
-          child: Text ("Hospital Report"),
+          child: Text("Hospital Report"),
         ),
         backgroundColor: Colors.redAccent[700],
       ),
@@ -59,14 +59,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -127,14 +129,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -197,10 +201,11 @@ class _HospitalReport extends State<HospitalReport> {
                               onTap: () async {
                                 var currentUser =
                                     FirebaseAuth.instance.currentUser;
-        
+
                                 if (currentUser != null) {
                                   final QuerySnapshot snap =
-                                      await FirebaseFirestore.instance
+                                      await FirebaseFirestore
+                                          .instance
                                           .collection('users')
                                           .where('email',
                                               isEqualTo: currentUser.email)
@@ -264,14 +269,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -332,14 +339,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -400,14 +409,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -416,12 +427,12 @@ class _HospitalReport extends State<HospitalReport> {
                                     .collection('users')
                                     .doc(currentUser.uid)
                                     .update({
-                                  'Hospital Report':
+                                  'hospital message':
                                       'Seizure Incident,\nSend Assistance.',
                                 });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
-                                    'Report Message',
+                                    'Hospital Message',
                                     'Seizure Incident,\nSend Assistance.\n\nReport by:' +
                                         currentUser.email +
                                         '\nname : ' +
@@ -468,14 +479,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -536,14 +549,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -604,14 +619,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
@@ -672,14 +689,16 @@ class _HospitalReport extends State<HospitalReport> {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              var currentUser = FirebaseAuth.instance.currentUser;
-        
+                              var currentUser =
+                                  FirebaseAuth.instance.currentUser;
+
                               if (currentUser != null) {
-                                final QuerySnapshot snap = await FirebaseFirestore
-                                    .instance
-                                    .collection('users')
-                                    .where('email', isEqualTo: currentUser.email)
-                                    .get();
+                                final QuerySnapshot snap =
+                                    await FirebaseFirestore.instance
+                                        .collection('users')
+                                        .where('email',
+                                            isEqualTo: currentUser.email)
+                                        .get();
                                 setState(() {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];

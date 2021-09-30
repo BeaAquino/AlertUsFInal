@@ -117,10 +117,11 @@ class AlertDialogs {
                     });
                   }
                   //Navigator.of(context).pop(DialogsAction.cancel);
-                  exit(0);
+                  //exit(0); works in debug emulator
+                  SystemNavigator.pop();
                 },
                 child: Text(
-                  'Cancel',
+                  'Exit',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
