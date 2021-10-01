@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest/screens/user/confirmviewmap.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -72,13 +73,13 @@ class _PoliceReport extends State<PoliceReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'police message':
-                                      'Homicide Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'police message':
+                                //       'Homicide Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Police Report',
@@ -142,13 +143,13 @@ class _PoliceReport extends State<PoliceReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'police message':
-                                      'Violence/Brawl Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'police message':
+                                //       'Violence/Brawl Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Police Report',
@@ -213,13 +214,13 @@ class _PoliceReport extends State<PoliceReport> {
                                     name = snap.docs[0]['name'];
                                     phone = snap.docs[0]['phone'];
                                   });
-                                  FirebaseFirestore.instance
-                                      .collection('users')
-                                      .doc(currentUser.uid)
-                                      .update({
-                                    'police message':
-                                        'Burglary/Theft Incident,\nSend Assistance.',
-                                  });
+                                  // FirebaseFirestore.instance
+                                  //     .collection('users')
+                                  //     .doc(currentUser.uid)
+                                  //     .update({
+                                  //   'police message':
+                                  //       'Burglary/Theft Incident,\nSend Assistance.',
+                                  // });
                                   final action = await AlertDialogs.yesCancelDialog(
                                       context,
                                       'Police Report',
@@ -282,13 +283,13 @@ class _PoliceReport extends State<PoliceReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'police message':
-                                      'Domestic Threat Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'police message':
+                                //       'Domestic Threat Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Police Report',
@@ -352,13 +353,13 @@ class _PoliceReport extends State<PoliceReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'police message':
-                                      'Sexual Assault Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'police message':
+                                //       'Sexual Assault Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Police Report',
@@ -422,13 +423,13 @@ class _PoliceReport extends State<PoliceReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'police message':
-                                      'Missing or Kidnapping Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'police message':
+                                //       'Missing or Kidnapping Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Police Report',
@@ -492,13 +493,13 @@ class _PoliceReport extends State<PoliceReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'police message':
-                                      'Terrorist Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'police message':
+                                //       'Terrorist Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Police Report',
@@ -562,13 +563,13 @@ class _PoliceReport extends State<PoliceReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'police message':
-                                      'In need of Police Assistance',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'police message':
+                                //       'In need of Police Assistance',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Police Report',
@@ -607,6 +608,52 @@ class _PoliceReport extends State<PoliceReport> {
                             )),
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        width: 360.0,
+                        height: 70.0,
+                        child: Card(
+                            color: Colors.redAccent[700],
+                            elevation: 1.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0)),
+                            child: InkWell(
+                              onTap: () async {
+                                final action =
+                                    await ConfirmViewMap.yesCancelDialog(
+                                        context,
+                                        'Closest Police Station',
+                                        'What would you like to do?');
+                              },
+                              child: Center(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(1.0),
+                                child: Row(
+                                  children: <Widget>[
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Icon(
+                                        Icons.location_pin,
+                                        size: 50.0,
+                                        color: Colors.yellowAccent,
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: FittedBox(
+                                        child:
+                                            Text("  VIEW THE CLOSEST STATION",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.yellowAccent,
+                                                  fontWeight: FontWeight.bold,
+                                                )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )),
+                            )),
                       ),
                     ],
                   ),

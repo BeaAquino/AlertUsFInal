@@ -7,6 +7,7 @@ import 'package:firebasetest/map%20screens/firescreen.dart';
 import 'package:firebasetest/map%20screens/hospitalscreen.dart';
 import 'package:firebasetest/map%20screens/policescreen.dart';
 import 'package:firebasetest/map%20screens/rtpcrscreen.dart';
+import 'package:firebasetest/screens/user/confirmviewmap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:location/location.dart' as loc;
@@ -44,10 +45,10 @@ class CovidDialogs {
                       'latitude': 0,
                     });
                   }
-                  SystemNavigator.pop();
+                  Navigator.of(context).pop(DialogsAction.cancel);
                 },
                 child: Text(
-                  'Exit',
+                  'Cancel',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -78,10 +79,10 @@ class CovidDialogs {
                   } catch (e) {
                     print(e);
                   }
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => rtpcrScreen()),
-                  );
+                  final action = await ConfirmViewMap.yesCancelDialog(
+                      context,
+                      'Closest RT-PCR Testing Sites',
+                      'Would you like to view the location of the closest Testing site?\n\nOnce you press DONE,The session will end.');
                 },
                 child: Text(
                   'View Map',

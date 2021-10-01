@@ -272,6 +272,12 @@
       "languageVersion": "2.1"
     },
     {
+      "name": "flutter_secure_storage",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-4.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -644,7 +650,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-09-22T11:18:07.710151Z",
+  "generated": "2021-10-01T04:54:34.948915Z",
   "generator": "pub",
   "generatorVersion": "2.14.2"
 }

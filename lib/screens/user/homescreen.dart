@@ -81,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               onTap: () async {
                 await _auth.signOut();
+
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -224,12 +225,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     name = snap.docs[0]['name'];
                                     phone = snap.docs[0]['phone'];
                                   });
-                                  FirebaseFirestore.instance
-                                      .collection('users')
-                                      .doc(currentUser.uid)
-                                      .update({
-                                    'fire message': 'FIRE!!!',
-                                  });
+                                  // FirebaseFirestore.instance
+                                  //     .collection('users')
+                                  //     .doc(currentUser.uid)
+                                  //     .update({
+                                  //   'fire message': 'FIRE!!!',
+                                  // });
                                   final action =
                                       await AlertDialogs.yesCancelDialog(
                                           context,
@@ -279,7 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: () async {
                               final action = await CovidDialogs.yesCancelDialog(
                                   context,
-                                  'RT-PCR Testing Sites',
+                                  'Closest RT-PCR Testing Sites',
                                   'What would you like to do?');
                             },
                             child: Center(

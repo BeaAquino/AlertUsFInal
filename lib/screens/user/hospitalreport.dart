@@ -1,17 +1,27 @@
+import 'dart:async';
+
+import 'package:firebasetest/map%20screens/hospitalscreen.dart';
+import 'package:firebasetest/screens/user/confirmviewmap.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:location/location.dart' as loc;
 
 class HospitalReport extends StatefulWidget {
   @override
   _HospitalReport createState() => _HospitalReport();
 }
 
+var currentUser = FirebaseAuth.instance.currentUser;
+
 class _HospitalReport extends State<HospitalReport> {
   late String name;
   late String phone;
   TextEditingController messageController = new TextEditingController();
+  String userid = currentUser.uid;
+  final loc.Location location = loc.Location();
+  StreamSubscription<loc.LocationData>? _locationSubscription;
 
   @override
   Widget build(BuildContext context) {
@@ -73,13 +83,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Abdominal/Chest Pain,\n Send Assistance',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Abdominal/Chest Pain,\n Send Assistance',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -143,13 +153,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Traumatic Injury,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Traumatic Injury,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -214,13 +224,13 @@ class _HospitalReport extends State<HospitalReport> {
                                     name = snap.docs[0]['name'];
                                     phone = snap.docs[0]['phone'];
                                   });
-                                  FirebaseFirestore.instance
-                                      .collection('users')
-                                      .doc(currentUser.uid)
-                                      .update({
-                                    'hospital message':
-                                        'Respiratory Distress,\nSend Assistance.',
-                                  });
+                                  // FirebaseFirestore.instance
+                                  //     .collection('users')
+                                  //     .doc(currentUser.uid)
+                                  //     .update({
+                                  //   'hospital message':
+                                  //       'Respiratory Distress,\nSend Assistance.',
+                                  // });
                                   final action = await AlertDialogs.yesCancelDialog(
                                       context,
                                       'Hospital Report',
@@ -283,13 +293,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Severe Burns/Scald,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Severe Burns/Scald,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -353,13 +363,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Loss of Consciousness Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Loss of Consciousness Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -423,16 +433,16 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Seizure Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Seizure Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
-                                    'Hospital Message',
+                                    'Hospital Report',
                                     'Seizure Incident,\nSend Assistance.\n\nReport by:' +
                                         currentUser.email +
                                         '\nname : ' +
@@ -493,13 +503,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Poisoning/drug ingestion Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Poisoning/drug ingestion Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -563,13 +573,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Stroke Incident,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Stroke Incident,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -633,13 +643,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'Emergency Childbirth,\nSend Assistance.',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'Emergency Childbirth,\nSend Assistance.',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -703,13 +713,13 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(currentUser.uid)
-                                    .update({
-                                  'hospital message':
-                                      'In need of Medical Assistance',
-                                });
+                                // FirebaseFirestore.instance
+                                //     .collection('users')
+                                //     .doc(currentUser.uid)
+                                //     .update({
+                                //   'hospital message':
+                                //       'In need of Medical Assistance',
+                                // });
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -748,6 +758,52 @@ class _HospitalReport extends State<HospitalReport> {
                             )),
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        width: 360.0,
+                        height: 70.0,
+                        child: Card(
+                            color: Colors.redAccent[700],
+                            elevation: 1.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.0)),
+                            child: InkWell(
+                              onTap: () async {
+                                final action =
+                                    await ConfirmViewMap.yesCancelDialog(
+                                        context,
+                                        'Closest Hospital',
+                                        'What would you like to do?');
+                              },
+                              child: Center(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(1.0),
+                                child: Row(
+                                  children: <Widget>[
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Icon(
+                                        Icons.location_pin,
+                                        size: 50.0,
+                                        color: Colors.yellowAccent,
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.center,
+                                      child: FittedBox(
+                                        child:
+                                            Text("  VIEW THE CLOSEST HOSPITAL",
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.yellowAccent,
+                                                  fontWeight: FontWeight.bold,
+                                                )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )),
+                            )),
                       ),
                     ],
                   ),

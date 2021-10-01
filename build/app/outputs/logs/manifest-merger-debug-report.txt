@@ -15,6 +15,7 @@ MERGED from [:location_web] C:\Users\aquin\Desktop\AlertUsFInal\build\location_w
 MERGED from [:google_maps_flutter] C:\Users\aquin\Desktop\AlertUsFInal\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
+MERGED from [:flutter_secure_storage] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_secure_storage\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:geocoding] C:\Users\aquin\Desktop\AlertUsFInal\build\geocoding\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
 MERGED from [:permission_handler] C:\Users\aquin\Desktop\AlertUsFInal\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -343,6 +344,8 @@ MERGED from [:flutter_plugin_android_lifecycle] C:\Users\aquin\Desktop\AlertUsFI
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_local_notifications] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_secure_storage] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_secure_storage\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:flutter_secure_storage] C:\Users\aquin\Desktop\AlertUsFInal\build\flutter_secure_storage\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:geocoding] C:\Users\aquin\Desktop\AlertUsFInal\build\geocoding\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:geocoding] C:\Users\aquin\Desktop\AlertUsFInal\build\geocoding\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] C:\Users\aquin\Desktop\AlertUsFInal\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
