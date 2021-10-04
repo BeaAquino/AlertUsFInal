@@ -35,7 +35,13 @@ class AuthService {
         });
       });
       return "Signed Up";
-    } catch (e) {}
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   Future<void> signOut() async {

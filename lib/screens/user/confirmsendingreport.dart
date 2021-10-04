@@ -39,24 +39,25 @@ class ConfirmSendingReport {
             actions: <Widget>[
               FlatButton(
                 onPressed: () async {
-                  if (currentUser != null) {
-                    FirebaseFirestore.instance
-                        .collection('users')
-                        .doc(currentUser.uid)
-                        .update({
-                      'longitude': 0,
-                      'latitude': 0,
-                      'fire message': "",
-                      'hospital message': "",
-                      'police message': "",
-                    });
-                  }
+                  // if (currentUser != null) {
+                  //   FirebaseFirestore.instance
+                  //       .collection('users')
+                  //       .doc(currentUser.uid)
+                  //       .update({
+                  //     'longitude': 0,
+                  //     'latitude': 0,
+                  //     // 'fire message': "",
+                  //     // 'hospital message': "",
+                  //     // 'police message': "",
+
+                  //   });
+                  // }
                   //Navigator.of(context).pop(DialogsAction.cancel);
                   //exit(0); works in debug emulator
                   SystemNavigator.pop();
                 },
                 child: Text(
-                  'Done',
+                  'Exit',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),

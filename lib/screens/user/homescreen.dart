@@ -81,12 +81,15 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               onTap: () async {
                 await _auth.signOut();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => MainScreen()),
+                    (Route<dynamic> route) => false);
 
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MainScreen(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => MainScreen(),
+                //     ));
               },
               title: Text("Log Out"),
             ),
@@ -225,12 +228,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     name = snap.docs[0]['name'];
                                     phone = snap.docs[0]['phone'];
                                   });
-                                  // FirebaseFirestore.instance
-                                  //     .collection('users')
-                                  //     .doc(currentUser.uid)
-                                  //     .update({
-                                  //   'fire message': 'FIRE!!!',
-                                  // });
                                   final action =
                                       await AlertDialogs.yesCancelDialog(
                                           context,

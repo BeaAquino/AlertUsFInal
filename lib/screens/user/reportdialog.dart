@@ -64,57 +64,78 @@ class AlertDialogs {
                     print(e);
                   }
                   if (title == "Fire Report") {
+                    // FirebaseFirestore.instance
+                    //     .collection('users')
+                    //     .doc(currentUser.uid)
+                    //     .update({
+                    //   'fire message': body,
+                    // });
+                    final loc.LocationData _locationResult =
+                        await location.getLocation();
                     FirebaseFirestore.instance
-                        .collection('users')
+                        .collection("fire reports")
                         .doc(currentUser.uid)
-                        .update({
+                        .set({
+                      'uid': currentUser.uid,
                       'fire message': body,
+                      'latitude': _locationResult.latitude,
+                      'longitude': _locationResult.longitude,
+                      'created': currentUser.metadata.creationTime,
                     });
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,
                         'Report Sent',
-                        'Please wait until Authorities have contacted you.\n\n\nOnce you press DONE, your report will be deleted and you will end the session.\n\nReport Message:\n' +
+                        'Your Report has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\n\nKindly press EXIT, to end the session.\n\nReport Message:\n' +
                             body);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => FireScreen()),
-                    // );
                   }
                   if (title == "Hospital Report") {
+                    // FirebaseFirestore.instance
+                    //     .collection('users')
+                    //     .doc(currentUser.uid)
+                    //     .update({
+                    //   'hospital message': body,
+                    // });
+                    final loc.LocationData _locationResult =
+                        await location.getLocation();
                     FirebaseFirestore.instance
-                        .collection('users')
+                        .collection("hospital reports")
                         .doc(currentUser.uid)
-                        .update({
+                        .set({
+                      'uid': currentUser.uid,
                       'hospital message': body,
+                      'latitude': _locationResult.latitude,
+                      'longitude': _locationResult.longitude,
                     });
 
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,
                         'Report Sent',
-                        'Please wait until Authorities have contacted you.\n\n\nOnce you press DONE, your report will be deleted and you will end the session.\n\nReport Message:\n' +
+                        'Your Report has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\n\nKindly press EXIT, to end the session.\n\nReport Message:\n' +
                             body);
-
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => HospitalScreen()),
-                    // );
                   }
                   if (title == "Police Report") {
+                    // FirebaseFirestore.instance
+                    //     .collection('users')
+                    //     .doc(currentUser.uid)
+                    //     .update({
+                    //   'police message': body,
+                    // });
+                    final loc.LocationData _locationResult =
+                        await location.getLocation();
                     FirebaseFirestore.instance
-                        .collection('users')
+                        .collection("police reports")
                         .doc(currentUser.uid)
-                        .update({
+                        .set({
+                      'uid': currentUser.uid,
                       'police message': body,
+                      'latitude': _locationResult.latitude,
+                      'longitude': _locationResult.longitude,
                     });
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,
                         'Report Sent',
-                        'Please wait until Authorities have contacted you.\n\n\nOnce you press DONE, your report will be deleted and you will end the session.\n\nReport Message:\n' +
+                        'Your Report has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\n\nKindly press EXIT, to end the session.\n\nReport Message:\n' +
                             body);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => PoliceScreen()),
-                    // );
                   }
                 },
                 child: Text(
