@@ -120,6 +120,8 @@ class _MyAppState extends State<MyApp> {
     getTopics();
   }
 
+  late String station;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -284,12 +286,45 @@ class _MyAppState extends State<MyApp> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                       child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HospitalListReports()),
-                          );
+                        onTap: () async {
+                          var currentUser = FirebaseAuth.instance.currentUser;
+
+                          if (currentUser != null) {
+                            final QuerySnapshot snap = await FirebaseFirestore
+                                .instance
+                                .collection('users')
+                                .where('email', isEqualTo: currentUser.email)
+                                .get();
+                            setState(() {
+                              station = snap.docs[0]['station'];
+                            });
+                            if (station == 'hospital') {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        HospitalListReports()),
+                              );
+                            } else {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Access Denied"),
+                                    content: const Text(
+                                        "You are not Authorized to view this Report Log"),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        onPressed: () =>
+                                            Navigator.of(context).pop(),
+                                        child: const Text("OK"),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
+                          }
                         },
                         child: Center(
                             child: Padding(
@@ -329,12 +364,44 @@ class _MyAppState extends State<MyApp> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                       child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PoliceListReports()),
-                          );
+                        onTap: () async {
+                          var currentUser = FirebaseAuth.instance.currentUser;
+
+                          if (currentUser != null) {
+                            final QuerySnapshot snap = await FirebaseFirestore
+                                .instance
+                                .collection('users')
+                                .where('email', isEqualTo: currentUser.email)
+                                .get();
+                            setState(() {
+                              station = snap.docs[0]['station'];
+                            });
+                            if (station == 'police') {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PoliceListReports()),
+                              );
+                            } else {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Access Denied"),
+                                    content: const Text(
+                                        "You are not Authorized to view this Report Log"),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        onPressed: () =>
+                                            Navigator.of(context).pop(),
+                                        child: const Text("OK"),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
+                          }
                         },
                         child: Center(
                             child: Padding(
@@ -374,12 +441,44 @@ class _MyAppState extends State<MyApp> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                       child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => FireListReports()),
-                          );
+                        onTap: () async {
+                          var currentUser = FirebaseAuth.instance.currentUser;
+
+                          if (currentUser != null) {
+                            final QuerySnapshot snap = await FirebaseFirestore
+                                .instance
+                                .collection('users')
+                                .where('email', isEqualTo: currentUser.email)
+                                .get();
+                            setState(() {
+                              station = snap.docs[0]['station'];
+                            });
+                            if (station == 'fire') {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FireListReports()),
+                              );
+                            } else {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Access Denied"),
+                                    content: const Text(
+                                        "You are not Authorized to view this Report Log"),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        onPressed: () =>
+                                            Navigator.of(context).pop(),
+                                        child: const Text("OK"),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
+                          }
                         },
                         child: Center(
                             child: Padding(
