@@ -64,24 +64,6 @@ class ReportOptionDialog {
                     print(e);
                   }
                   print('View map daw');
-                  // if (title == "Closest Police Station") {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => PoliceScreen()),
-                  //   );
-                  // }
-                  // if (title == "Closest Hospital") {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => HospitalScreen()),
-                  //   );
-                  // }
-                  // if (title == "Closest RT-PCR Testing Sites") {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => rtpcrScreen()),
-                  //   );
-                  // }
                 },
                 child: Text(
                   'View Map',
