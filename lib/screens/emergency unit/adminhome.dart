@@ -4,7 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebasetest/map%20screens/stationmap.dart';
+import 'package:firebasetest/screens/emergency%20unit/firelistreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/hospitallistreports.dart';
+import 'package:firebasetest/screens/emergency%20unit/policelistreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/viewreport.dart';
 import 'package:firebasetest/screens/user/homescreen.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
@@ -328,12 +330,11 @@ class _MyAppState extends State<MyApp> {
                           borderRadius: BorderRadius.circular(8.0)),
                       child: InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) =>
-                          //           EmergencyContactList()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PoliceListReports()),
+                          );
                         },
                         child: Center(
                             child: Padding(
@@ -374,12 +375,11 @@ class _MyAppState extends State<MyApp> {
                           borderRadius: BorderRadius.circular(8.0)),
                       child: InkWell(
                         onTap: () {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) =>
-                          //           EmergencyContactList()),
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FireListReports()),
+                          );
                         },
                         child: Center(
                             child: Padding(

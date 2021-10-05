@@ -48,7 +48,7 @@ class _HospitalListReports extends State<HospitalListReports> {
                                 return AlertDialog(
                                   title: const Text("Confirm"),
                                   content: const Text(
-                                      "Are you sure you wish to delete this item?"),
+                                      "Are you sure you wish to delete this report?"),
                                   actions: <Widget>[
                                     FlatButton(
                                         onPressed: () async {
