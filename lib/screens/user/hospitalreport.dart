@@ -791,13 +791,12 @@ class _HospitalReport extends State<HospitalReport> {
                                     Align(
                                       alignment: Alignment.center,
                                       child: FittedBox(
-                                        child:
-                                            Text("  VIEW THE CLOSEST HOSPITAL",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Colors.yellowAccent,
-                                                  fontWeight: FontWeight.bold,
-                                                )),
+                                        child: Text("VIEW THE CLOSEST HOSPITAL",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.yellowAccent,
+                                              fontWeight: FontWeight.bold,
+                                            )),
                                       ),
                                     )
                                   ],

@@ -343,7 +343,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Align(
                                       alignment: Alignment.center,
                                       child: FittedBox(
-                                        child: Text("  EMERGENCY UNIT CONTACTS",
+                                        child: Text("EMERGENCY UNIT CONTACTS",
                                             style: TextStyle(
                                               fontSize: 18,
                                               color: Colors.white,

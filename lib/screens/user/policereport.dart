@@ -641,13 +641,12 @@ class _PoliceReport extends State<PoliceReport> {
                                     Align(
                                       alignment: Alignment.center,
                                       child: FittedBox(
-                                        child:
-                                            Text("  VIEW THE CLOSEST STATION",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Colors.yellowAccent,
-                                                  fontWeight: FontWeight.bold,
-                                                )),
+                                        child: Text("VIEW THE CLOSEST STATION",
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.yellowAccent,
+                                              fontWeight: FontWeight.bold,
+                                            )),
                                       ),
                                     )
                                   ],
