@@ -71,20 +71,21 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               SizedBox(height: 20),
               RichText(
+                  textAlign: TextAlign.center,
                   text: TextSpan(
-                      text: '   Welcome to ',
+                      text: 'Welcome to ',
                       style: TextStyle(
                           fontSize: 50.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.black),
                       children: <TextSpan>[
-                    TextSpan(
-                        text: '  AlertUs',
-                        style: TextStyle(
-                            fontSize: 60.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red[900]))
-                  ])),
+                        TextSpan(
+                            text: 'AlertUs',
+                            style: TextStyle(
+                                fontSize: 60.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red[900]))
+                      ])),
             ],
           ),
         ),
