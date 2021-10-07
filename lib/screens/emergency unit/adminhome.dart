@@ -8,7 +8,6 @@ import 'package:firebasetest/map%20screens/stationmap.dart';
 import 'package:firebasetest/screens/emergency%20unit/firelistreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/hospitallistreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/policelistreports.dart';
-import 'package:firebasetest/screens/emergency%20unit/viewreport.dart';
 import 'package:firebasetest/screens/user/homescreen.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
 import 'package:flutter/material.dart';
@@ -678,136 +677,136 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class Another extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Display(),
-    );
-  }
-}
+// class Another extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: Display(),
+//     );
+//   }
+// }
 
-class Display extends StatefulWidget {
-  @override
-  _Display createState() => _Display();
-}
+// class Display extends StatefulWidget {
+//   @override
+//   _Display createState() => _Display();
+// }
 
-class _Display extends State<Display> {
-  @override
-  void initState() {
-    super.initState();
-  }
+// class _Display extends State<Display> {
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
 
-  late String uid;
-  late String email;
-  late String name;
-  late String phone;
+//   late String uid;
+//   late String email;
+//   late String name;
+//   late String phone;
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Colors.redAccent[700],
-      ),
-      backgroundColor: Colors.orange[200],
-      body: SafeArea(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
-            Widget>[
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Text(
-              "Click the button to View Report",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold),
-              textAlign: TextAlign.start,
-            ),
-          ),
-          Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Center(
-                  child: Wrap(spacing: 10, runSpacing: 5.0, children: <Widget>[
-                SizedBox(
-                  width: 175.0,
-                  height: 160.0,
-                  child: Card(
-                    color: Colors.redAccent[700],
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0)),
-                    child: InkWell(
-                      onTap: () async {
-                        var currentUser = FirebaseAuth.instance.currentUser;
-                        if (currentUser != null) {
-                          final QuerySnapshot snap = await FirebaseFirestore
-                              .instance
-                              .collection('users')
-                              .where('latitude', isNotEqualTo: 0)
-                              .get();
-                          setState(() {
-                            uid = snap.docs[0]['uid'];
-                            email = snap.docs[0]['email'];
-                            name = snap.docs[0]['name'];
-                            phone = snap.docs[0]['phone'];
-                          });
-                          // FirebaseFirestore.instance
-                          //     .collection('users')
-                          //     .doc(currentUser.uid)
-                          //     .update({
-                          //   'report id': uid,
-                          // });
-                          final action = await ViewAlertDialogs.yesCancelDialog(
-                              uid,
-                              context,
-                              'View Report',
-                              '\nReport by:' +
-                                  '\nuid: ' +
-                                  uid +
-                                  '\n\nemail:' +
-                                  email +
-                                  '\nname : ' +
-                                  name +
-                                  '\nphone number : ' +
-                                  phone);
-                        }
-                        Center(
-                            child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.access_alarm_sharp,
-                                size: 90.0,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Text(
-                                "Accept",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 50.0),
-                              ),
-                            ],
-                          ),
-                        ));
-                      },
-                    ),
-                  ),
-                ),
-              ])))
-        ]),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: new AppBar(
+//         backgroundColor: Colors.redAccent[700],
+//       ),
+//       backgroundColor: Colors.orange[200],
+//       body: SafeArea(
+//         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+//             Widget>[
+//           Padding(
+//             padding: const EdgeInsets.all(18.0),
+//             child: Text(
+//               "Click the button to View Report",
+//               style: TextStyle(
+//                   color: Colors.black,
+//                   fontSize: 28.0,
+//                   fontWeight: FontWeight.bold),
+//               textAlign: TextAlign.start,
+//             ),
+//           ),
+//           Padding(
+//               padding: const EdgeInsets.all(12.0),
+//               child: Center(
+//                   child: Wrap(spacing: 10, runSpacing: 5.0, children: <Widget>[
+//                 SizedBox(
+//                   width: 175.0,
+//                   height: 160.0,
+//                   child: Card(
+//                     color: Colors.redAccent[700],
+//                     elevation: 2.0,
+//                     shape: RoundedRectangleBorder(
+//                         borderRadius: BorderRadius.circular(8.0)),
+//                     child: InkWell(
+//                       onTap: () async {
+//                         var currentUser = FirebaseAuth.instance.currentUser;
+//                         if (currentUser != null) {
+//                           final QuerySnapshot snap = await FirebaseFirestore
+//                               .instance
+//                               .collection('users')
+//                               .where('latitude', isNotEqualTo: 0)
+//                               .get();
+//                           setState(() {
+//                             uid = snap.docs[0]['uid'];
+//                             email = snap.docs[0]['email'];
+//                             name = snap.docs[0]['name'];
+//                             phone = snap.docs[0]['phone'];
+//                           });
+//                           // FirebaseFirestore.instance
+//                           //     .collection('users')
+//                           //     .doc(currentUser.uid)
+//                           //     .update({
+//                           //   'report id': uid,
+//                           // });
+//                           final action = await ViewAlertDialogs.yesCancelDialog(
+//                               uid,
+//                               context,
+//                               'View Report',
+//                               '\nReport by:' +
+//                                   '\nuid: ' +
+//                                   uid +
+//                                   '\n\nemail:' +
+//                                   email +
+//                                   '\nname : ' +
+//                                   name +
+//                                   '\nphone number : ' +
+//                                   phone);
+//                         }
+//                         Center(
+//                             child: Padding(
+//                           padding: const EdgeInsets.all(8.0),
+//                           child: Column(
+//                             children: <Widget>[
+//                               Icon(
+//                                 Icons.access_alarm_sharp,
+//                                 size: 90.0,
+//                                 color: Colors.white,
+//                               ),
+//                               SizedBox(
+//                                 height: 10.0,
+//                               ),
+//                               Text(
+//                                 "Accept",
+//                                 style: TextStyle(
+//                                     color: Colors.white,
+//                                     fontWeight: FontWeight.bold,
+//                                     fontSize: 50.0),
+//                               ),
+//                             ],
+//                           ),
+//                         ));
+//                       },
+//                     ),
+//                   ),
+//                 ),
+//               ])))
+//         ]),
+//       ),
+//     );
+//   }
+// }
 
 // // ignore_for_file: dead_code
 

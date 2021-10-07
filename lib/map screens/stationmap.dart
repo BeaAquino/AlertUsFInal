@@ -10,14 +10,16 @@ const double CAMERA_TILT = 80;
 const double CAMERA_BEARING = 30;
 
 class StationMap extends StatefulWidget {
-  final String user_id = "G6Nn13uZbqeam5a3xoJh5r3Wb5p1";
-  //StationMap(this.user_id);
+  String user_id;
+  // late String user_id = "eUoUNmJjUReiwcItj6ljzIFyiQg1";
+  StationMap(this.user_id);
   @override
   _StationMapState createState() => _StationMapState();
 }
 
 class _StationMapState extends State<StationMap> {
   //final loc.Location location = loc.Location();
+
   var llocation = new Location();
   var userLocation;
   late GoogleMapController _controller;
@@ -123,14 +125,9 @@ class _StationMapState extends State<StationMap> {
   }
 
   Future<void> StationMap(AsyncSnapshot<QuerySnapshot> snapshot) async {
-    await _controller
-        .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-            target: LatLng(
-              snapshot.data!.docs.singleWhere(
-                  (element) => element.id == widget.user_id)['latitude'],
-              snapshot.data!.docs.singleWhere(
-                  (element) => element.id == widget.user_id)['longitude'],
-            ),
+    await _controller.animateCamera(CameraUpdate.newCameraPosition(
+        CameraPosition(
+            target: LatLng(currentLocation.latitude, currentLocation.longitude),
             zoom: 14.47)));
   }
 
