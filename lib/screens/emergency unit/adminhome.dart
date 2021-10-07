@@ -54,7 +54,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 // Future doSomething(context) async {
 //   runApp(
-//       Another()); // yung class ng Another, icopy paste nalang yung code ng map
+//       Another());
 // }
 
 void main() async {
