@@ -450,6 +450,7 @@ class _ConfirmUser extends State<ConfirmUser> {
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -467,8 +468,9 @@ class _ConfirmUser extends State<ConfirmUser> {
                       if (value == null || value.trim().length == 0) {
                         return "Email Required";
                       }
+
                       if (!RegExp(
-                              r"^([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)$")
+                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                           .hasMatch(value)) {
                         return "Please Enter valid email address";
                       }

@@ -31,8 +31,13 @@ class _HospitalListReports extends State<HospitalListReports> {
                 itemBuilder: (context, index) {
                   String itemTitle =
                       snapshot.data!.docs[index]['hospital message'];
+                  String itemSubtitle =
+                      snapshot.data!.docs[index]['createdOn'].toString();
                   return Slidable(
-                      child: CardItem(itemTitle: itemTitle),
+                      child: CardItem(
+                        itemTitle: itemTitle,
+                        itemSubtitle: itemSubtitle,
+                      ),
                       actionPane: SlidableDrawerActionPane(),
 
                       //left side
@@ -90,13 +95,13 @@ class _HospitalListReports extends State<HospitalListReports> {
 
 class CardItem extends StatefulWidget {
   String itemTitle;
-  CardItem({required this.itemTitle});
+  String itemSubtitle;
+  CardItem({required this.itemTitle, required this.itemSubtitle});
   @override
   _CardItem createState() => _CardItem();
 }
 
 class _CardItem extends State<CardItem> {
-  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -104,6 +109,10 @@ class _CardItem extends State<CardItem> {
       child: ListTile(
         title: Text(
           widget.itemTitle,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(
+          widget.itemSubtitle,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         onTap: () async {

@@ -16,10 +16,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(ThisApp());
 }
 
-class MyApp extends StatelessWidget {
+class ThisApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -48,6 +48,8 @@ class AuthWrapper extends StatelessWidget {
     if (user != null) {
       return SplashScreen();
     }
-    return MainScreen();
+    if (user == null) {
+      return MainScreen();
+    }
   }
 }

@@ -16,6 +16,14 @@ class ContactUs extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
+                padding: EdgeInsets.fromLTRB(130.0, 12.0, 12.0, 1.0),
+                child: Image.asset(
+                  'images/AlertUs.png',
+                  width: 120.0,
+                  height: 120.0,
+                ),
+              ),
+              Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Text(
                   "AlertUs is an Emergency Assistance Application developed by Computer Science students of Holy Angel Universitys School of Computing.",
@@ -23,17 +31,34 @@ class ContactUs extends StatelessWidget {
                       color: Colors.black,
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.start,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const Divider(
+                height: 20,
+                thickness: 5,
+                indent: 20,
+                endIndent: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(90.0, 12.0, 12.0, 3.0),
+                child: Text(
+                  "Aquino, Bea\n09420305901\naquinobea1999@gmail.com\n\nDizon, Maycee\n09070212544\nmaycee.g.dizon@gmail.com\n\nQuizon, Megan\n09186385668\nmeganraeq@gmail.com\n\nSerrano, Christian\n09633850455\nogihci321@gmail.com",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Text(
-                  "Aquino, Bea\n09420305901\n\nDizon, Maycee\n09070212544\n\nQuizon, Megan\n09186385668\n\nSerrano, Christian\n00000000000",
+                  "***For Users who wish to register a station, kindly contact us for more details.",
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold),
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.normal),
                   textAlign: TextAlign.start,
                 ),
               ),

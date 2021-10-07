@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebasetest/main.dart';
 import 'package:firebasetest/screens/user/confirmuser.dart';
 import 'package:firebasetest/screens/user/mainscreen.dart';
 import 'package:firebasetest/services/auth_services.dart';
@@ -11,11 +12,14 @@ import '../../contact lists/contactus.dart';
 import 'package:firebasetest/screens/user/reportdialog.dart';
 import 'covidoptiondialog.dart';
 
-final AuthService _auth = AuthService(FirebaseAuth.instance);
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
+}
+
+final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+_signOut() async {
+  await _firebaseAuth.signOut();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -80,16 +84,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.black,
               ),
               onTap: () async {
-                await _auth.signOut();
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => MainScreen()),
-                    (Route<dynamic> route) => false);
-
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => MainScreen(),
-                //     ));
+                await _signOut();
+                if (_firebaseAuth.currentUser == null) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (c) => ThisApp()),
+                      (route) => false);
+                  // Navigator.push(   // THIS CODE ALLOWS ME TO LOG OUT BUT WHEN I PRESS BACK I RETURN TO LAST ROUTE..
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => MyApp()),
+                  // );
+                }
               },
               title: Text("Log Out"),
             ),
@@ -99,12 +103,12 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Text(
-                  "\t\t\t\t\t\tSelect an Emergency",
+                  "Select an Emergency",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 28.0,
@@ -120,8 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     runSpacing: 5.0,
                     children: <Widget>[
                       SizedBox(
-                        width: 175.0,
-                        height: 160.0,
+                        width: 163.0,
+                        height: 150.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -142,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.local_hospital_rounded,
-                                    size: 90.0,
+                                    size: 70.0,
                                     color: Colors.white,
                                   ),
                                   SizedBox(
@@ -162,8 +166,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 175.0,
-                        height: 160.0,
+                        width: 163.0,
+                        height: 150.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -184,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.local_police_rounded,
-                                    size: 90.0,
+                                    size: 70.0,
                                     color: Colors.white,
                                   ),
                                   SizedBox(
@@ -204,8 +208,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 175.0,
-                        height: 160.0,
+                        width: 163.0,
+                        height: 150.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -247,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       children: <Widget>[
                                         Icon(
                                           Icons.fireplace_rounded,
-                                          size: 90.0,
+                                          size: 70.0,
                                           color: Colors.white,
                                         ),
                                         SizedBox(
@@ -266,8 +270,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 175.0,
-                        height: 160.0,
+                        width: 163.0,
+                        height: 150.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -287,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.coronavirus_rounded,
-                                    size: 90.0,
+                                    size: 70.0,
                                     color: Colors.white,
                                   ),
                                   SizedBox(
@@ -307,7 +311,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 360.0,
+                        width: 340.0,
                         height: 70.0,
                         child: Card(
                             color: Colors.redAccent[700],

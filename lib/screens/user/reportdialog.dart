@@ -80,7 +80,7 @@ class AlertDialogs {
                       'fire message': body,
                       'latitude': _locationResult.latitude,
                       'longitude': _locationResult.longitude,
-                      'createdOn': DateTime.now(),
+                      'createdOn': DateTime.now().toString().substring(0, 16),
                     });
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,
@@ -105,8 +105,9 @@ class AlertDialogs {
                       'hospital message': body,
                       'latitude': _locationResult.latitude,
                       'longitude': _locationResult.longitude,
-                      'createdOn':
-                          DateTime.now(), //FieldValue.serverTimestamp(),
+                      'createdOn': DateTime.now()
+                          .toString()
+                          .substring(0, 16), //FieldValue.serverTimestamp(),
                     });
 
                     final action = await ConfirmSendingReport.yesCancelDialog(
@@ -132,7 +133,7 @@ class AlertDialogs {
                       'police message': body,
                       'latitude': _locationResult.latitude,
                       'longitude': _locationResult.longitude,
-                      'createdOn': DateTime.now(),
+                      'createdOn': DateTime.now().toString().substring(0, 16),
                     });
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,

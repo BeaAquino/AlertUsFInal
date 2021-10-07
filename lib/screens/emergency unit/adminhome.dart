@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebasetest/main.dart';
 import 'package:firebasetest/map%20screens/stationmap.dart';
 import 'package:firebasetest/screens/emergency%20unit/firelistreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/hospitallistreports.dart';
@@ -17,7 +18,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebasetest/screens/user/confirmuser.dart';
 import 'package:firebasetest/screens/user/mainscreen.dart';
 import 'package:firebasetest/services/auth_services.dart';
-import '../../NOT USED - EXTRA CODE/adminconfirm.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +25,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as loc;
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart';
-
-final AuthService _auth = AuthService(FirebaseAuth.instance);
 
 Future _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -78,12 +76,12 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  FirebaseAuth auth = FirebaseAuth.instance;
-  Future logOut() async {
-    User user = auth.signOut() as User;
-  }
+final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+_signOut() async {
+  await _firebaseAuth.signOut();
+}
 
+class _MyAppState extends State<MyApp> {
   late String userTopic;
   late String token;
   List subscribed = [];
@@ -161,11 +159,12 @@ class _MyAppState extends State<MyApp> {
                 color: Colors.black,
               ),
               onTap: () async {
-                logOut();
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => MainScreen()));
+                await _signOut();
+                if (_firebaseAuth.currentUser == null) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (c) => ThisApp()),
+                      (route) => false);
+                }
               },
               title: Text("Log Out"),
             ),
@@ -203,7 +202,7 @@ class _MyAppState extends State<MyApp> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "\t\t\t\t\t\t\tSubscribe to receive Notifications",
+              "\t\t\t\t\t\t\tReceive Notifications on Reports",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -222,15 +221,43 @@ class _MyAppState extends State<MyApp> {
                 trailing: subscribed.contains(topics[index])
                     ? ElevatedButton(
                         onPressed: () async {
-                          await FirebaseMessaging.instance
-                              .unsubscribeFromTopic(topics[index]);
-                          await FirebaseFirestore.instance
-                              .collection('topics')
-                              .doc(token)
-                              .update({topics[index]: FieldValue.delete()});
-                          setState(() {
-                            subscribed.remove(topics[index]);
-                          });
+                          showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title:
+                                    const Text("Stop Receiving Notifications"),
+                                content: const Text(
+                                    "Are you sure you want to unsubscribe to your station?"),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text("Cancel"),
+                                  ),
+                                  FlatButton(
+                                    onPressed: () async {
+                                      await FirebaseMessaging.instance
+                                          .unsubscribeFromTopic(topics[index]);
+                                      await FirebaseFirestore.instance
+                                          .collection('topics')
+                                          .doc(token)
+                                          .update({
+                                        topics[index]: FieldValue.delete()
+                                      });
+                                      setState(() {
+                                        subscribed.remove(topics[index]);
+                                      });
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text("OK"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         },
                         child: Text('unsubscribe'),
                       )
@@ -239,17 +266,89 @@ class _MyAppState extends State<MyApp> {
                           primary: Colors.redAccent[700],
                         ),
                         onPressed: () async {
-                          await FirebaseMessaging.instance
-                              .subscribeToTopic(topics[index]);
+                          showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text("Receive Notifications"),
+                                content: const Text(
+                                    "Subscribing to other stations is not allowed\n\nYou are now subscribed to your assigned station. "),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    onPressed: () async {
+                                      var currentUser =
+                                          FirebaseAuth.instance.currentUser;
+                                      if (currentUser != null) {
+                                        final QuerySnapshot snap =
+                                            await FirebaseFirestore.instance
+                                                .collection('users')
+                                                .where('email',
+                                                    isEqualTo:
+                                                        currentUser.email)
+                                                .get();
+                                        setState(() {
+                                          station = snap.docs[0]['station'];
+                                        });
+                                        if (station == 'hospital') {
+                                          await FirebaseMessaging.instance
+                                              .subscribeToTopic(topics[1]);
 
-                          await FirebaseFirestore.instance
-                              .collection('topics')
-                              .doc(token)
-                              .set({topics[index]: 'subscribe'},
-                                  SetOptions(merge: true));
-                          setState(() {
-                            subscribed.add(topics[index]);
-                          });
+                                          await FirebaseFirestore.instance
+                                              .collection('topics')
+                                              .doc(token)
+                                              .set({topics[1]: 'subscribe'},
+                                                  SetOptions(merge: true));
+                                          setState(() {
+                                            subscribed.add(topics[1]);
+                                          });
+                                        }
+                                        if (station == 'police') {
+                                          await FirebaseMessaging.instance
+                                              .subscribeToTopic(topics[0]);
+
+                                          await FirebaseFirestore.instance
+                                              .collection('topics')
+                                              .doc(token)
+                                              .set({topics[0]: 'subscribe'},
+                                                  SetOptions(merge: true));
+                                          setState(() {
+                                            subscribed.add(topics[0]);
+                                          });
+                                        }
+                                        if (station == 'fire') {
+                                          await FirebaseMessaging.instance
+                                              .subscribeToTopic(topics[2]);
+
+                                          await FirebaseFirestore.instance
+                                              .collection('topics')
+                                              .doc(token)
+                                              .set({topics[2]: 'subscribe'},
+                                                  SetOptions(merge: true));
+                                          setState(() {
+                                            subscribed.add(topics[2]);
+                                          });
+                                        }
+                                      }
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: const Text("OK"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                          // // // // await FirebaseMessaging.instance     // ORIGINAL CODE
+                          // // // //     .subscribeToTopic(topics[index]);
+
+                          // // // // await FirebaseFirestore.instance
+                          // // // //     .collection('topics')
+                          // // // //     .doc(token)
+                          // // // //     .set({topics[index]: 'subscribe'},
+                          // // // //         SetOptions(merge: true));
+                          // // // // setState(() {
+                          // // // //   subscribed.add(topics[index]);
+                          // // // // });
                         },
                         child: Text('subscribe'),
                       ),

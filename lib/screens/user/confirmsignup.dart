@@ -201,10 +201,10 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  validator(){
-    if(_formkey.currentState != null && _formkey.currentState!.validate()){
+  validator() {
+    if (_formkey.currentState != null && _formkey.currentState!.validate()) {
       print("Validated");
-    }else{
+    } else {
       print("Not Validated");
     }
   }
@@ -214,13 +214,13 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           centerTitle: true,
-        title: FittedBox(
-          fit: BoxFit.fitWidth,
-          child: Text ("Confirmation"),
-        ),
+          title: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text("Confirmation"),
+          ),
           backgroundColor: Colors.redAccent[700],
         ),
         backgroundColor: Colors.orange[200],
@@ -253,11 +253,12 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
                     Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
                         controller: emailController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                            borderSide: BorderSide.none),
+                              borderRadius: BorderRadius.circular(8.0),
+                              borderSide: BorderSide.none),
                           fillColor: Colors.white,
                           filled: true,
                           hintText: "Email",
@@ -266,11 +267,14 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
                             color: Colors.grey[400],
                           ),
                         ),
-                        validator: (String? value){
-                          if(value == null || value.trim().length == 0){
+                        validator: (String? value) {
+                          if (value == null || value.trim().length == 0) {
                             return "Email Required";
                           }
-                          if(!RegExp(r"^([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)$").hasMatch(value)){
+
+                          if (!RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value)) {
                             return "Please Enter valid email address";
                           }
                           return null;
@@ -284,24 +288,24 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
                       onTap: () async {
                         String userEmail = emailController.text.trim();
                         validator();
-                        if(userEmail.isEmpty){
+                        if (userEmail.isEmpty) {
                           validator();
-                        }else{
-                          final QuerySnapshot snap = await FirebaseFirestore.instance
-                            .collection('users')
-                            .where('email', isEqualTo: userEmail)
-                            .get();
-                        setState(() {
-                          email = userEmail;
-                          uid = snap.docs[0]['uid'];
-                          role = snap.docs[0]['role'];
-                          name = snap.docs[0]['name'];
-                          phone = snap.docs[0]['phone'];
-                    
-                          ableToEdit = true;
-                        });
-                        }
+                        } else {
+                          final QuerySnapshot snap = await FirebaseFirestore
+                              .instance
+                              .collection('users')
+                              .where('email', isEqualTo: userEmail)
+                              .get();
+                          setState(() {
+                            email = userEmail;
+                            uid = snap.docs[0]['uid'];
+                            role = snap.docs[0]['role'];
+                            name = snap.docs[0]['name'];
+                            phone = snap.docs[0]['phone'];
 
+                            ableToEdit = true;
+                          });
+                        }
                       },
                       child: Container(
                         height: 50,

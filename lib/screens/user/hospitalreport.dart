@@ -60,7 +60,7 @@ class _HospitalReport extends State<HospitalReport> {
                     runSpacing: 5.0,
                     children: <Widget>[
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -130,7 +130,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -200,7 +200,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -270,7 +270,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -340,7 +340,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -410,7 +410,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -480,7 +480,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -550,7 +550,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -620,7 +620,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -690,7 +690,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
+                        width: 163.0,
                         height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
@@ -760,7 +760,7 @@ class _HospitalReport extends State<HospitalReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 360.0,
+                        width: 340.0,
                         height: 70.0,
                         child: Card(
                             color: Colors.redAccent[700],

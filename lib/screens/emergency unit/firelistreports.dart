@@ -30,8 +30,13 @@ class _FireListReports extends State<FireListReports> {
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   String itemTitle = snapshot.data!.docs[index]['fire message'];
+                  String itemSubtitle =
+                      snapshot.data!.docs[index]['createdOn'].toString();
                   return Slidable(
-                      child: CardItem(itemTitle: itemTitle),
+                      child: CardItem(
+                        itemTitle: itemTitle,
+                        itemSubtitle: itemSubtitle,
+                      ),
                       actionPane: SlidableDrawerActionPane(),
 
                       //left side
@@ -88,7 +93,8 @@ class _FireListReports extends State<FireListReports> {
 
 class CardItem extends StatefulWidget {
   String itemTitle;
-  CardItem({required this.itemTitle});
+  String itemSubtitle;
+  CardItem({required this.itemTitle, required this.itemSubtitle});
   @override
   _CardItem createState() => _CardItem();
 }
@@ -102,6 +108,10 @@ class _CardItem extends State<CardItem> {
       child: ListTile(
         title: Text(
           widget.itemTitle,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(
+          widget.itemSubtitle,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         onTap: () async {

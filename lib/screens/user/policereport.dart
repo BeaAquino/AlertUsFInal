@@ -50,8 +50,8 @@ class _PoliceReport extends State<PoliceReport> {
                     runSpacing: 5.0,
                     children: <Widget>[
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -98,7 +98,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.emoji_people_rounded,
-                                    size: 50.0,
+                                    size: 40.0,
                                     color: Colors.yellowAccent,
                                   ),
                                   SizedBox(
@@ -120,8 +120,8 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -168,7 +168,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.dangerous_rounded,
-                                    size: 50.0,
+                                    size: 40.0,
                                     color: Colors.yellowAccent,
                                   ),
                                   SizedBox(
@@ -190,8 +190,8 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -239,7 +239,7 @@ class _PoliceReport extends State<PoliceReport> {
                                       children: <Widget>[
                                         Icon(
                                           Icons.lock,
-                                          size: 50.0,
+                                          size: 40.0,
                                           color: Colors.yellowAccent,
                                         ),
                                         SizedBox(
@@ -260,8 +260,8 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -308,7 +308,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.groups_rounded,
-                                    size: 50.0,
+                                    size: 40.0,
                                     color: Colors.yellowAccent,
                                   ),
                                   SizedBox(
@@ -330,8 +330,8 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -378,7 +378,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.priority_high_rounded,
-                                    size: 50.0,
+                                    size: 40.0,
                                     color: Colors.yellowAccent,
                                   ),
                                   SizedBox(
@@ -400,8 +400,8 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -448,7 +448,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.person_search_rounded,
-                                    size: 50.0,
+                                    size: 40.0,
                                     color: Colors.yellowAccent,
                                   ),
                                   SizedBox(
@@ -470,8 +470,8 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -518,7 +518,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.no_accounts_rounded,
-                                    size: 50.0,
+                                    size: 40.0,
                                     color: Colors.yellowAccent,
                                   ),
                                   SizedBox(
@@ -540,8 +540,8 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 173.0,
-                        height: 110.0,
+                        width: 163.0,
+                        height: 100.0,
                         child: Card(
                           color: Colors.redAccent[700],
                           elevation: 2.0,
@@ -588,7 +588,7 @@ class _PoliceReport extends State<PoliceReport> {
                                 children: <Widget>[
                                   Icon(
                                     Icons.outbond_rounded,
-                                    size: 50.0,
+                                    size: 40.0,
                                     color: Colors.yellowAccent,
                                   ),
                                   SizedBox(
@@ -610,7 +610,7 @@ class _PoliceReport extends State<PoliceReport> {
                         ),
                       ),
                       SizedBox(
-                        width: 360.0,
+                        width: 340.0,
                         height: 70.0,
                         child: Card(
                             color: Colors.redAccent[700],
