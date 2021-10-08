@@ -151,8 +151,6 @@
 //   }
 // }
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebasetest/map%20screens/hospitalscreen.dart';
-import 'package:firebasetest/screens/emergency%20unit/reportoptiondialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as loc;
@@ -185,8 +183,6 @@ class _StationMapState extends State<StationMap> {
   Set<Polyline> _polylines = Set<Polyline>();
   List<LatLng> polylineCoordinates = [];
   late PolylinePoints polylinePoints;
-  late String user_name;
-  late String user_number;
 
   bool _added = false;
   @override
@@ -207,59 +203,35 @@ class _StationMapState extends State<StationMap> {
             if (!snapshot.hasData) {
               return Center(child: CircularProgressIndicator());
             }
+            return GoogleMap(
+              mapType: MapType.normal,
+              polylines: _polylines,
+              markers: _markers,
+              initialCameraPosition: CameraPosition(
+                  target: LatLng(0, 0),
+                  zoom: CAMERA_ZOOM,
+                  tilt: CAMERA_TILT,
+                  bearing: CAMERA_BEARING),
+              onMapCreated: (GoogleMapController controller) async {
+                destinationLocation = LatLng(
+                  snapshot.data!.docs.singleWhere(
+                      (element) => element.id == widget.user_id)['latitude'],
+                  snapshot.data!.docs.singleWhere(
+                      (element) => element.id == widget.user_id)['longitude'],
+                );
+                showPinsOnMap();
+                setPolylines();
 
-            return Stack(
-              children: [
-                Positioned.fill(
-                    child: GoogleMap(
-                  mapType: MapType.normal,
-                  polylines: _polylines,
-                  markers: _markers,
-                  initialCameraPosition: CameraPosition(
-                      target: LatLng(0, 0),
-                      zoom: CAMERA_ZOOM,
-                      tilt: CAMERA_TILT,
-                      bearing: CAMERA_BEARING),
-                  onMapCreated: (GoogleMapController controller) async {
-                    destinationLocation = LatLng(
-                      snapshot.data!.docs.singleWhere((element) =>
-                          element.id == widget.user_id)['latitude'],
-                      snapshot.data!.docs.singleWhere((element) =>
-                          element.id == widget.user_id)['longitude'],
-                    );
-                    showPinsOnMap();
-                    setPolylines();
-                    collect();
-                    setState(
-                      () {
-                        _controller = controller;
-                        _added = true;
-                      },
-                    );
+                setState(
+                  () {
+                    _controller = controller;
+                    _added = true;
                   },
-                )),
-                Positioned(
-                    left: 0,
-                    right: 0,
-                    bottom: 20,
-                    child: MapDestBadge(
-                      user_id: user_id,
-                      user_name: user_name,
-                      user_number: user_number,
-                    ))
-              ],
+                );
+              },
             );
           },
         ));
-  }
-
-  Future<void> collect() async {
-    final QuerySnapshot snap = await FirebaseFirestore.instance
-        .collection('users')
-        .where('uid', isEqualTo: user_id)
-        .get();
-    user_name = snap.docs[0]['name'];
-    user_number = snap.docs[0]['phone'];
   }
 
   void setPolylines() async {
@@ -334,67 +306,5 @@ class _StationMapState extends State<StationMap> {
           position: pinPosition,
           icon: sourceIcon));
     });
-  }
-}
-
-class MapDestBadge extends StatelessWidget {
-  MapDestBadge({
-    Key? key,
-    required this.user_id,
-    required this.user_name,
-    required this.user_number,
-  }) : super(key: key);
-  final String user_id;
-  final String user_name;
-  final String user_number;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.all(20),
-        padding: EdgeInsets.all(15),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(100),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  blurRadius: 10,
-                  offset: Offset.zero)
-            ]),
-        child: Row(
-          children: [
-            Stack(
-              children: [
-                ClipOval(
-                  child: Icon(
-                    Icons.person_pin,
-                    size: 50.0,
-                    color: Colors.red,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(width: 20),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(user_name,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15)),
-                  Text(user_number,
-                      style: TextStyle(
-                          color: Colors.grey[700],
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15)),
-                ],
-              ),
-            ),
-            Icon(Icons.location_pin, color: Colors.red, size: 50)
-          ],
-        ));
   }
 }

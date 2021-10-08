@@ -171,10 +171,10 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(130.0, 12.0, 12.0, 3.0),
+            padding: EdgeInsets.zero,
             child: Image.asset(
               'images/AlertUs.png',
               width: 120.0,
@@ -184,7 +184,7 @@ class _MyAppState extends State<MyApp> {
           Padding(
             padding: const EdgeInsets.all(3.0),
             child: Text(
-              "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAlertUs",
+              "AlertUs",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 28.0,
@@ -201,7 +201,7 @@ class _MyAppState extends State<MyApp> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "\t\t\t\t\t\t\tReceive Notifications on Reports",
+              "Receive Notifications on Reports",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -352,7 +352,7 @@ class _MyAppState extends State<MyApp> {
           Padding(
             padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 3.0),
             child: Text(
-              "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tView Report Logs",
+              "View Report Logs",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,

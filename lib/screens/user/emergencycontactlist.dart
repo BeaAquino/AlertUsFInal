@@ -33,7 +33,7 @@ class EmergencyContactList extends StatelessWidget {
               width: 360.0,
               height: 70.0,
               child: Card(
-                color: Colors.orange,
+                color: Colors.redAccent[700],
                 elevation: 1.0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0)),
@@ -50,13 +50,23 @@ class EmergencyContactList extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         Align(
+                          alignment: Alignment.centerLeft,
+                          child: Icon(
+                            Icons.list_rounded,
+                            size: 50.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Align(
                           alignment: Alignment.center,
-                          child: Text(" Hospital List",
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              )),
+                          child: FittedBox(
+                            child: Text("\t\t\tHospital List",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          ),
                         )
                       ],
                     ),
@@ -68,7 +78,7 @@ class EmergencyContactList extends StatelessWidget {
               width: 360.0,
               height: 70.0,
               child: Card(
-                  color: Colors.orange,
+                  color: Colors.redAccent[700],
                   elevation: 1.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0)),
@@ -85,13 +95,23 @@ class EmergencyContactList extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Align(
+                            alignment: Alignment.centerLeft,
+                            child: Icon(
+                              Icons.list_rounded,
+                              size: 50.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Align(
                             alignment: Alignment.center,
-                            child: Text(" Police Station List",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                )),
+                            child: FittedBox(
+                              child: Text("\t\t\tPolice Station List",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ),
                           )
                         ],
                       ),
@@ -102,7 +122,7 @@ class EmergencyContactList extends StatelessWidget {
               width: 360.0,
               height: 70.0,
               child: Card(
-                  color: Colors.orange,
+                  color: Colors.redAccent[700],
                   elevation: 1.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0)),
@@ -120,13 +140,23 @@ class EmergencyContactList extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Align(
+                            alignment: Alignment.centerLeft,
+                            child: Icon(
+                              Icons.list_rounded,
+                              size: 50.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Align(
                             alignment: Alignment.center,
-                            child: Text(" Fire Station List",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                )),
+                            child: FittedBox(
+                              child: Text("\t\t\tFire Station List",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            ),
                           )
                         ],
                       ),

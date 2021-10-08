@@ -64,12 +64,6 @@ class AlertDialogs {
                     print(e);
                   }
                   if (title == "Fire Report") {
-                    // FirebaseFirestore.instance
-                    //     .collection('users')
-                    //     .doc(currentUser.uid)
-                    //     .update({
-                    //   'fire message': body,
-                    // });
                     final loc.LocationData _locationResult =
                         await location.getLocation();
                     FirebaseFirestore.instance
@@ -89,12 +83,6 @@ class AlertDialogs {
                             body);
                   }
                   if (title == "Hospital Report") {
-                    // FirebaseFirestore.instance
-                    //     .collection('users')
-                    //     .doc(currentUser.uid)
-                    //     .update({
-                    //   'hospital message': body,
-                    // });
                     final loc.LocationData _locationResult =
                         await location.getLocation();
                     FirebaseFirestore.instance
@@ -117,12 +105,6 @@ class AlertDialogs {
                             body);
                   }
                   if (title == "Police Report") {
-                    // FirebaseFirestore.instance
-                    //     .collection('users')
-                    //     .doc(currentUser.uid)
-                    //     .update({
-                    //   'police message': body,
-                    // });
                     final loc.LocationData _locationResult =
                         await location.getLocation();
                     FirebaseFirestore.instance

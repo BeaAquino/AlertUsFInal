@@ -340,22 +340,22 @@ class _rtpcrScreenState extends State<rtpcrScreen> {
   late int distance = 0;
   late String name = "";
   List<String> rtpcrstation_names = [
-    "High-Precision Diagnostics",
-    "Angeles University Foundation",
-    "AC Sacred Heart Medical Center",
-    "Rafael Lazatin Memorial Medical Center",
-    "St. Catherine of Alexandria Foundation and Medical Center",
-    "St. Catherine of Alexandria Foundation and Medical Center (New Site)",
-    "PRI Medical Center",
-    "Holy Family Medical Center",
-    "Dr. Armando Garcia Hospital",
-    "Avanti Care Diagnostic Center",
-    "SAVEPOINT (Sanitary Anti-Viral Entry Point)",
-    "Astroclark Diagnostics Center",
-    "Quest Phil Diagnostics",
-    "Acemed Diagnostic Laboratory",
-    "Singapore Diagnostics",
-    "Mdlab Diagnostic Center, Inc"
+    "High-Precision Diagnostics\nAddress: McArthur Hi-Way Corner Angeles Magalang\nContact: (045) 322 2211",
+    "Angeles  University Foundation Medical Center\nAddress: MacArthur Hwy, Angeles, Pampanga\nContact: (045) 625 2999",
+    "AC Sacred Heart Medical Centerr\nAddress: MacArthur Hwy, Angeles, Pampanga\nContact: (045) 624 5606",
+    "Rafael Lazatin Memorial Medical Center (ONA)\nAddress: Visitacion St, Angeles, Pampanga\nContact: 0998 282 6259",
+    "St. Catherine Of Alexandria Foundation and Medical Center\nAddress: Lot 5-6 Block 13 Rizal Extension, Brgy. Cutcut, Angeles, Pampanga\nContact: (045) 888 7209",
+    "St. Catherine of Alexandria Foundation & Medical Center (New Site)\nAddress: Lot 5-6 Block 13 Rizal Extension, Angeles, Pampanga\nContact: 09189481097",
+    "PRI Medical Center\nAddress: Arayat Boulevard, Angeles, Pampanga\nContact: 0917 180 8886",
+    "Holy Family Medical Center\nAddress: 1377 Santo Entiero St, Angeles, Pampanga\nContact: (045) 322 3623",
+    "Dr. Armando Garcia Hospital\nAddress: 2196 Agapito Del Rosario Street, Angeles, Pampanga\nContact: 0918 935 1052"
+        "Avanti Care Diagnostic Center\nAddress: 2401 Surla Street, Balibago, Angeles, Pampanga\nContact: 09352367728",
+    "SAVEPOINT (Sanitary Anti-Viral Entry Point)\nAddress: A-line Apartments, S. Rivera Lim, Balibago\nContact:\n+639565290826\n+639994633199",
+    "Astroclark Diagnostics Center\nAddress: 105 Zeppelin St, Balibago, Angeles, Pampanga\nContact: 0963 995 7107",
+    "Quest Phil Diagnostics\nAddress: Salome St, Angeles, Pampanga\nContact:\n0917-626-0911\n0917-535-9417\n0925-577-8378",
+    "Acemed Diagnostic Laboratory\nAddress: Teodoro St., Angeles City\nContact:\n0917 798 9993\n0999 888 7926",
+    "Singapore Diagnostics\nAddress: MacArthur Highway, San Pablo St, Angeles, Pampanga\nContact: 0917 709 1577",
+    "Mdlab Diagnostic Center, Inc.\nAddress: Lot 23, Block 11, 1st Street, Balibago, Angeles City\nContact:\n(045) 458 2614\n09324200799\n09334762398"
   ];
   List<LatLng> rtpcrstation_coords = [
     LatLng(15.14254577166236, 120.59682727391306),

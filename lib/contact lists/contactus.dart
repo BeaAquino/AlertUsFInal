@@ -13,10 +13,10 @@ class ContactUs extends StatelessWidget {
       backgroundColor: Colors.orange[200],
       body: SafeArea(
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.fromLTRB(130.0, 12.0, 12.0, 1.0),
+                padding: EdgeInsets.zero,
                 child: Image.asset(
                   'images/AlertUs.png',
                   width: 120.0,
@@ -41,7 +41,7 @@ class ContactUs extends StatelessWidget {
                 endIndent: 20,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(90.0, 12.0, 12.0, 3.0),
+                padding: const EdgeInsets.all(18.0),
                 child: Text(
                   "Aquino, Bea\n09420305901\naquinobea1999@gmail.com\n\nDizon, Maycee\n09070212544\nmaycee.g.dizon@gmail.com\n\nQuizon, Megan\n09186385668\nmeganraeq@gmail.com\n\nSerrano, Christian\n09633850455\nogihci321@gmail.com",
                   style: TextStyle(
