@@ -90,6 +90,12 @@ class ConfirmViewMap {
                       MaterialPageRoute(builder: (context) => rtpcrScreen()),
                     );
                   }
+                  if (title == "Closest Fire Station") {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FireScreen()),
+                    );
+                  }
                 },
                 child: Text(
                   'View Map',

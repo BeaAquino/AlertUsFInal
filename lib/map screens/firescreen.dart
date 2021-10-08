@@ -1,3 +1,4 @@
+//DI PA NAGAGAMIT
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -38,8 +39,8 @@ class _FireScreenState extends State<FireScreen> {
   late int distance = 0;
   late String name = "";
   List<String> firestation_names = [
-    "Angeles City Central Fire Station",
-    "Angeles City Fire Station",
+    "Angeles City Central Fire Station\nAddress: Rizal St, San. Nicola, Angeles, Pampanga\nContacts: (045) 322-6758",
+    "Angeles City Fire Station\nAddress: Pulung Maragul, Angeles, Pampanga\nContacts: (045) 322-23332",
   ];
   List<LatLng> firestation_coords = [
     LatLng(15.164684958913442, 120.60857568536052),
@@ -107,7 +108,7 @@ class _FireScreenState extends State<FireScreen> {
           children: [
             Positioned.fill(
                 child: GoogleMap(
-              myLocationEnabled: true,
+              myLocationEnabled: false,
               compassEnabled: false,
               tiltGesturesEnabled: false,
               zoomControlsEnabled: false,
@@ -121,12 +122,9 @@ class _FireScreenState extends State<FireScreen> {
                 showPinsOnMap();
               },
             )),
-            Positioned(top: 100, left: 0, right: 0, child: MapUserBadge()),
+            Positioned(top: 40, left: 0, right: 0, child: MapUserBadge()),
             Positioned(
-                left: 0,
-                right: 0,
-                bottom: 20,
-                child: MapDestBadge(name: name, distance: distance))
+                left: 0, right: 0, bottom: 20, child: MapDestBadge(name: name))
           ],
         ));
   }
@@ -191,25 +189,34 @@ class MapDestBadge extends StatelessWidget {
   const MapDestBadge({
     Key? key,
     required this.name,
-    required this.distance,
   }) : super(key: key);
 
   final String name;
-  final int distance;
 
   @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.all(20),
         padding: EdgeInsets.all(15),
-        color: Colors.white,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(100),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  blurRadius: 10,
+                  offset: Offset.zero)
+            ]),
         child: Row(
           children: [
             Stack(
               children: [
                 ClipOval(
-                  child: Image.asset('assets/emergency.png',
-                      width: 60, height: 60, fit: BoxFit.cover),
+                  child: Icon(
+                    Icons.fireplace_rounded,
+                    size: 50.0,
+                    color: Colors.red,
+                  ),
                 )
               ],
             ),
@@ -223,9 +230,6 @@ class MapDestBadge extends StatelessWidget {
                           color: Colors.grey[700],
                           fontWeight: FontWeight.bold,
                           fontSize: 15)),
-                  // Text('Address'),
-                  Text(distance.toString() + "m",
-                      style: TextStyle(color: Colors.green)),
                 ],
               ),
             ),
@@ -247,7 +251,7 @@ class MapUserBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.all(12),
-        margin: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+        margin: EdgeInsets.only(top: 0, bottom: 10, left: 20, right: 20),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(100),
@@ -260,14 +264,16 @@ class MapUserBadge extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              width: 40,
+              width: 0,
               height: 40,
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(50),
-                  image: DecorationImage(
-                      image: AssetImage('assets/user.png'), fit: BoxFit.cover),
-                  border: Border.all(color: Colors.green)),
+                color: Colors.white,
+              ),
+            ),
+            Icon(
+              Icons.person_pin,
+              size: 50.0,
+              color: Colors.green,
             ),
             SizedBox(width: 10),
             Expanded(
@@ -277,7 +283,6 @@ class MapUserBadge extends StatelessWidget {
                   Text(email,
                       style: TextStyle(
                           fontWeight: FontWeight.bold, color: Colors.black)),
-                  Text('CURRENT LOCATION', style: TextStyle(color: Colors.grey))
                 ])),
             Icon(Icons.location_pin, color: Colors.green, size: 40)
           ],

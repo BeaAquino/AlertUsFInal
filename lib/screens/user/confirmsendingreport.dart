@@ -39,21 +39,6 @@ class ConfirmSendingReport {
             actions: <Widget>[
               FlatButton(
                 onPressed: () async {
-                  // if (currentUser != null) {
-                  //   FirebaseFirestore.instance
-                  //       .collection('users')
-                  //       .doc(currentUser.uid)
-                  //       .update({
-                  //     'longitude': 0,
-                  //     'latitude': 0,
-                  //     // 'fire message': "",
-                  //     // 'hospital message': "",
-                  //     // 'police message': "",
-
-                  //   });
-                  // }
-                  //Navigator.of(context).pop(DialogsAction.cancel);
-                  //exit(0); works in debug emulator
                   SystemNavigator.pop();
                 },
                 child: Text(
@@ -62,69 +47,6 @@ class ConfirmSendingReport {
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
               ),
-              // FlatButton(
-              //   onPressed: () async {
-              //     try {
-              //       final loc.LocationData _locationResult =
-              //           await location.getLocation();
-              //       await FirebaseFirestore.instance
-              //           .collection('users')
-              //           .doc(userid)
-              //           .set({
-              //         'latitude': _locationResult.latitude,
-              //         'longitude': _locationResult.longitude,
-              //       }, SetOptions(merge: true));
-              //     } catch (e) {
-              //       print(e);
-              //     }
-              //     if (title == "Fire Report") {
-              //       Navigator.push(
-              //         context,
-              //         MaterialPageRoute(builder: (context) => FireScreen()),
-              //       );
-              //     }
-              //     if (title == "Hospital Report") {
-              //       FirebaseFirestore.instance
-              //           .collection('users')
-              //           .doc(currentUser.uid)
-              //           .update({
-              //         'hospital message': body,
-              //       });
-
-              //       final action = await ConfirmSendingReport.yesCancelDialog(
-              //                       context,
-              //                       'Hospital Report',
-              //                       'In need of Medical Assistance,\n\nReport by:' +
-              //                           currentUser.email +
-              //                           '\nname : ' +
-              //                           name +
-              //                           '\nphone number : ' +
-              //                           phone);
-
-              //       // Navigator.push(
-              //       //   context,
-              //       //   MaterialPageRoute(builder: (context) => HospitalScreen()),
-              //       // );
-              //     }
-              //     if (title == "Police Report") {
-              //       FirebaseFirestore.instance
-              //           .collection('users')
-              //           .doc(currentUser.uid)
-              //           .update({
-              //         'police message': body,
-              //       });
-              //       // Navigator.push(
-              //       //   context,
-              //       //   MaterialPageRoute(builder: (context) => PoliceScreen()),
-              //       // );
-              //     }
-              //   },
-              //   child: Text(
-              //     'Send Report',
-              //     style: TextStyle(
-              //         color: Colors.black, fontWeight: FontWeight.bold),
-              //   ),
-              // ),
             ],
           );
         });
