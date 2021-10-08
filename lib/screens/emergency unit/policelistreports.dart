@@ -70,7 +70,13 @@ class _PoliceListReports extends State<PoliceListReports> {
                                               .collection("police reports")
                                               .doc(yourUid)
                                               .delete();
-                                          Navigator.of(context).pop(true);
+
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    PoliceListReports()),
+                                          );
                                         },
                                         child: const Text("DELETE")),
                                     FlatButton(
@@ -135,7 +141,9 @@ class _CardItem extends State<CardItem> {
             'report id': yourUid,
           });
           final action = await ReportOptionDialog.yesCancelDialog(
-              context, 'Report', 'Would you like to view the Map?');
+              context,
+              'View Map',
+              'Kindly press DONE once you are finished viewing the map.\n\nThis will end the current session');
         },
       ),
     );

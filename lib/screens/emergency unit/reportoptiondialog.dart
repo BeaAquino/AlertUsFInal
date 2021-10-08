@@ -84,6 +84,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 
 var currentUser = FirebaseAuth.instance.currentUser;
 late String name;
@@ -109,10 +110,10 @@ class ReportOptionDialog {
             actions: <Widget>[
               FlatButton(
                 onPressed: () async {
-                  Navigator.of(context).pop(DialogsAction.cancel);
+                  SystemNavigator.pop();
                 },
                 child: Text(
-                  'Cancel',
+                  'Done',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),

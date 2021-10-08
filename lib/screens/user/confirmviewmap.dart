@@ -40,15 +40,6 @@ class ConfirmViewMap {
             actions: <Widget>[
               FlatButton(
                 onPressed: () async {
-                  if (currentUser != null) {
-                    FirebaseFirestore.instance
-                        .collection('users')
-                        .doc(currentUser.uid)
-                        .update({
-                      'longitude': 0,
-                      'latitude': 0,
-                    });
-                  }
                   SystemNavigator.pop();
                 },
                 child: Text(
