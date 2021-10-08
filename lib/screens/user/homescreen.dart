@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebasetest/main.dart';
 import 'package:firebasetest/screens/user/confirmuser.dart';
-import 'package:firebasetest/screens/user/fireoptiondialog.dart';
 import 'package:firebasetest/screens/user/mainscreen.dart';
 import 'package:firebasetest/services/auth_services.dart';
 import 'package:flutter/material.dart';
@@ -90,10 +89,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(builder: (c) => ThisApp()),
                       (route) => false);
-                  // Navigator.push(   // THIS CODE ALLOWS ME TO LOG OUT BUT WHEN I PRESS BACK I RETURN TO LAST ROUTE..
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => MyApp()),
-                  // );
                 }
               },
               title: Text("Log Out"),
