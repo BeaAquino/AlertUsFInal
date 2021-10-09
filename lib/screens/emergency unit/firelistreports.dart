@@ -51,7 +51,7 @@ class _FireListReports extends State<FireListReports> {
                                 return AlertDialog(
                                   title: const Text("Confirm"),
                                   content: const Text(
-                                      "Are you sure you wish to delete this report?"),
+                                      "Are you sure you wish to delete this report?\n\nOnce you delete this report,It will no longer exist in the report log and will be considered as a COMPLETED REPORT."),
                                   actions: <Widget>[
                                     FlatButton(
                                         onPressed: () async {
