@@ -1,12 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest/main.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'profile.dart';
 import 'profilesignup.dart';
 
 class ConfirmUserSignup extends StatefulWidget {
   @override
   _ConfirmUserSignup createState() => _ConfirmUserSignup();
+}
+
+final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+_signOut() async {
+  await _firebaseAuth.signOut();
 }
 
 class _ConfirmUserSignup extends State<ConfirmUserSignup> {
@@ -137,6 +145,31 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
                         ),
                         child: Center(
                           child: Text("Confirm",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              )),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () async {
+                        await _signOut();
+                        if (_firebaseAuth.currentUser == null) {
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (c) => ThisApp()),
+                              (route) => false);
+                        }
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.redAccent[700],
+                        ),
+                        child: Center(
+                          child: Text("Cancel",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'profile.dart';
 import 'profilesignup.dart';
 
@@ -137,6 +138,26 @@ class _ConfirmUser extends State<ConfirmUser> {
                     ),
                     child: Center(
                       child: Text("Confirm",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                          )),
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    SystemNavigator.pop();
+                  },
+                  child: Container(
+                    height: 50,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Colors.redAccent[700],
+                    ),
+                    child: Center(
+                      child: Text("Cancel",
                           style: TextStyle(
                             fontSize: 15,
                             color: Colors.white,

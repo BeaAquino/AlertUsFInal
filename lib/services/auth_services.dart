@@ -27,12 +27,12 @@ class AuthService {
           .then((value) async {
         User user = FirebaseAuth.instance.currentUser;
 
-        await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
-          'uid': user.uid,
-          'email': email,
-          'password': password,
-          'role': role,
-        });
+        // await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
+        //   'uid': user.uid,
+        //   'email': email,
+        //   'password': password,
+        //   'role': role,
+        // });
       });
       return "Signed Up";
     } on FirebaseAuthException catch (e) {
