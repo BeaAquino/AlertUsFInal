@@ -248,6 +248,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_automation",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_automation-1.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "flutter_local_notifications",
       "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-4.0.1+2",
       "packageUri": "lib/",
@@ -650,13 +656,19 @@
       "languageVersion": "2.6"
     },
     {
+      "name": "yaml",
+      "rootUri": "file:///C:/Users/aquin/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    },
+    {
       "name": "firebasetest",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-10-07T02:45:42.115929Z",
+  "generated": "2021-10-10T08:09:20.202582Z",
   "generator": "pub",
   "generatorVersion": "2.14.2"
 }

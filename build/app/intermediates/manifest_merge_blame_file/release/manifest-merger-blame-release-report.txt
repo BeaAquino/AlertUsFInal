@@ -23,8 +23,8 @@
 14-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:7:5-84
 14-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:7:22-82
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->[:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\release\AndroidManifest.xml:7:5-67
-15-->[:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\release\AndroidManifest.xml:7:22-64
+15-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:8:5-66
+15-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:8:22-64
 16    <uses-permission android:name="android.permission.WAKE_LOCK" />
 16-->[:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\release\AndroidManifest.xml:8:5-68
 16-->[:firebase_messaging] C:\Users\aquin\Desktop\AlertUsFInal\build\firebase_messaging\intermediates\library_manifest\release\AndroidManifest.xml:8:22-65
@@ -55,33 +55,33 @@
 26-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\1f85bee87724b5cfb58377d495c6b1cd\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 27
 28    <application
-28-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:9:5-55:19
+28-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:10:5-56:19
 29        android:name="io.flutter.app.FlutterApplication"
-29-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:10:9-57
+29-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:11:9-57
 30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 30-->[androidx.core:core:1.3.2] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\d7da6e703f0aa0d7b2bb598572cb3a5e\core-1.3.2\AndroidManifest.xml:24:18-86
 31        android:icon="@mipmap/ic_launcher"
-31-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:12:9-43
+31-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:13:9-43
 32        android:label="AlertUs" >
-32-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:11:9-32
+32-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:12:9-32
 33        <activity
-33-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:13:9-47:20
+33-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:14:9-48:20
 34            android:name="com.bytx.firebasetest.MainActivity"
-34-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:14:13-41
+34-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:15:13-41
 35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-35-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:17:13-163
+35-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:18:13-163
 36            android:hardwareAccelerated="true"
-36-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:18:13-47
+36-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:19:13-47
 37            android:launchMode="singleTop"
-37-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:15:13-43
+37-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:16:13-43
 38            android:showWhenLocked="true"
-38-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:20:13-42
+38-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:21:13-42
 39            android:theme="@style/LaunchTheme"
-39-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:16:13-47
+39-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:17:13-47
 40            android:turnScreenOn="true"
-40-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:21:13-40
+40-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:22:13-40
 41            android:windowSoftInputMode="adjustResize" >
-41-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:19:13-55
+41-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:20:13-55
 42
 43            <!--
 44                 Specifies an Android theme to apply to this Activity as soon as
@@ -90,11 +90,11 @@
 47                 to determine the Window background behind the Flutter UI.
 48            -->
 49            <meta-data
-49-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:26:13-29:17
+49-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:27:13-30:17
 50                android:name="io.flutter.embedding.android.NormalTheme"
-50-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:27:15-70
+50-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:28:15-70
 51                android:resource="@style/NormalTheme" />
-51-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:28:15-52
+51-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:29:15-52
 52            <!--
 53                 Displays an Android View that continues showing the launch screen
 54                 Drawable until Flutter paints its first frame, then this splash
@@ -103,31 +103,31 @@
 57                 Flutter's first frame.
 58            -->
 59            <meta-data
-59-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:35:13-38:17
+59-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:36:13-39:17
 60                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-60-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:36:15-79
+60-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:37:15-79
 61                android:resource="@drawable/launch_background" />
-61-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:37:15-61
+61-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:38:15-61
 62
 63            <intent-filter>
-63-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:39:13-42:29
+63-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:40:13-43:29
 64                <action android:name="android.intent.action.MAIN" />
-64-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:40:17-68
-64-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:40:25-66
+64-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:41:17-68
+64-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:41:25-66
 65
 66                <category android:name="android.intent.category.LAUNCHER" />
-66-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:41:17-76
-66-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:41:27-74
+66-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:42:17-76
+66-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:42:27-74
 67            </intent-filter>
 68            <intent-filter>
-68-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:43:14-46:29
+68-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:44:14-47:29
 69                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
-69-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:44:17-69
-69-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:44:25-66
+69-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:17-69
+69-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:25-66
 70
 71                <category android:name="android.intent.category.DEFAULT" />
-71-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:17-76
-71-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:27-73
+71-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:17-76
+71-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:27-73
 72            </intent-filter>
 73        </activity>
 74        <!--
@@ -135,17 +135,17 @@
 76             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 77        -->
 78        <meta-data
-78-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:50:9-52:33
+78-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:51:9-53:33
 79            android:name="flutterEmbedding"
-79-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:51:13-44
+79-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:52:13-44
 80            android:value="2" />
-80-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:52:13-30
+80-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:53:13-30
 81        <meta-data
-81-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:53:13-54:72
+81-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:54:13-55:72
 82            android:name="com.google.android.geo.API_KEY"
-82-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:53:24-69
+82-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:54:24-69
 83            android:value="AIzaSyDmHM-IakxXdJqN59m-rYM-nBjQueCDam8" />
-83-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:54:15-70
+83-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:55:15-70
 84
 85        <service
 85-->[:cloud_firestore] C:\Users\aquin\Desktop\AlertUsFInal\build\cloud_firestore\intermediates\library_manifest\release\AndroidManifest.xml:8:9-12:19
@@ -405,8 +405,8 @@
 218-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\ec886bfc5f7da12ba724a3b4e9881b5b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
 219
 220                <category android:name="android.intent.category.DEFAULT" />
-220-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:17-76
-220-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:27-73
+220-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:17-76
+220-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:27-73
 221                <category android:name="android.intent.category.BROWSABLE" />
 221-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\ec886bfc5f7da12ba724a3b4e9881b5b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
 221-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\ec886bfc5f7da12ba724a3b4e9881b5b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
@@ -440,8 +440,8 @@
 236-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\ec886bfc5f7da12ba724a3b4e9881b5b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:34:25-66
 237
 238                <category android:name="android.intent.category.DEFAULT" />
-238-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:17-76
-238-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:27-73
+238-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:17-76
+238-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:27-73
 239                <category android:name="android.intent.category.BROWSABLE" />
 239-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\ec886bfc5f7da12ba724a3b4e9881b5b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:17-78
 239-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\ec886bfc5f7da12ba724a3b4e9881b5b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:37:27-75
@@ -472,8 +472,8 @@
 253-->[com.google.firebase:firebase-auth:21.0.1] C:\Users\aquin\.gradle\caches\transforms-2\files-2.1\ec886bfc5f7da12ba724a3b4e9881b5b\jetified-firebase-auth-21.0.1\AndroidManifest.xml:69:25-86
 254
 255                <category android:name="android.intent.category.DEFAULT" />
-255-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:17-76
-255-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:45:27-73
+255-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:17-76
+255-->C:\Users\aquin\Desktop\AlertUsFInal\android\app\src\main\AndroidManifest.xml:46:27-73
 256            </intent-filter>
 257        </service>
 258
