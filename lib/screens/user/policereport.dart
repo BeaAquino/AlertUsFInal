@@ -32,7 +32,7 @@ class _PoliceReport extends State<PoliceReport> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "WHAT HAS HAPPENED?",
                   style: TextStyle(

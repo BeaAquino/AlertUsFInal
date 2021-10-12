@@ -19,7 +19,7 @@ class FireStationList extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Angeles City Fire Station\nAddress: Rizal St, San. Nicola, Angeles, Pampanga\nContacts: (045) 322-6758\n  \nAngeles City Central Fire Station\nAddress: Pulung Maragul, Angeles, Pampanga\nContacts: (045) 322-23332',
+                'Angeles City Fire Station\nAddress: Rizal St, San. Nicolas, Angeles, Pampanga\nContacts: (045) 322-6758\n  \nAngeles City Central Fire Station\nAddress: Pulung Maragul, Angeles, Pampanga\nContacts: (045) 322-23332',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 25.0,

@@ -47,6 +47,7 @@ class _FireListReports extends State<FireListReports> {
                           onTap: () async {
                             return await showDialog(
                               context: context,
+                              barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return AlertDialog(
                                   title: const Text("Confirm"),
@@ -79,12 +80,13 @@ class _FireListReports extends State<FireListReports> {
                                               .doc(yourUid)
                                               .delete();
 
+                                          Navigator.of(context).pop();
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     FireListReports()),
-                                          );
+                                          ).then((value) => setState(() {}));
                                         },
                                         child: const Text("DELETE")),
                                     FlatButton(

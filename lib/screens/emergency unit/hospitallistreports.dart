@@ -50,6 +50,7 @@ class _HospitalListReports extends State<HospitalListReports> {
                           icon: Icons.delete_outline_rounded,
                           onTap: () async {
                             return await showDialog(
+                              barrierDismissible: false,
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
@@ -75,12 +76,20 @@ class _HospitalListReports extends State<HospitalListReports> {
                                               .doc(yourUid)
                                               .delete();
 
+                                          Navigator.of(context).pop();
+                                          // setState(() {});
+                                          // Navigator.push(
+                                          //   context,
+                                          //   MaterialPageRoute(
+                                          //       builder: (context) =>
+                                          //           HospitalListReports()),
+                                          // );
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     HospitalListReports()),
-                                          );
+                                          ).then((value) => setState(() {}));
                                         },
                                         child: const Text("DELETE")),
                                     FlatButton(

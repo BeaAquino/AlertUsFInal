@@ -48,6 +48,7 @@ class _PoliceListReports extends State<PoliceListReports> {
                           onTap: () async {
                             return await showDialog(
                               context: context,
+                              barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return AlertDialog(
                                   title: const Text("Confirm"),
@@ -71,12 +72,14 @@ class _PoliceListReports extends State<PoliceListReports> {
                                               .doc(yourUid)
                                               .delete();
 
+                                          setState(() {});
+                                          Navigator.of(context).pop();
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     PoliceListReports()),
-                                          );
+                                          ).then((value) => setState(() {}));
                                         },
                                         child: const Text("DELETE")),
                                     FlatButton(

@@ -28,7 +28,7 @@ class ContactUs extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Text(
-                    "AlertUs is an Emergency Assistance Application developed by Computer Science students of Holy Angel Universitys School of Computing.",
+                    "AlertUs is an Emergency Assistance Application developed by Computer Science students of Holy Angel University's School of Computing.",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20.0,
@@ -45,7 +45,7 @@ class ContactUs extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: Text(
-                    "Aquino, Bea\n09420305901\naquinobea1999@gmail.com\n\nDizon, Maycee\n09070212544\nmaycee.g.dizon@gmail.com\n\nQuizon, Megan\n09186385668\nmeganraeq@gmail.com\n\nSerrano, Christian\n09633850455\nogihci321@gmail.com",
+                    "Aquino, Bea\n09420305903\naquinobea1999@gmail.com\n\nDizon, Maycee\n09070212544\nmaycee.g.dizon@gmail.com\n\nQuizon, Megan\n09186385668\nmeganraeq@gmail.com\n\nSerrano, Christian\n09633850455\nogihci321@gmail.com",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 15.0,

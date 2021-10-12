@@ -152,31 +152,31 @@ class _ConfirmUserSignup extends State<ConfirmUserSignup> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () async {
-                        await _signOut();
-                        if (_firebaseAuth.currentUser == null) {
-                          Navigator.of(context).pushAndRemoveUntil(
-                              MaterialPageRoute(builder: (c) => ThisApp()),
-                              (route) => false);
-                        }
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.redAccent[700],
-                        ),
-                        child: Center(
-                          child: Text("Cancel",
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                              )),
-                        ),
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   onTap: () async {
+                    //     await _signOut();
+                    //     if (_firebaseAuth.currentUser == null) {
+                    //       Navigator.of(context).pushAndRemoveUntil(
+                    //           MaterialPageRoute(builder: (c) => ThisApp()),
+                    //           (route) => false);
+                    //     }
+                    //   },
+                    //   child: Container(
+                    //     height: 50,
+                    //     width: 100,
+                    //     decoration: BoxDecoration(
+                    //       borderRadius: BorderRadius.circular(50),
+                    //       color: Colors.redAccent[700],
+                    //     ),
+                    //     child: Center(
+                    //       child: Text("Cancel",
+                    //           style: TextStyle(
+                    //             fontSize: 15,
+                    //             color: Colors.white,
+                    //           )),
+                    //     ),
+                    //   ),
+                    // ),
                     ableToEdit
                         ? GestureDetector(
                             onTap: () {
