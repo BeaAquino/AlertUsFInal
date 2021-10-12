@@ -77,6 +77,7 @@ class _HospitalListReports extends State<HospitalListReports> {
                                               .delete();
 
                                           Navigator.of(context).pop();
+
                                           // setState(() {});
                                           // Navigator.push(
                                           //   context,
@@ -84,7 +85,7 @@ class _HospitalListReports extends State<HospitalListReports> {
                                           //       builder: (context) =>
                                           //           HospitalListReports()),
                                           // );
-                                          Navigator.push(
+                                          Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>

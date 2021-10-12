@@ -81,7 +81,7 @@ class _FireListReports extends State<FireListReports> {
                                               .delete();
 
                                           Navigator.of(context).pop();
-                                          Navigator.push(
+                                          Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
