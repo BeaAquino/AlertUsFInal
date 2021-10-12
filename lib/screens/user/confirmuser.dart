@@ -145,26 +145,6 @@ class _ConfirmUser extends State<ConfirmUser> {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () async {
-                    SystemNavigator.pop();
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.redAccent[700],
-                    ),
-                    child: Center(
-                      child: Text("Cancel",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                          )),
-                    ),
-                  ),
-                ),
                 ableToEdit
                     ? GestureDetector(
                         onTap: () {
