@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest/screens/emergency%20unit/fakehospitalreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/reportoptiondialog.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -15,99 +16,260 @@ class _HospitalListReports extends State<HospitalListReports> {
   @override
   Widget build(BuildContext context) {
     late String yourUid;
+    late String ReportState;
     return Scaffold(
-        appBar: new AppBar(
-          title: Text("Report Logs"),
-          backgroundColor: Colors.redAccent[700],
-        ),
-        backgroundColor: Colors.orange[200],
-        body: StreamBuilder<QuerySnapshot>(
-          stream: widget._firestore.collection('hospital reports').snapshots(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Text('Loading..');
-            }
+      appBar: new AppBar(
+        title: Text("Report Logs"),
+        backgroundColor: Colors.redAccent[700],
+      ),
+      backgroundColor: Colors.orange[200],
+      body: StreamBuilder<QuerySnapshot>(
+        stream: widget._firestore.collection('hospital reports').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Text('Loading..');
+          }
 
-            return ListView.builder(
-                itemCount: snapshot.data!.docs.length,
-                itemBuilder: (context, index) {
-                  String itemTitle =
-                      snapshot.data!.docs[index]['hospital message'];
-                  String itemSubtitle =
-                      snapshot.data!.docs[index]['createdOn'].toString();
-                  return Slidable(
-                      child: CardItem(
-                        itemTitle: itemTitle,
-                        itemSubtitle: itemSubtitle,
-                      ),
-                      actionPane: SlidableDrawerActionPane(),
+          return ListView.builder(
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) {
+              String itemTitle = snapshot.data!.docs[index]['hospital message'];
+              String itemSubtitle =
+                  snapshot.data!.docs[index]['createdOn'].toString();
+              return Slidable(
+                child: CardItem(
+                  itemTitle: itemTitle,
+                  itemSubtitle: itemSubtitle,
+                ),
+                actionPane: SlidableDrawerActionPane(),
 
-                      //left side
-                      actions: <Widget>[
-                        IconSlideAction(
-                          caption: 'Delete',
-                          color: Colors.red,
-                          icon: Icons.delete_outline_rounded,
-                          onTap: () async {
-                            return await showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: const Text("Confirm"),
-                                  content: const Text(
-                                      "Are you sure you wish to delete this report?\n\nOnce you delete this report,It will no longer exist in the report log and will be considered as a COMPLETED REPORT."),
-                                  actions: <Widget>[
-                                    FlatButton(
-                                        onPressed: () async {
-                                          final QuerySnapshot snap =
-                                              await FirebaseFirestore.instance
-                                                  .collection(
-                                                      'hospital reports')
-                                                  .where('hospital message',
-                                                      isEqualTo: itemTitle)
-                                                  .get();
-                                          setState(() {
-                                            yourUid = snap.docs[0]['uid'];
-                                          });
+                //left side
+                actions: <Widget>[
+                  IconSlideAction(
+                    caption: 'Delete',
+                    color: Colors.red,
+                    icon: Icons.delete_outline_rounded,
+                    onTap: () async {
+                      return await showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Confirm"),
+                            content: const Text(
+                                "Are you sure you wish to delete this report?\n\nOnce you delete this report,It will no longer exist in the report log"),
+                            actions: <Widget>[
+                              FlatButton(
+                                  onPressed: () async {
+                                    final QuerySnapshot snap =
+                                        await FirebaseFirestore.instance
+                                            .collection('hospital reports')
+                                            .where('hospital message',
+                                                isEqualTo: itemTitle)
+                                            .get();
+                                    setState(() {
+                                      yourUid = snap.docs[0]['uid'];
+                                    });
 
-                                          FirebaseFirestore.instance
-                                              .collection("hospital reports")
-                                              .doc(yourUid)
-                                              .delete();
+                                    FirebaseFirestore.instance
+                                        .collection("hospital reports")
+                                        .doc(yourUid)
+                                        .delete();
 
-                                          Navigator.of(context).pop();
+                                    Navigator.of(context).pop();
 
-                                          // setState(() {});
-                                          // Navigator.push(
-                                          //   context,
-                                          //   MaterialPageRoute(
-                                          //       builder: (context) =>
-                                          //           HospitalListReports()),
-                                          // );
-                                          Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HospitalListReports()),
-                                          ).then((value) => setState(() {}));
-                                        },
-                                        child: const Text("DELETE")),
-                                    FlatButton(
-                                      onPressed: () =>
-                                          Navigator.of(context).pop(false),
-                                      child: const Text("CANCEL"),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          },
-                        )
-                      ]);
-                });
-          },
-        ));
+                                    // setState(() {});
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //       builder: (context) =>
+                                    //           HospitalListReports()),
+                                    // );
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              HospitalListReports()),
+                                    ).then((value) => setState(() {}));
+                                  },
+                                  child: const Text("DELETE")),
+                              FlatButton(
+                                onPressed: () =>
+                                    Navigator.of(context).pop(false),
+                                child: const Text("CANCEL"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  IconSlideAction(
+                    caption: 'FRAUD',
+                    color: Colors.black,
+                    icon: Icons.policy_rounded,
+                    onTap: () async {
+                      return await showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Confirm"),
+                            content: const Text(
+                                "Are you sure you wish to set this report as a Fraud Report?"),
+                            actions: <Widget>[
+                              FlatButton(
+                                  onPressed: () async {
+                                    final QuerySnapshot snap =
+                                        await FirebaseFirestore.instance
+                                            .collection('hospital reports')
+                                            .where('hospital message',
+                                                isEqualTo: itemTitle)
+                                            .get();
+                                    setState(() {
+                                      yourUid = snap.docs[0]['uid'];
+                                      ReportState = 'FAKE';
+                                    });
+
+                                    FirebaseFirestore.instance
+                                        .collection("fake hospital reports")
+                                        .doc(yourUid)
+                                        .set({
+                                      'Report State': ReportState,
+                                      'Report': itemTitle,
+                                      'Completed on': itemSubtitle,
+                                    });
+                                    FirebaseFirestore.instance
+                                        .collection("hospital reports")
+                                        .doc(yourUid)
+                                        .delete();
+
+                                    Navigator.of(context).pop();
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              HospitalListReports()),
+                                    ).then((value) => setState(() {}));
+                                  },
+                                  child: const Text("OK")),
+                              FlatButton(
+                                onPressed: () =>
+                                    Navigator.of(context).pop(false),
+                                child: const Text("CANCEL"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  IconSlideAction(
+                    caption: 'Done',
+                    color: Colors.blue,
+                    icon: Icons.check_box,
+                    onTap: () async {
+                      return await showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Confirm"),
+                            content: const Text(
+                                "Are you sure you wish to set this report as COMPLETED?"),
+                            actions: <Widget>[
+                              FlatButton(
+                                  onPressed: () async {
+                                    final QuerySnapshot snap =
+                                        await FirebaseFirestore.instance
+                                            .collection('hospital reports')
+                                            .where('hospital message',
+                                                isEqualTo: itemTitle)
+                                            .get();
+                                    setState(() {
+                                      yourUid = snap.docs[0]['uid'];
+                                      ReportState = 'DONE';
+                                    });
+
+                                    FirebaseFirestore.instance
+                                        .collection(
+                                            "completed hospital reports")
+                                        .doc(yourUid)
+                                        .set({
+                                      'Report State': ReportState,
+                                      'Report': itemTitle,
+                                      'Completed on': itemSubtitle,
+                                    });
+                                    FirebaseFirestore.instance
+                                        .collection("hospital reports")
+                                        .doc(yourUid)
+                                        .delete();
+
+                                    Navigator.of(context).pop();
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              HospitalListReports()),
+                                    ).then((value) => setState(() {}));
+                                  },
+                                  child: const Text("COMPLETED")),
+                              FlatButton(
+                                onPressed: () =>
+                                    Navigator.of(context).pop(false),
+                                child: const Text("CANCEL"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  ),
+                  // SizedBox(
+                  //   width: 340.0,
+                  //   height: 70.0,
+                  //   child: Card(
+                  //       color: Colors.redAccent[700],
+                  //       elevation: 1.0,
+                  //       shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(8.0)),
+                  //       child: InkWell(
+                  //         child: Center(
+                  //             child: Padding(
+                  //           padding: const EdgeInsets.all(1.0),
+                  //           child: Row(
+                  //             children: <Widget>[
+                  //               Align(
+                  //                 alignment: Alignment.centerLeft,
+                  //                 child: Icon(
+                  //                   Icons.location_pin,
+                  //                   size: 50.0,
+                  //                   color: Colors.yellowAccent,
+                  //                 ),
+                  //               ),
+                  //               Align(
+                  //                 alignment: Alignment.center,
+                  //                 child: FittedBox(
+                  //                   child: Text("VIEW THE CLOSEST HOSPITAL",
+                  //                       style: TextStyle(
+                  //                         fontSize: 18,
+                  //                         color: Colors.yellowAccent,
+                  //                         fontWeight: FontWeight.bold,
+                  //                       )),
+                  //                 ),
+                  //               )
+                  //             ],
+                  //           ),
+                  //         )),
+                  //       )),
+                  // ),
+                ],
+              );
+            },
+          );
+        },
+      ),
+    );
   }
 }
 
@@ -158,7 +320,7 @@ class _CardItem extends State<CardItem> {
           final action = await ReportOptionDialog.yesCancelDialog(
               context,
               'View Map',
-              'Kindly press DONE once you are finished viewing the map.\n\nThis will end the current session');
+              'Would you like to view the current location of this report?');
         },
       ),
     );

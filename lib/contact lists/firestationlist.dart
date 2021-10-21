@@ -1,7 +1,24 @@
+import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest/map%20screens/firescreen.dart';
 import 'package:firebasetest/screens/user/confirmviewmap.dart';
 import 'package:flutter/material.dart';
+import 'package:location/location.dart' as loc;
 
-class FireStationList extends StatelessWidget {
+class FireStationList extends StatefulWidget {
+  @override
+  _FireStationList createState() => _FireStationList();
+}
+
+var currentUser = FirebaseAuth.instance.currentUser;
+
+class _FireStationList extends State<FireStationList> {
+  TextEditingController messageController = new TextEditingController();
+  String userid = currentUser.uid;
+  final loc.Location location = loc.Location();
+  StreamSubscription<loc.LocationData>? _locationSubscription;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,11 +61,24 @@ class FireStationList extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8.0)),
                           child: InkWell(
                             onTap: () async {
-                              final action =
-                                  await ConfirmViewMap.yesCancelDialog(
-                                      context,
-                                      'Closest Fire Station',
-                                      'What would you like to do?');
+                              try {
+                                final loc.LocationData _locationResult =
+                                    await location.getLocation();
+                                await FirebaseFirestore.instance
+                                    .collection('users')
+                                    .doc(userid)
+                                    .set({
+                                  'latitude': _locationResult.latitude,
+                                  'longitude': _locationResult.longitude,
+                                }, SetOptions(merge: true));
+                              } catch (e) {
+                                print(e);
+                              }
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FireScreen()),
+                              );
                             },
                             child: Center(
                                 child: Padding(

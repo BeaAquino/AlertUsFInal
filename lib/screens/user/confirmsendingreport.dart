@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebasetest/main.dart';
 import 'package:firebasetest/map%20screens/firescreen.dart';
 import 'package:firebasetest/map%20screens/hospitalscreen.dart';
 import 'package:firebasetest/map%20screens/policescreen.dart';
@@ -11,6 +12,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:location/location.dart' as loc;
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 var currentUser = FirebaseAuth.instance.currentUser;
 late String name;
@@ -39,10 +41,69 @@ class ConfirmSendingReport {
             actions: <Widget>[
               FlatButton(
                 onPressed: () async {
-                  SystemNavigator.pop();
+                  if (title == "Report Sent to Fire Stations") {
+                    try {
+                      final loc.LocationData _locationResult =
+                          await location.getLocation();
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(userid)
+                          .set({
+                        'latitude': _locationResult.latitude,
+                        'longitude': _locationResult.longitude,
+                      }, SetOptions(merge: true));
+                    } catch (e) {
+                      print(e);
+                    }
+                    Notify();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FireScreen()),
+                    );
+                  }
+                  if (title == "Report Sent to Hospitals") {
+                    try {
+                      final loc.LocationData _locationResult =
+                          await location.getLocation();
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(userid)
+                          .set({
+                        'latitude': _locationResult.latitude,
+                        'longitude': _locationResult.longitude,
+                      }, SetOptions(merge: true));
+                    } catch (e) {
+                      print(e);
+                    }
+                    Notify();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HospitalScreen()),
+                    );
+                  }
+                  if (title == "Report Sent to Police Stations") {
+                    try {
+                      final loc.LocationData _locationResult =
+                          await location.getLocation();
+                      await FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(userid)
+                          .set({
+                        'latitude': _locationResult.latitude,
+                        'longitude': _locationResult.longitude,
+                      }, SetOptions(merge: true));
+                    } catch (e) {
+                      print(e);
+                    }
+                    Notify();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PoliceScreen()),
+                    );
+                  }
                 },
                 child: Text(
-                  'Exit',
+                  'OK',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -52,4 +113,22 @@ class ConfirmSendingReport {
         });
     return (action != null) ? action : DialogsAction.cancel;
   }
+}
+
+void Notify() async {
+  String time = await AwesomeNotifications().getLocalTimeZoneIdentifier();
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+        id: 1,
+        displayOnBackground: true,
+        displayOnForeground: true,
+        channelKey: 'key1',
+        title: 'Report Received by Authorities',
+        bigPicture:
+            'https://9uxfkln8zr-flywheel.netdna-ssl.com/wp-content/uploads/emergency-response-banner-1024x342.png',
+        notificationLayout: NotificationLayout.BigPicture,
+        body: 'Emergency Aid will arrive as soon as possible'),
+    schedule:
+        NotificationInterval(interval: 10, timeZone: time, repeats: false),
+  );
 }

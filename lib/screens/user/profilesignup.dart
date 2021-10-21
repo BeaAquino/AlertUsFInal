@@ -26,6 +26,7 @@ class _ProfileSignUp extends State<ProfileSignUp> {
           fit: BoxFit.fitWidth,
           child: Text("Profile"),
         ),
+        automaticallyImplyLeading: false, // used for removing back button
         backgroundColor: Colors.redAccent[700],
       ),
       backgroundColor: Colors.orange[200],

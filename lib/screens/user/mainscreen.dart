@@ -455,45 +455,107 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   child: FlatButton(
                     onPressed: () async {
-                      final String email = emailController.text.trim();
-                      final String password = passwordController.text.trim();
-                      setState(() {
-                        isLoading = true;
-                        errorMessage = '';
-                      });
+                      showDialog(
+                        barrierDismissible: true,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Disclaimer"),
+                            content: const Text(
+                              "Our application is not liable for any reports our application users make.These user-generated reports may or may not be false or fraudulent reports.\n\nFalse or fraudulent reports are illegal under PD 1727 and are punishable under law.",
+                            ),
+                            actions: <Widget>[
+                              FlatButton(
+                                onPressed: () async {
+                                  final String email =
+                                      emailController.text.trim();
+                                  final String password =
+                                      passwordController.text.trim();
+                                  setState(() {
+                                    isLoading = true;
+                                    errorMessage = '';
+                                  });
 
-                      if (_formkey.currentState!.validate()) {
-                        try {
-                          await FirebaseAuth.instance
-                              .createUserWithEmailAndPassword(
-                            email: email,
-                            password: password,
-                          )
-                              .then((value) async {
-                            User user = FirebaseAuth.instance.currentUser;
+                                  if (_formkey.currentState!.validate()) {
+                                    try {
+                                      await FirebaseAuth.instance
+                                          .createUserWithEmailAndPassword(
+                                        email: email,
+                                        password: password,
+                                      )
+                                          .then((value) async {
+                                        User user =
+                                            FirebaseAuth.instance.currentUser;
 
-                            await FirebaseFirestore.instance
-                                .collection("users")
-                                .doc(user.uid)
-                                .set({
-                              'uid': user.uid,
-                              'email': email,
-                              'password': password,
-                              'role': 'user',
-                              'name': 'Name',
-                              'phone': '00000000000',
-                              'police message': '',
-                              'hospital message': '',
-                              'fire message': '',
-                              'longitude': 0,
-                              'latitude': 0,
-                            });
-                          });
-                        } on FirebaseAuthException catch (error) {
-                          errorMessage = error.message!;
-                        }
-                        setState(() => isLoading = false);
-                      }
+                                        await FirebaseFirestore.instance
+                                            .collection("users")
+                                            .doc(user.uid)
+                                            .set({
+                                          'uid': user.uid,
+                                          'email': email,
+                                          'password': password,
+                                          'role': 'user',
+                                          'name': 'Name',
+                                          'phone': '00000000000',
+                                          'police message': '',
+                                          'hospital message': '',
+                                          'fire message': '',
+                                          'longitude': 0,
+                                          'latitude': 0,
+                                        });
+                                      });
+                                    } on FirebaseAuthException catch (error) {
+                                      errorMessage = error.message!;
+                                    }
+                                    Navigator.of(context).pop();
+                                    setState(() => isLoading = false);
+                                  }
+                                },
+                                child: const Text("OK"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                      // final String email = emailController.text.trim();
+                      // final String password = passwordController.text.trim();
+                      // setState(() {
+                      //   isLoading = true;
+                      //   errorMessage = '';
+                      // });
+
+                      // if (_formkey.currentState!.validate()) {
+                      //   try {
+                      //     await FirebaseAuth.instance
+                      //         .createUserWithEmailAndPassword(
+                      //       email: email,
+                      //       password: password,
+                      //     )
+                      //         .then((value) async {
+                      //       User user = FirebaseAuth.instance.currentUser;
+
+                      //       await FirebaseFirestore.instance
+                      //           .collection("users")
+                      //           .doc(user.uid)
+                      //           .set({
+                      //         'uid': user.uid,
+                      //         'email': email,
+                      //         'password': password,
+                      //         'role': 'user',
+                      //         'name': 'Name',
+                      //         'phone': '00000000000',
+                      //         'police message': '',
+                      //         'hospital message': '',
+                      //         'fire message': '',
+                      //         'longitude': 0,
+                      //         'latitude': 0,
+                      //       });
+                      //     });
+                      //   } on FirebaseAuthException catch (error) {
+                      //     errorMessage = error.message!;
+                      //   }
+                      //   setState(() => isLoading = false);
+                      // }
                     },
                     child: Text("Sign Up",
                         style: TextStyle(

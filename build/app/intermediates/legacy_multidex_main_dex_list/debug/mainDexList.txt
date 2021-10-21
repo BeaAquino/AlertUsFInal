@@ -210,6 +210,7 @@ com/google/common/annotations/Beta.class
 com/google/common/annotations/GwtCompatible.class
 com/google/common/annotations/GwtIncompatible.class
 com/google/common/annotations/VisibleForTesting.class
+com/google/common/base/Java8Usage$SomeTypeAnnotation.class
 com/google/common/collect/GwtTransient.class
 com/google/common/eventbus/AllowConcurrentEvents.class
 com/google/common/eventbus/Subscribe.class

@@ -36,15 +36,6 @@ class CovidDialogs {
             actions: <Widget>[
               FlatButton(
                 onPressed: () async {
-                  if (currentUser != null) {
-                    FirebaseFirestore.instance
-                        .collection('users')
-                        .doc(currentUser.uid)
-                        .update({
-                      'longitude': 0,
-                      'latitude': 0,
-                    });
-                  }
                   Navigator.of(context).pop(DialogsAction.cancel);
                 },
                 child: Text(
@@ -79,10 +70,10 @@ class CovidDialogs {
                   } catch (e) {
                     print(e);
                   }
-                  final action = await ConfirmViewMap.yesCancelDialog(
-                      context,
-                      'Closest RT-PCR Testing Sites',
-                      'Would you like to view the location of the closest Testing site?\n\nOnce you press DONE,The session will end.');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => rtpcrScreen()),
+                  );
                 },
                 child: Text(
                   'View Map',

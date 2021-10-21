@@ -83,13 +83,7 @@ class _HospitalReport extends State<HospitalReport> {
                                   name = snap.docs[0]['name'];
                                   phone = snap.docs[0]['phone'];
                                 });
-                                // FirebaseFirestore.instance
-                                //     .collection('users')
-                                //     .doc(currentUser.uid)
-                                //     .update({
-                                //   'hospital message':
-                                //       'Abdominal/Chest Pain,\n Send Assistance',
-                                // });
+
                                 final action = await AlertDialogs.yesCancelDialog(
                                     context,
                                     'Hospital Report',
@@ -769,11 +763,24 @@ class _HospitalReport extends State<HospitalReport> {
                                 borderRadius: BorderRadius.circular(8.0)),
                             child: InkWell(
                               onTap: () async {
-                                final action =
-                                    await ConfirmViewMap.yesCancelDialog(
-                                        context,
-                                        'Closest Hospital',
-                                        'What would you like to do?');
+                                try {
+                                  final loc.LocationData _locationResult =
+                                      await location.getLocation();
+                                  await FirebaseFirestore.instance
+                                      .collection('users')
+                                      .doc(userid)
+                                      .set({
+                                    'latitude': _locationResult.latitude,
+                                    'longitude': _locationResult.longitude,
+                                  }, SetOptions(merge: true));
+                                } catch (e) {
+                                  print(e);
+                                }
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HospitalScreen()),
+                                );
                               },
                               child: Center(
                                   child: Padding(

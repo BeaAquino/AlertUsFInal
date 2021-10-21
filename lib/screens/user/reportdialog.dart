@@ -78,8 +78,8 @@ class AlertDialogs {
                     });
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,
-                        'Report Sent',
-                        'Your Report and Current Location has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\n\nKindly press EXIT, to end the session.\n\nReport Message:\n' +
+                        'Report Sent to Fire Stations',
+                        'Your Report and Current Location has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\nReport Message:\n' +
                             body);
                   }
                   if (title == "Hospital Report") {
@@ -100,8 +100,8 @@ class AlertDialogs {
 
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,
-                        'Report Sent',
-                        'Your Report and Current Location has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\n\nKindly press EXIT, to end the session.\n\nReport Message:\n' +
+                        'Report Sent to Hospitals',
+                        'Your Report and Current Location has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\nReport Message:\n' +
                             body);
                   }
                   if (title == "Police Report") {
@@ -119,8 +119,8 @@ class AlertDialogs {
                     });
                     final action = await ConfirmSendingReport.yesCancelDialog(
                         context,
-                        'Report Sent',
-                        'Your Report and Current Location has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\n\nKindly press EXIT, to end the session.\n\nReport Message:\n' +
+                        'Report Sent to Police Stations',
+                        'Your Report and Current Location has been sent to the Authorities,\n\nPlease wait patiently for the Authorities to contact you.\n\nReport Message:\n' +
                             body);
                   }
                 },

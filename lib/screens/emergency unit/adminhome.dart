@@ -6,7 +6,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebasetest/main.dart';
-import 'package:firebasetest/map%20screens/stationmap.dart';
+
+import 'package:firebasetest/screens/emergency%20unit/completedfirereports.dart';
+import 'package:firebasetest/screens/emergency%20unit/completedhospitalreports.dart';
+import 'package:firebasetest/screens/emergency%20unit/completedpolicereports.dart';
+import 'package:firebasetest/screens/emergency%20unit/fakefirereports.dart';
+import 'package:firebasetest/screens/emergency%20unit/fakehospitalreports.dart';
+import 'package:firebasetest/screens/emergency%20unit/fakepolicereports.dart';
 import 'package:firebasetest/screens/emergency%20unit/firelistreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/hospitallistreports.dart';
 import 'package:firebasetest/screens/emergency%20unit/policelistreports.dart';
@@ -402,25 +408,87 @@ class _MyAppState extends State<MyApp> {
                               station = snap.docs[0]['station'];
                             });
                             if (station == 'hospital') {
-                              try {
-                                final loc.LocationData _locationResult =
-                                    await location.getLocation();
-                                await FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(userid)
-                                    .set({
-                                  'latitude': _locationResult.latitude,
-                                  'longitude': _locationResult.longitude,
-                                }, SetOptions(merge: true));
-                              } catch (e) {
-                                print(e);
-                              }
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        HospitalListReports()),
+                              showDialog(
+                                barrierDismissible: true,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Report Logs"),
+                                    content: const Text(
+                                        "What would you like to view?"),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    FakeHospitalReports()),
+                                          );
+                                        },
+                                        child: const Text("Fraud Reports"),
+                                      ),
+                                      FlatButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    CompletedHospitalReports()),
+                                          );
+                                        },
+                                        child: const Text("Completed Reports"),
+                                      ),
+                                      FlatButton(
+                                        onPressed: () async {
+                                          try {
+                                            final loc.LocationData
+                                                _locationResult =
+                                                await location.getLocation();
+                                            await FirebaseFirestore.instance
+                                                .collection('users')
+                                                .doc(userid)
+                                                .set({
+                                              'latitude':
+                                                  _locationResult.latitude,
+                                              'longitude':
+                                                  _locationResult.longitude,
+                                            }, SetOptions(merge: true));
+                                          } catch (e) {
+                                            print(e);
+                                          }
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    HospitalListReports()),
+                                          );
+                                        },
+                                        child: const Text("Reports"),
+                                      ),
+                                    ],
+                                  );
+                                },
                               );
+                              // try {
+                              //   final loc.LocationData _locationResult =
+                              //       await location.getLocation();
+                              //   await FirebaseFirestore.instance
+                              //       .collection('users')
+                              //       .doc(userid)
+                              //       .set({
+                              //     'latitude': _locationResult.latitude,
+                              //     'longitude': _locationResult.longitude,
+                              //   }, SetOptions(merge: true));
+                              // } catch (e) {
+                              //   print(e);
+                              // }
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (context) =>
+                              //           HospitalListReports()),
+                              // );
                             } else {
                               showDialog(
                                 context: context,
@@ -493,25 +561,87 @@ class _MyAppState extends State<MyApp> {
                               station = snap.docs[0]['station'];
                             });
                             if (station == 'police') {
-                              try {
-                                final loc.LocationData _locationResult =
-                                    await location.getLocation();
-                                await FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(userid)
-                                    .set({
-                                  'latitude': _locationResult.latitude,
-                                  'longitude': _locationResult.longitude,
-                                }, SetOptions(merge: true));
-                              } catch (e) {
-                                print(e);
-                              }
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PoliceListReports()),
+                              showDialog(
+                                barrierDismissible: true,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Report Logs"),
+                                    content: const Text(
+                                        "What would you like to view?"),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    FakePoliceReports()),
+                                          );
+                                        },
+                                        child: const Text("Fraud Reports"),
+                                      ),
+                                      FlatButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    CompletedPoliceReports()),
+                                          );
+                                        },
+                                        child: const Text("Completed Reports"),
+                                      ),
+                                      FlatButton(
+                                        onPressed: () async {
+                                          try {
+                                            final loc.LocationData
+                                                _locationResult =
+                                                await location.getLocation();
+                                            await FirebaseFirestore.instance
+                                                .collection('users')
+                                                .doc(userid)
+                                                .set({
+                                              'latitude':
+                                                  _locationResult.latitude,
+                                              'longitude':
+                                                  _locationResult.longitude,
+                                            }, SetOptions(merge: true));
+                                          } catch (e) {
+                                            print(e);
+                                          }
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    PoliceListReports()),
+                                          );
+                                        },
+                                        child: const Text("Reports"),
+                                      ),
+                                    ],
+                                  );
+                                },
                               );
+                              // try {
+                              //   final loc.LocationData _locationResult =
+                              //       await location.getLocation();
+                              //   await FirebaseFirestore.instance
+                              //       .collection('users')
+                              //       .doc(userid)
+                              //       .set({
+                              //     'latitude': _locationResult.latitude,
+                              //     'longitude': _locationResult.longitude,
+                              //   }, SetOptions(merge: true));
+                              // } catch (e) {
+                              //   print(e);
+                              // }
+
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (context) => PoliceListReports()),
+                              // );
                             } else {
                               showDialog(
                                 context: context,
@@ -584,24 +714,86 @@ class _MyAppState extends State<MyApp> {
                               station = snap.docs[0]['station'];
                             });
                             if (station == 'fire') {
-                              try {
-                                final loc.LocationData _locationResult =
-                                    await location.getLocation();
-                                await FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(userid)
-                                    .set({
-                                  'latitude': _locationResult.latitude,
-                                  'longitude': _locationResult.longitude,
-                                }, SetOptions(merge: true));
-                              } catch (e) {
-                                print(e);
-                              }
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FireListReports()),
+                              showDialog(
+                                barrierDismissible: true,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text("Report Logs"),
+                                    content: const Text(
+                                        "What would you like to view?"),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    FakeFireReports()),
+                                          );
+                                        },
+                                        child: const Text("Fraud Reports"),
+                                      ),
+                                      FlatButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    CompletedFireReports()),
+                                          );
+                                        },
+                                        child: const Text("Completed Reports"),
+                                      ),
+                                      FlatButton(
+                                        onPressed: () async {
+                                          try {
+                                            final loc.LocationData
+                                                _locationResult =
+                                                await location.getLocation();
+                                            await FirebaseFirestore.instance
+                                                .collection('users')
+                                                .doc(userid)
+                                                .set({
+                                              'latitude':
+                                                  _locationResult.latitude,
+                                              'longitude':
+                                                  _locationResult.longitude,
+                                            }, SetOptions(merge: true));
+                                          } catch (e) {
+                                            print(e);
+                                          }
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    FireListReports()),
+                                          );
+                                        },
+                                        child: const Text("Reports"),
+                                      ),
+                                    ],
+                                  );
+                                },
                               );
+                              // try {
+                              //   final loc.LocationData _locationResult =
+                              //       await location.getLocation();
+                              //   await FirebaseFirestore.instance
+                              //       .collection('users')
+                              //       .doc(userid)
+                              //       .set({
+                              //     'latitude': _locationResult.latitude,
+                              //     'longitude': _locationResult.longitude,
+                              //   }, SetOptions(merge: true));
+                              // } catch (e) {
+                              //   print(e);
+                              // }
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (context) => FireListReports()),
+                              // );
                             } else {
                               showDialog(
                                 context: context,

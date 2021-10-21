@@ -15,6 +15,7 @@ class _PoliceListReports extends State<PoliceListReports> {
   @override
   Widget build(BuildContext context) {
     late String yourUid;
+    late String ReportState;
     return Scaffold(
         appBar: new AppBar(
           title: Text("Report Logs"),
@@ -53,7 +54,7 @@ class _PoliceListReports extends State<PoliceListReports> {
                                 return AlertDialog(
                                   title: const Text("Confirm"),
                                   content: const Text(
-                                      "Are you sure you wish to delete this report?\n\nOnce you delete this report,It will no longer exist in the report log and will be considered as a COMPLETED REPORT."),
+                                      "Are you sure you wish to delete this report?\n\nOnce you delete this report,It will no longer exist in the report log"),
                                   actions: <Widget>[
                                     FlatButton(
                                         onPressed: () async {
@@ -91,7 +92,129 @@ class _PoliceListReports extends State<PoliceListReports> {
                               },
                             );
                           },
-                        )
+                        ),
+                        IconSlideAction(
+                          caption: 'FRAUD',
+                          color: Colors.black,
+                          icon: Icons.policy_rounded,
+                          onTap: () async {
+                            return await showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: const Text("Confirm"),
+                                  content: const Text(
+                                      "Are you sure you wish to set this report as a Fraud Report?"),
+                                  actions: <Widget>[
+                                    FlatButton(
+                                        onPressed: () async {
+                                          final QuerySnapshot snap =
+                                              await FirebaseFirestore.instance
+                                                  .collection(
+                                                      'hospital reports')
+                                                  .where('hospital message',
+                                                      isEqualTo: itemTitle)
+                                                  .get();
+                                          setState(() {
+                                            yourUid = snap.docs[0]['uid'];
+                                            ReportState = 'FAKE';
+                                          });
+
+                                          FirebaseFirestore.instance
+                                              .collection("fake police reports")
+                                              .doc(yourUid)
+                                              .set({
+                                            'Report State': ReportState,
+                                            'Report': itemTitle,
+                                            'Completed on': itemSubtitle,
+                                          });
+                                          FirebaseFirestore.instance
+                                              .collection("police reports")
+                                              .doc(yourUid)
+                                              .delete();
+
+                                          Navigator.of(context).pop();
+                                          Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    PoliceListReports()),
+                                          ).then((value) => setState(() {}));
+                                        },
+                                        child: const Text("OK")),
+                                    FlatButton(
+                                      onPressed: () =>
+                                          Navigator.of(context).pop(false),
+                                      child: const Text("CANCEL"),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        ),
+                        IconSlideAction(
+                          caption: 'Done',
+                          color: Colors.blue,
+                          icon: Icons.check_box,
+                          onTap: () async {
+                            return await showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: const Text("Confirm"),
+                                  content: const Text(
+                                      "Are you sure you wish to set this report as COMPLETED?"),
+                                  actions: <Widget>[
+                                    FlatButton(
+                                        onPressed: () async {
+                                          final QuerySnapshot snap =
+                                              await FirebaseFirestore.instance
+                                                  .collection('police reports')
+                                                  .where('police message',
+                                                      isEqualTo: itemTitle)
+                                                  .get();
+                                          setState(() {
+                                            yourUid = snap.docs[0]['uid'];
+                                            ReportState = 'DONE';
+                                          });
+
+                                          FirebaseFirestore.instance
+                                              .collection(
+                                                  "completed police reports")
+                                              .doc(yourUid)
+                                              .set({
+                                            'Report State': ReportState,
+                                            'Report': itemTitle,
+                                            'Completed on': itemSubtitle,
+                                          });
+                                          FirebaseFirestore.instance
+                                              .collection("police reports")
+                                              .doc(yourUid)
+                                              .delete();
+
+                                          Navigator.of(context).pop();
+                                          Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    PoliceListReports()),
+                                          ).then((value) => setState(() {}));
+                                        },
+                                        child: const Text("COMPLETED")),
+                                    FlatButton(
+                                      onPressed: () =>
+                                          Navigator.of(context).pop(false),
+                                      child: const Text("CANCEL"),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        ),
                       ]);
                 });
           },
@@ -145,7 +268,7 @@ class _CardItem extends State<CardItem> {
           final action = await ReportOptionDialog.yesCancelDialog(
               context,
               'View Map',
-              'Kindly press DONE once you are finished viewing the map.\n\nThis will end the current session');
+              'Are you sure you want to view the current location of the reporter?.');
         },
       ),
     );

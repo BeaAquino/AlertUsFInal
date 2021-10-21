@@ -30,10 +30,10 @@ class ReportOptionDialog {
             actions: <Widget>[
               FlatButton(
                 onPressed: () async {
-                  SystemNavigator.pop();
+                  Navigator.of(context).pop(DialogsAction.cancel);
                 },
                 child: Text(
-                  'Done',
+                  'Cancel',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),

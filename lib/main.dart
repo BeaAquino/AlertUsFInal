@@ -1,4 +1,5 @@
 //@dart=2.9
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebasetest/map screens/firescreen.dart';
@@ -16,6 +17,21 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
+  AwesomeNotifications().initialize(null, [
+    NotificationChannel(
+      channelKey: 'key1',
+      channelName: 'AlertUs',
+      channelDescription: 'Confirmation of Report',
+      defaultColor: Colors.red,
+      ledColor: Colors.red,
+      vibrationPattern: highVibrationPattern,
+      channelShowBadge: true,
+      playSound: true,
+      enableLights: true,
+      enableVibration: true,
+      importance: NotificationImportance.High,
+    )
+  ]);
   runApp(ThisApp());
 }
 
